@@ -25,6 +25,7 @@ model Table {
   numberOfSeats Int
   tableNumber Int @unique @default(autoincrement())
   orders Order[]
+  reservations Reservation[]
   state TableState
 }
 
@@ -43,6 +44,7 @@ model BookedCustomer {
   customer Customer @relation(fields: [customerId],references: [id])
   customerId String
   @@id([customerId])
+  reservations Reservation[]
 }
 
 model NewCustomer {
@@ -105,6 +107,18 @@ model Image {
   discount Float
 }
 
+model Reservation {
+  id String @id @default(uuid())
+  createdDate DateTime
+  updatedDate DateTime
+  numberOfPeople Int
+  state ReservationState
+  assignedTable Table @relation(references: [id], fields: [assignedTableId])
+  assignedTableId String
+  customer BookedCustomer @relation(fields: [customerId], references: [customerId])
+  customerId String
+}
+
 // enum
 enum UserRole {
   CLERK
@@ -133,6 +147,13 @@ enum OrderItemState {
   CALLED
   SERVING
   SERVED
+}
+
+enum ReservationState {
+  INIT
+  ASSIGNED 
+  CANCEL
+  DONE
 }
 
 
