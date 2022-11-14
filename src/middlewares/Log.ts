@@ -69,6 +69,7 @@ class Log {
 		fs.promises.open(fileName, 'a')
 			.then((fileHandle: FileHandle)=>{
 				fileHandle.appendFile(`${this.linePrefix} [${_kind.toUpperCase()}] ${_string}\n`)
+				fileHandle?.close()
 			})
 	}
 
