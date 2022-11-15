@@ -1,0 +1,289 @@
+* {
+    --ordered-customers-width: 260px;
+    --new-customers-height: 45px;
+    --clerks-height: 45px;
+    --main-outgap: 10px;
+    --main-width: calc(100% - (var(--ordered-customers-width) + var(--navigation-width) + 2 * var(--main-outgap)));
+}
+
+#ordered-customers {
+    position: fixed;
+    width: var(--ordered-customers-width);
+    height: 100%;
+    /* height: calc(100% - var(--clerks-height) - 10px); */
+    right: 0;
+    top: var(--header-height);
+
+
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#ordered-customers h2 {
+    width: var(--ordered-customers-width);
+    background-color: #fff;
+    padding: 8px 15px;
+    /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25); */
+    border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+}
+
+#ordered-customers>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 10px 10px 15px;
+    padding-bottom: calc(var(--clerks-height) + 10px);
+    height: calc(100% - var(--clerks-height) - 100px);
+    overflow-y: scroll;
+}
+
+.ordered-customers-item {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 10px;
+
+    position: relative;
+
+    border: solid 1px;
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px;
+}
+
+.ordered-customers-item.chosen {
+    border: 2px solid #1F9254 !important;
+    background-color: #EBF9F1;
+}
+
+.ordered-customers-item.unlock {
+    border: 1px solid #1F9254;
+}
+
+.ordered-customers-item.locked {
+    border: 1px solid #CD6200;
+}
+
+.ordered-customers-item.unlock i,
+.ordered-customers-item.unlock button {
+    background-color: #EBF9F1;
+    color: #1F9254;
+}
+
+.ordered-customers-item.locked i,
+.ordered-customers-item button {
+    background-color: #FEF2E5;
+    color: #CD6200;
+}
+
+.ordered-customers-item i {
+    position: absolute;
+    left: -14px;
+    top: -10px;
+    padding: 5px;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    font-size: 14px;
+}
+
+.ordered-customers-item div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    width: 100%;
+}
+
+.ordered-customers-item div button {
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+}
+
+#new-customers {
+    position: fixed;
+    width: var(--main-width);
+    height: var(--new-customers-height);
+    top: var(--header-height);
+    left: calc(var(--navigation-width) + 10px);
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 10px 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    overflow-x: clip;
+    padding: 8px 10px;
+
+    /* inside */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+#new-customers h2 {
+    /* inside */
+    flex: none;
+    flex-grow: 0;
+}
+
+#new-customers div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 8px;
+
+    width: 200px;
+    height: 100%;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px;
+
+    /* inside */
+    flex: none;
+    flex-grow: 0;
+}
+
+#clerks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 10px;
+
+    position: fixed;
+    width: 100%;
+    height: var(--clerks-height);
+    left: 0px;
+    bottom: 0px;
+
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.clerks-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 8px;
+
+    width: 140px;
+    height: 100%;
+
+    background: #FFFFFF;
+    box-shadow: -1px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: solid 1px;
+}
+
+
+/* main */
+#main {
+    width: var(--main-width);
+    background-color: #fff;
+    min-height: 100%;
+    margin-left: calc(var(--navigation-width) + var(--main-outgap));
+    margin-top: calc(var(--header-height) + var(--new-customers-height) + 10px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 10px 10px 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-row {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-table-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+
+    width: 250px;
+    height: 95px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -4px -4px 4px rgba(255, 255, 255, 0.2), -1px -1px 1px #FFFFFF, 4px 4px 4px rgba(0, 0, 0, 0.25), -1px -1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.main-table-item>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main-table-item-left {
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    border-right: solid 2px;
+    gap: 10px;
+}
+
+.main-table-item-right {
+    width: 65%;
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.main-table-item-right>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.main-table-item-right>p {
+    font-style: italic;
+    padding: 3px 5px;
+    background-color: #FEF2E5;
+    color: #CD6200;
+    border-radius: 10px;
+}
+
+.main-table-item-right>div>p {
+    font-weight: 400;
+}
+
+.main-table-item.locked {
+    background-color: #FEF2E5;
+    color: #CD6200;
+
+}
+
+.main-table-item.unlock {
+    background-color: #EBF9F1;
+    color: #1F9254;
+
+}

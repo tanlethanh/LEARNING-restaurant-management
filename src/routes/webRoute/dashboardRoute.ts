@@ -1,10 +1,10 @@
 import express, { Router } from 'express';
-
+import DashboardController from '../../controllers/DashboardController';
 
 const dashboardRoute: Router = express.Router()
 dashboardRoute
-    .get("/")
-    .get("/main")
+    .get("/", DashboardController.getDashboardView)
+    .get("/main", DashboardController.getDashboardView)
     .get("/booking")
     .get("/user")
     .get("/statistic")

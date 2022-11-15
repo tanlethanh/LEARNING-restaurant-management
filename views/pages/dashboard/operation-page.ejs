@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %> 
+</head>
+
+<body>
+    <!-- header -->
+    <%- include('./partials/header') %> 
+    <%- include('./partials/navigation') %> 
+
+    <div id="new-customers">
+        <h2>Khách mới</h2>
+        <div>
+            <h3>123. ABC</h3>
+            <p>4 người</p>
+        </div>
+    </div>
+    <div id="ordered-customers">
+        <h2>Khách đặt trước</h2>
+        <div id="ordered-customers-list">
+        
+        </div>
+    </div>
+    <div id="clerks">
+        <h2>Nhân viên</h2>
+        <div class="clerks-item">
+            <img src="" alt="">
+            <h3>Phú Hưng</h3>
+        </div>
+    </div>
+    <div id="main">
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+        <div class="main-row">
+            <div class="main-table-item">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <div>
+                        <p> Vào lúc: </p>
+                        <p> 07:00 </p>
+                    </div>
+                    <div>
+                        <p> Dự kiến rời </p>
+                        <p> 08:00 </p>
+                    </div>
+                    <p>Còn 15 phút</p>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/8-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item unlock">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-green.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Đang trống</h2>
+                </div>
+            </div>
+            <div class="main-table-item locked">
+                <div class="main-table-item-left">
+                    <h2> Bàn 1 </h2>
+                    <img src="./assets/images/2-seats-table-orange.svg" alt="">
+                </div>
+                <div class="main-table-item-right">
+                    <h2>Thanh Tân</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard-main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    --header-height: 50px;
+    --navigation-width: 45px;
+    --avt-width: 40px;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #EFF3FD;
+    position: relative;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 28px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+p {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#header {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    left: 0px;
+    top: 0px;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+}
+
+.header-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-user img {
+    object-fit: cover;
+    width: var(--avt-width);
+    height: var(--avt-width);
+    border-radius: 50%;
+}
+
+#navigation {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    width: var(--navigation-width);
+    height: 400px;
+    padding-top: 20px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 20px 0px;
+}
+
+#navigation .chosen {
+    color: #1F9254;
+}
+
