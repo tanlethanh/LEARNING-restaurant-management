@@ -1,7 +1,10 @@
+import TableRepository from "../repositories/TableRepository"
 
 class OperationService {
 
-    
+    public async getAllTables() {
+        return await TableRepository.getAllSortedTables()
+    }
 
 
 }
