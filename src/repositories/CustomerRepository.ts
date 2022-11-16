@@ -1,11 +1,19 @@
-import { BookedCustomer, CustomerType, Prisma, ReservationState, Table } from '@prisma/client';
+import ICustomerRepository from "../interfaces/IRepository/ICustomerRepository";
+import { BookedCustomer, CustomerType, Prisma, ReservationState } from "@prisma/client";
 import PrismaDB from "../prisma/PrismaDB";
 import { randomPhoneNumbers } from 'random-phone-numbers';
 const random_name = require('node-random-name')
 
 
-class CustomerRepository {
+class CustomerRepository implements ICustomerRepository {
+    
+    /**
+     * @author Tan Le <https://github.com/tanlethanh>
+     * @param count: number of the fake customers want to create
+     * @returns list of booked customers
+     */
     public async generateRandomBookedCustomers(count: number) {
+        
         const customers: BookedCustomer[] = []
         for (let index = 0; index < count; index++) {
 
@@ -20,26 +28,31 @@ class CustomerRepository {
                 }
             }
             const customer = await PrismaDB.bookedCustomer.create({
-                data: customerData
+                data: customerData,
+                include: {
+                    reservations: true
+                }
             })
+
             customers.push(customer)
         }
         return customers
     }
 
-    public addNewReservation(time: Date, numberOfPeople: number, customerId: string, tableId: string) {
-        const reservationData: Prisma.ReservationCreateInput = {
-            createdDate: '',
-            updatedDate: '',
-            numberOfPeople:  numberOfPeople,
-            state: ReservationState.INIT,
-            assignedTable: {
-                connect: {id: tableId}
+    public async getAllBookedCustomer() {
+        return await PrismaDB.bookedCustomer.findMany({})
+    }
+
+    public async getCustomerById(id: string) {
+        return await PrismaDB.customer.findUnique({
+            where: {
+                id: id
             },
-            customer: {
-                connect: {customerId: customerId}
+            include: {
+                bookedCustomer: true,
+                newCustomer: true
             }
-        }
+        })
     }
 
 }

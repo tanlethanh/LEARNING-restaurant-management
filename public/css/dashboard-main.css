@@ -232,6 +232,10 @@
     border-radius: 10px;
 }
 
+.main-table-item.popup {
+    border: 3px solid #1F9254;
+}
+
 .main-table-item>div {
     display: flex;
     flex-direction: column;

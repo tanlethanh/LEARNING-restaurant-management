@@ -18,10 +18,18 @@
         </div>
     </div>
     <div id="ordered-customers">
-        <h2>Khách đặt trước</h2>
+        <h2> Khách đặt trước </h2>
         <div id="ordered-customers-list">
-        
+            <% for( let index = 0; index < reservations.length; index++ ) { %>
+                <% if (reservations[index].state == "INIT") { %>
+                    <%- include('./partials/reservation/init-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
+                <% if (reservations[index].state == "ASSIGNED") { %>
+                    <%- include('./partials/reservation/assigned-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
+            <% } %>
         </div>
+        
     </div>
     <div id="clerks">
         <h2>Nhân viên</h2>
@@ -33,11 +41,16 @@
     <div id="main">
         <% for( let index = 0; index < tables.length; index++ ) { %>
             <% if (tables[index].state == "FREE") { %>
-                <%- include('./partials/free-table', {table: tables[index]}) %> 
+                <%- include('./partials/table/free-table', {table: tables[index]}) %> 
             <% } %>
         <% } %>
     </div>
 
+    <script>
+        // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
+        var tables = JSON.parse('<%- JSON.stringify(tables) %>');
+        var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
+    </script>
     <script type="module" src="js/dashboard-main.js"></script>
 </body>
 

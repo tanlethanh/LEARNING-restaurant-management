@@ -1,11 +1,9 @@
 import { Prisma, TableState } from '@prisma/client';
 import PrismaDB from "../prisma/PrismaDB";
+import { randomNumber } from '../utils/mathUtils';
 
 const tableSeats = [2, 4, 8]
 
-function randomNumber(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 class TableRepository {
 
@@ -32,6 +30,17 @@ class TableRepository {
         return await PrismaDB.table.findMany({
             orderBy: {
                 tableNumber: "asc"
+            }
+        })
+    }
+
+    public async getTableWithReservationsById(id: string) {
+        return await PrismaDB.table.findUnique({
+            where: {
+                id: id
+            },
+            include: {
+                reservations: true
             }
         })
     }
