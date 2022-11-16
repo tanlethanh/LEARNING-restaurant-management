@@ -110,11 +110,11 @@ model Image {
 model Reservation {
   id              String           @id @default(uuid())
   createdDate     DateTime         @default(now())
-  updatedDate     DateTime
+  updatedDate     DateTime         @default(now())
   time            DateTime
   numberOfPeople  Int
   state           ReservationState
-  assignedTable   Table            @relation(references: [id], fields: [assignedTableId])
+  assignedTable   Table            @relation(fields: [assignedTableId], references: [id])
   assignedTableId String
   customer        BookedCustomer   @relation(fields: [customerId], references: [customerId])
   customerId      String
