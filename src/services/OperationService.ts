@@ -39,13 +39,34 @@ class OperationService {
             && reservation.state == ReservationState.INIT
             && reservation.numberOfPeople <= table.numberOfSeats
         ) {
-            return await ReservationRepository.assignTableForReservationById(reservation.id, table.id)
+            return await ReservationRepository.updateAssignedTableForReservationById(reservation.id, table.id)
         }
         else {
             throw new Error(`Cannot assign table ${table.tableNumber} for reservation ${reservation.id}`)
         }
     }
 
+    public async unlockReservation(reservationId: string) {
+        const reservation
+            = await ReservationRepository.getReservationById(reservationId)
+        if (reservation == null) {
+            throw new Error(`Reservation id - [${reservationId}]: not found!`)
+        }
+        else {
+            if (reservation.state == ReservationState.ASSIGNED) {
+                console.log(ReservationState.READY)
+                const updateData = {
+                    state: ReservationState.READY
+                }
+                return await ReservationRepository.updateReservationById(reservationId, updateData)
+                
+            }
+            else {
+                throw new Error(`Reservation id - [${reservationId}]: state must be ASSIGNED to change to READY`)
+            }
+        }
+
+    }
 
 }
 

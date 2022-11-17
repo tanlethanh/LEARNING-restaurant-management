@@ -4,7 +4,7 @@ import { endToday, startToday } from "../utils/dateUtils"
 
 class ReservationRepository {
 
-    public async addNewReservation(time: Date, numberOfPeople: number, customerId: string, tableId: string) {
+    public async createNewReservation(time: Date, numberOfPeople: number, customerId: string, tableId: string) {
         const reservationData: Prisma.ReservationCreateInput = {
             createdDate: undefined,
             updatedDate: undefined,
@@ -61,7 +61,7 @@ class ReservationRepository {
         })
     }
 
-    public async assignTableForReservationById(id: string, tableId: string) {
+    public async updateAssignedTableForReservationById(id: string, tableId: string) {
         return await PrismaDB.reservation.update({
             where: {
                 id: id
@@ -75,6 +75,18 @@ class ReservationRepository {
             }
         })
     }
+
+    public async updateReservationById(id: string, data: any) {
+        data.updatedDate = new Date()
+        console.log(data)
+        return await PrismaDB.reservation.update({
+            where: {
+                id: id
+            },
+            data: data
+        })
+    }
+    
 }
 
 export default new ReservationRepository
