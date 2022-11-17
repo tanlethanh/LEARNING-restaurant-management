@@ -7,6 +7,7 @@ import { time } from 'console';
 import ReservationRepository from './repositories/ReservationRepository';
 import OperationService from './services/OperationService';
 
+const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 
 // Test generate random table
 
@@ -19,7 +20,7 @@ import OperationService from './services/OperationService';
 //         console.log(tables)
 //     })
 
-// Test generate random customers
+// Test generate random reservations
 // CustomerRepository.generateRandomBookedCustomers(10)
 //     .then((customers: BookedCustomer[]) => {
 //         console.log(customers)
@@ -29,40 +30,48 @@ import OperationService from './services/OperationService';
 // Test generate reservation
 // const bookingTime = new Date()
 // bookingTime.setDate(bookingTime.getDate() + 20)
-// CustomerRepository.addNewReservation(
+// ReservationRepository.addNewReservation(
 //     bookingTime, 4, 
 //     '78d6c5d8-001c-4606-b0ee-5be11f05b979',
 //     'f60db947-aa07-4108-8eb1-ff64a3821668')
 //     .then((reservation: Reservation) => {
-//         // console.log(reservation)
+//         console.log(reservation)
 //     })
 
-// CustomerRepository.getAllReservationsToday()
+// ReservationRepository.getAllReservationsToday()
 //     .then((reservations: Reservation[]) => {
 //         console.log(reservations)
 //     })
 
+// Generete reservations
 // CustomerRepository.getAllBookedCustomer()
 //     .then(async (customers: BookedCustomer[]) => {
 //         const length = customers.length
-//         for (let index = 0; index < 10; index++) {
-//             const randomIndex = randomNumber(0, length - 1)
+//         for (let index = 0; index < 17; index++) {
 //             const time = new Date()
 //             time.setHours(time.getHours() + randomNumber(0, 5))
+
 //             ReservationRepository.addNewReservation(
-//                 new Date(),
+//                 time,
 //                 randomNumber(0, 10),
-//                 customers[randomIndex].customerId,
-//                 'f60db947-aa07-4108-8eb1-ff64a3821668'
+//                 customers[randomNumber(0, length - 1)].customerId,
+//                 DEFAULT_TABLE_ID
 //             )
 //         }
 //     })
 
 
-OperationService.assignTableForReservation(
-    "346ae894-09a6-404f-9021-0463ee8a3937",
-    "9b98eecc-b7c0-408d-857e-2c2dc5b33572"
-)
-    .then(obj => {
-        console.log(obj)
+// OperationService.assignTableForReservation(
+//     "8f13b1ed-f204-46bd-a59f-9aec1f03b769",
+//     "7e72b9cf-9524-4437-8f51-1046ce6b2d9e"
+// )
+//     .then(obj => {
+//         console.log(obj)
+//     })
+
+OperationService.unlockReservation('70886382-1482-4c44-b767-01a5a6dce59b')
+    .then(reservation => {
+        console.log(reservation)
     })
+
+

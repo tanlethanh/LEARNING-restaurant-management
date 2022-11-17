@@ -54,9 +54,22 @@
     border-radius: 0px 10px;
 }
 
-.ordered-customers-item.chosen {
-    border: 2px solid #1F9254 !important;
+.ordered-customers-item:hover {
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), -4px -4px 4px rgb(255 255 255 / 20%), -1px -1px 1px #ffffff, 4px 4px 4px rgb(0 0 0 / 25%), -1px -1px 1px rgb(0 0 0 / 25%) !important;
+}
+
+.ordered-customers-item.unlock.chosen {
+    border: 2px solid #1F9254;
     background-color: #EBF9F1;
+}
+
+.ordered-customers-item.locked.chosen {
+    border: 2px solid #CD6200;
+}
+
+.ordered-customers-item.chosen {
+    border: 2px solid;
+    background-color: #FEF2E5;
 }
 
 .ordered-customers-item.unlock {

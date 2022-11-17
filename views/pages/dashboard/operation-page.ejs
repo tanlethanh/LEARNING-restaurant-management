@@ -27,6 +27,9 @@
                 <% if (reservations[index].state == "ASSIGNED") { %>
                     <%- include('./partials/reservation/assigned-reservation', {reservation: reservations[index]}) %> 
                 <% } %>
+                <% if (reservations[index].state == "READY") { %>
+                    <%- include('./partials/reservation/ready-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
             <% } %>
         </div>
         
