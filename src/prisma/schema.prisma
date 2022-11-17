@@ -158,6 +158,7 @@ enum OrderItemState {
 enum ReservationState {
   INIT
   ASSIGNED
+  READY
   CANCEL
   DONE
 }
