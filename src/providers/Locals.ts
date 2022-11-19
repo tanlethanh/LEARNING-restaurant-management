@@ -9,7 +9,7 @@ class Locals {
 	 */
 	public static config(): any {
 		dotenv.config({ path: path.join(__dirname, '../../.env') });
-
+		const nodeEnv = process.env.NODE_ENV || "development"
 		const url = process.env.APP_URL || `http://localhost:${process.env.PORT}`;
 		const port = process.env.PORT || 4040;
 		const appSecret = process.env.APP_SECRET || 'This is your responsibility!';
@@ -59,7 +59,8 @@ class Locals {
 			redisPrefix,
 			url,
 			queueMonitor,
-			queueMonitorHttpPort
+			queueMonitorHttpPort,
+			nodeEnv
 		};
 	}
 

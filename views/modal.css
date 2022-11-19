@@ -1,0 +1,68 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    box-sizing: border-box;
+    width: 420px;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+
+    padding: 20px 30px;
+    gap: 20px;
+
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.modal-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-box button {
+    width: 120px;
+    height: 50px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-yes-button {
+    color: #FF0000;;
+    background: #FFE8E8;
+}
+
+.modal-no-button {
+    color: #000000;;
+    background: #BABABA;
+}
