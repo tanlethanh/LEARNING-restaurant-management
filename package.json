@@ -8,7 +8,7 @@
     "start": "node build/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q build/index.js\"",
     "reset-prisma": "npx prisma generate --schema=\"./src/prisma/schema.prisma\"",
-    "reset-database": "npx prisma migrate reset --schema=\"./src/prisma/schema.prisma\"",
+    "reset-migrate": "npx prisma migrate reset --schema=\"./src/prisma/schema.prisma\"",
     "test": "node build/test.js"
   },
   "author": "Tan Le",
