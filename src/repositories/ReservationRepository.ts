@@ -4,16 +4,16 @@ import { endToday, startToday } from "../utils/dateUtils"
 
 class ReservationRepository {
 
-    public async createNewReservation(time: Date, numberOfPeople: number, customerId: string, tableId: string) {
+    public async createNewReservation(
+        time: Date, numberOfPeople: number,
+        customerId: string, tableId: string | undefined = undefined
+    ) {
         const reservationData: Prisma.ReservationCreateInput = {
             createdDate: undefined,
             updatedDate: undefined,
             time: time,
             numberOfPeople: numberOfPeople,
             state: ReservationState.INIT,
-            assignedTable: {
-                connect: { id: tableId }
-            },
             customer: {
                 connect: { customerId: customerId }
             }
@@ -86,7 +86,7 @@ class ReservationRepository {
             data: data
         })
     }
-    
+
 }
 
 export default new ReservationRepository
