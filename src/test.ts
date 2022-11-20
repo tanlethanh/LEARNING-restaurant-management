@@ -11,7 +11,7 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 
 // Test generate random table
 
-// TableRepository.generateRandomTables(10)
+// TableRepository.generateRandomTables(20)
 //     .then(tables => {
 //         console.log(tables)
 //     })
@@ -21,7 +21,7 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 //     })
 
 // Test generate random reservations
-// CustomerRepository.generateRandomBookedCustomers(10)
+// CustomerRepository.generateRandomBookedCustomers(30)
 //     .then((customers: BookedCustomer[]) => {
 //         console.log(customers)
 //     })
@@ -30,7 +30,7 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 // Test generate reservation
 // const bookingTime = new Date()
 // bookingTime.setDate(bookingTime.getDate() + 20)
-// ReservationRepository.addNewReservation(
+// ReservationRepository.createNewReservation(
 //     bookingTime, 4, 
 //     '78d6c5d8-001c-4606-b0ee-5be11f05b979',
 //     'f60db947-aa07-4108-8eb1-ff64a3821668')
@@ -44,21 +44,20 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 //     })
 
 // Generete reservations
-// CustomerRepository.getAllBookedCustomer()
-//     .then(async (customers: BookedCustomer[]) => {
-//         const length = customers.length
-//         for (let index = 0; index < 17; index++) {
-//             const time = new Date()
-//             time.setHours(time.getHours() + randomNumber(0, 5))
+CustomerRepository.getAllBookedCustomer()
+    .then(async (customers: BookedCustomer[]) => {
+        const length = customers.length
+        for (let index = 0; index < 20; index++) {
+            const time = new Date()
+            time.setHours(time.getHours() + randomNumber(0, 5))
 
-//             ReservationRepository.addNewReservation(
-//                 time,
-//                 randomNumber(0, 10),
-//                 customers[randomNumber(0, length - 1)].customerId,
-//                 DEFAULT_TABLE_ID
-//             )
-//         }
-//     })
+            ReservationRepository.createNewReservation(
+                time,
+                randomNumber(0, 10),
+                customers[randomNumber(0, length - 1)].customerId
+            )
+        }
+    })
 
 
 // OperationService.assignTableForReservation(
@@ -69,9 +68,9 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 //         console.log(obj)
 //     })
 
-OperationService.unlockReservation('70886382-1482-4c44-b767-01a5a6dce59b')
-    .then(reservation => {
-        console.log(reservation)
-    })
+// OperationService.unlockReservation('70886382-1482-4c44-b767-01a5a6dce59b')
+//     .then(reservation => {
+//         console.log(reservation)
+//     })
 
 
