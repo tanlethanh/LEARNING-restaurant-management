@@ -1,6 +1,7 @@
 import * as cors from 'cors';
 import { Application } from 'express';
 import * as bodyParser from 'body-parser';
+import cookieParser = require('cookie-parser');
 // import * as flash from 'express-flash';
 // import * as compress from 'compression';
 // import * as expressValidator from 'express-validator';
@@ -13,11 +14,12 @@ class Http {
 	public static mount(_express: Application) {
 		Log.info('Booting the \'HTTP\' middleware...');
 
+		_express.use(cookieParser(process.env.JWT_SECRET));
+
 		// Enables the request body parser
 		_express.use(bodyParser.json({
 			limit: Locals.config().maxUploadLimit
 		}));
-
 		_express.use(bodyParser.urlencoded({
 			limit: Locals.config().maxUploadLimit,
 			parameterLimit: Locals.config().maxParameterLimit,

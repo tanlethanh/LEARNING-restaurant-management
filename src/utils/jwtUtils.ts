@@ -5,7 +5,7 @@ import { Request, Response } from "express";
   
   export function createJWT(payload:object){
     return jwt.sign(payload, curSec, {
-      expiresIn: 1000*60*10,
+      expiresIn: 5000,
     });
   };
 
@@ -16,7 +16,7 @@ import { Request, Response } from "express";
   };
 
   export function isTokenValid(token:string){
-    jwt.verify(token, curSec);
+    return jwt.verify(token, curSec);
   }
 
   export function attachCookiesToResponse(res:Response, token:string, refreshToken:string ){
