@@ -6,8 +6,24 @@ import CustomerRepository from "./repositories/CustomerRepository";
 import { time } from 'console';
 import ReservationRepository from './repositories/ReservationRepository';
 import OperationService from './services/OperationService';
+import UserRepository from "./repositories/UserRepository";
+import { Prisma,Order, UserRole } from "@prisma/client"
+import {User}from '@prisma/client'
+import {    createJWT,
+    isTokenValid,
+    attachCookiesToResponse,
+    createRefreshJWT,} from "./utils/jwtUtils";
 
-const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
+ UserRepository.getUserByUsername("hung")
+ .then(user => {
+    if(user){
+        console.log(createJWT({firstName:user.firstName, lastName:user.lastName, id:user.id}));
+    }
+ })
+
+
+
+// const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 
 // Test generate random table
 
@@ -69,9 +85,10 @@ const DEFAULT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
 //         console.log(obj)
 //     })
 
-OperationService.unlockReservation('70886382-1482-4c44-b767-01a5a6dce59b')
-    .then(reservation => {
-        console.log(reservation)
-    })
+// OperationService.unlockReservation('70886382-1482-4c44-b767-01a5a6dce59b')
+//     .then(reservation => {
+//         console.log(reservation)
+//     })
 
 
+//C:\Users\Lê Quốc Hung\Desktop\project\Restaurent-Project\src\test.ts
