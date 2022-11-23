@@ -2,9 +2,6 @@ import {createJWT,isTokenValid,attachCookiesToResponse, createRefreshJWT,} from 
 import { Prisma,Order, UserRole } from "@prisma/client"
 import { Request, Response, NextFunction } from "express";
 import {JwtPayload} from "jsonwebtoken"
-import UserRepository from '../repositories/UserRepository'
-import {User}from '@prisma/client'
-
 
     function isAuthenticated(token:string, refreshToken:string) {
         try {
@@ -42,8 +39,6 @@ import {User}from '@prisma/client'
         } catch (error) {
         throw new Error("You must login");
         }
-        console.log(req.body);
-                
         next();
     };
 

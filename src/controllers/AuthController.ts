@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import UserRepository from '../repositories/UserRepository'
 import {User}from '@prisma/client'
-import {createJWT,isTokenValid,attachCookiesToResponse, createRefreshJWT,} from "../utils/jwtUtils";
+import {createJWT,attachCookiesToResponse, createRefreshJWT,} from "../utils/jwtUtils";
 
 class AuthController{
     public static getLoginView (req:Request, res: Response){
