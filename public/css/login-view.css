@@ -221,7 +221,7 @@ ul {
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 0.5rem;
-  display: none;
+  display: block;
 }
 
 /* alert */

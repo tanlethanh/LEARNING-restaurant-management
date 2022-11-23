@@ -1,63 +1,63 @@
-import {createJWT,isTokenValid,attachCookiesToResponse, createRefreshJWT,} from "../utils/jwtUtils";
-import { Prisma,Order, UserRole } from "@prisma/client"
+import { createJWT, isTokenValid, attachCookiesToResponse, createRefreshJWT, } from "../utils/jwtUtils";
+import { Prisma, Order, UserRole } from "@prisma/client"
 import { Request, Response, NextFunction } from "express";
-import {JwtPayload} from "jsonwebtoken"
+import { JwtPayload } from "jsonwebtoken"
 
-    function isAuthenticated(token:string, refreshToken:string) {
-        try {
-            const payLoad = isTokenValid(token) as JwtPayload;
-            const exp:number = payLoad.exp!;
-            // check token out of date
-            if(exp < Date.now()*1000){
-                return false;
-            }
-        } catch (err) {
+function isAuthenticated(token: string, refreshToken: string) {
+    try {
+        const payLoad = isTokenValid(token) as JwtPayload;
+        const exp: number = payLoad.exp!;
+        // check token out of date
+        if (exp < Date.now() * 1000) {
             return false;
         }
-        return true;
+    } catch (err) {
+        return false;
     }
+    return true;
+}
 
-    const authUser = async (req:Request, res:Response, next:NextFunction) => {    
-        let token:string = req.cookies.token;
-        let refreshToken:string = req.cookies.refreshToken;
-    
-        if (!token) throw new Error("No token");
-        try {
+const authUser = async (req: Request, res: Response, next: NextFunction) => {
+    let token: string = req.cookies.token;
+    let refreshToken: string = req.cookies.refreshToken;
+
+    if (!token) throw new Error("No token");
+    try {
         const payLoad = await isTokenValid(refreshToken) as JwtPayload;
-        const tokenData = {firstName:payLoad.firstName, role:payLoad.role, id:payLoad.id};
+        const tokenData = { firstName: payLoad.firstName, role: payLoad.role, id: payLoad.id };
         if (!isAuthenticated(token, refreshToken)) {
             // create new token
             token = createJWT(tokenData);
             // create new refrestoken
             refreshToken = createRefreshJWT(tokenData);
 
-            attachCookiesToResponse(res, token, refreshToken );
+            attachCookiesToResponse(res, token, refreshToken);
         }
 
         // attach the user to the job route
         req.body = tokenData;
-        } catch (error) {
+    } catch (error) {
         throw new Error("You must login");
-        }
-        next();
-    };
+    }
+    next();
+};
 
-    const authAdmin = async (req:Request, res: Response, next: NextFunction) => {
-        if (req.body.role != UserRole.ADMIN) {
-            throw new Error ("You are not admin");
-          }
-        next();
+const authAdmin = async (req: Request, res: Response, next: NextFunction) => {
+    if (req.body.role != UserRole.ADMIN) {
+        return res.render('pages/login/index.ejs', { Error_message: "You must to log in as admin" })
     }
-    const authClerk = async (req:Request, res: Response, next: NextFunction) => {
-        if (req.body.role != UserRole.CLERK) {
-            throw new Error ("You are not clerk");
-          }
-          next();
+    next();
+}
+const authClerk = async (req: Request, res: Response, next: NextFunction) => {
+    if (req.body.role != UserRole.CLERK) {
+        return res.render('pages/login/index.ejs', { Error_message: "You must to log in as clerk" })
     }
-    const authManager = async (req:Request, res: Response, next: NextFunction) => {
-        if (req.body.role != UserRole.MANAGER) {
-            throw new Error ("You are not manager");
-          }
-        next();
+    next();
+}
+const authManager = async (req: Request, res: Response, next: NextFunction) => {
+    if (req.body.role != UserRole.MANAGER) {
+        return res.render('pages/login/index.ejs', { Error_message: "You must to log in as manager" })
     }
-export {authUser, authAdmin, authClerk, authManager}
+    next();
+}
+export { authUser, authAdmin, authClerk, authManager }

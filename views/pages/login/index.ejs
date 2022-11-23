@@ -31,15 +31,17 @@
             class="form-input password-input"
           />
         </div>
-        <div class="text-small form-alert">there was an error</div>
+        <div class="text-small form-alert" style="display: block">
+          <%= Error_message %>
+        </div>
         <button type="submit" class="btn btn-block">login</button>
       </form>
     </main>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script>
+      const formAlertDOM = document.querySelector(".form-alert");
+      setTimeout(() => {
+        formAlertDOM.style.display = "none";
+      }, 2000);
+    </script>
   </body>
 </html>
