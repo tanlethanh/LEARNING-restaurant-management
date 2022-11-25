@@ -47,6 +47,12 @@
             <% if (tables[index].state == "FREE") { %>
                 <%- include('./partials/table/free-table', {table: tables[index]}) %> 
             <% } %>
+            <% if (tables[index].state == "LOCKED") { %>
+                <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+            <% } %>
+            <% if (tables[index].state == "INPROGRESS") { %>
+                <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+            <% } %>
         <% } %>
     </div>
 

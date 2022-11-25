@@ -1,9 +1,12 @@
-import { Prisma, ReservationState, TableState } from '@prisma/client';
+import { OrderState, Prisma, ReservationState, TableState } from '@prisma/client';
 import PrismaDB from "../prisma/PrismaDB";
 import { randomNumber } from '../utils/mathUtils';
 
 const tableSeats = [2, 4, 8]
-
+export enum GetTableOption {
+    FULL,
+    NORMAL
+}
 
 class TableRepository {
 
@@ -26,12 +29,40 @@ class TableRepository {
         return createdTables
     }
 
-    public async getAllSortedTables() {
-        return await PrismaDB.table.findMany({
-            orderBy: {
-                tableNumber: "asc"
-            }
-        })
+    public async getAllSortedTables(option: GetTableOption = GetTableOption.NORMAL) {
+        if (option == GetTableOption.NORMAL) {
+            return await PrismaDB.table.findMany({
+                orderBy: {
+                    tableNumber: "asc"
+                }
+            })
+        }
+        else if (option == GetTableOption.FULL) {
+            return await PrismaDB.table.findMany({
+                orderBy: {
+                    tableNumber: "asc"
+                },
+                include: {
+                    reservations: {
+                        where: {
+                            state: ReservationState.LOCKED
+                        },
+                        include: {
+                            customer: true
+                        }
+                    },
+                    orders: {
+                        where: {
+                            state: OrderState.INPROGRESS
+                        }, 
+                        include: {
+                            customer: true
+                        }
+                    }
+                }
+            })
+        }
+        
     }
 
     public async getTableWithReservationsById(id: string) {

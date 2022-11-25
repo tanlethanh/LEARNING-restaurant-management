@@ -5,6 +5,7 @@ const operationRoute: Router = express.Router()
 operationRoute
     .get("/reservations/:id", DashboardController.updateReservation)
     .post("/reservations/:id", DashboardController.updateReservation)
-    // .post("/tables/:id", DashboardController.updateTable)
+    .post("/orders/", DashboardController.initOrder)
+    .patch("/orders/", DashboardController.updateOrder)
 
 export default operationRoute

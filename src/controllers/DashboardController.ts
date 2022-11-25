@@ -5,7 +5,7 @@ import TableRepository from "../repositories/TableRepository";
 import OperationService from "../services/OperationService";
 
 class DashboardController {
-
+    
     public static async updateReservation(req: Request, res: Response) {
         const action = String(req.query.action).toUpperCase()
         const reservationId = String(req.params.id)
@@ -17,7 +17,10 @@ class DashboardController {
                     updatedReservation = await OperationService.assignTableForReservation(reservationId, tableId)
                     break
                 case "UNLOCK":
-                    updatedReservation = await OperationService.unlockReservation(reservationId)
+                    updatedReservation = await OperationService.changeReservationStateToReady(reservationId)
+                    break
+                case "LOCK":
+                    updatedReservation = await OperationService.lockTableForReservation(tableId, reservationId)
                     break
                 case "CANCEL":
                     updatedReservation = await OperationService.cancelReservation(reservationId)
@@ -32,7 +35,7 @@ class DashboardController {
         }
         catch (error: Error | any) {
             Log.error(error.message)
-            return res.json({
+            return res.status(400).json({
                 error: error.message
             })
         }
@@ -41,20 +44,29 @@ class DashboardController {
         })
     }
 
-    // public static async updateTable(req: Request, res: Response) {
-    //     const action = String(req.query.action).toUpperCase()
-    //     const tableId = String(req.params.id)
-    //     const reservationId = String(req.query.reservationid)
-    //     try {
-    //         // switch (action) {
-    //         //     case 'LOCK':
-    //         //         // OperationService.
-    //         // }
-    //     }
-    // }
+    public static async initOrder(req: Request, res: Response) {
+        const tableId = String(req.query.tableid)
+        const reservationId = String(req.query.reservationid)
+        let initiatedOrder
+        try {
+            initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
+        }
+        catch (error: Error | any) {
+            return res.status(400).json({
+                error: error.message
+            })
+        }
+        return res.json({
+            order: initiatedOrder
+        })
+    }
+
+    public static updateOrder(req: Request, res: Response) {
+        throw new Error('Method not implemented.');
+    }
 
     public static async getDashboardView(req: Request, res: Response, next: Function) {
-        const tables = await OperationService.getAllTables()
+        const tables = await OperationService.getAllTablesToRender()
         const reservations = await OperationService.getAllReservationsToday()
         return res.render('pages/dashboard/operation-page', {
             tables: tables,
@@ -62,7 +74,6 @@ class DashboardController {
         })
     }
 
-    // public static async 
 }
 
 export default DashboardController
