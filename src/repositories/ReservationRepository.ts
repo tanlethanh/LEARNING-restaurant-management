@@ -1,6 +1,6 @@
 import PrismaDB from "../prisma/PrismaDB"
 import { Prisma, ReservationState } from "@prisma/client"
-import { endToday, startToday } from "../utils/dateUtils"
+import { endOfDay, endToday, startOfDay, startToday } from "../utils/dateUtils"
 
 class ReservationRepository {
 
@@ -50,6 +50,41 @@ class ReservationRepository {
         return reservatiosn
     }
 
+    public async getAllReservationsByStateInDate(
+        state: ReservationState | ReservationState[] | null = null, date: Date = new Date()
+    ) {
+        let states: ReservationState[] = []
+        if (Array.isArray(state)) {
+            states = state
+        }
+        else if (state != null) {
+            states.push(state)
+        }
+        
+        const reservatiosn = await PrismaDB.reservation.findMany({
+            where: {
+                time: {
+                    gte: startOfDay(date),
+                    lte: endOfDay(date)
+                },
+                state: {
+                    in: states
+                }
+
+            },
+            include: {
+                assignedTable: {
+                    select: {
+                        tableNumber: true,
+                        id: true
+                    }
+                },
+                customer: true
+            }
+        })
+        return reservatiosn
+    }
+
     public async getReservationById(id: string) {
         return await PrismaDB.reservation.findUnique({
             where: {
@@ -72,6 +107,9 @@ class ReservationRepository {
                 },
                 updatedDate: new Date(),
                 state: ReservationState.ASSIGNED
+            },
+            include: {
+                assignedTable: true
             }
         })
     }

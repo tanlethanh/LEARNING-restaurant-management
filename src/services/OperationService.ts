@@ -1,11 +1,11 @@
-import { ReservationState } from '@prisma/client';
+import { ReservationState, TableState } from '@prisma/client';
 import { BookedCustomer, Customer, CustomerType, Table, Reservation } from '@prisma/client';
 import CustomerRepository from "../repositories/CustomerRepository"
 import ReservationRepository from '../repositories/ReservationRepository';
 import TableRepository from "../repositories/TableRepository"
 import { isInNowToEndDay } from '../utils/dateUtils';
 
-const DEFAUT_TABLE_ID = "f60db947-aa07-4108-8eb1-ff64a3821668"
+const DEFAUT_TABLE_ID = null
 class OperationService {
 
     public async getAllTables() {
@@ -34,15 +34,28 @@ class OperationService {
         })
 
         // Just assign if the table has no reservation from now to end of day
-        if (count == 0
-            && reservation.assignedTableId == DEFAUT_TABLE_ID
-            && reservation.state == ReservationState.INIT
-            && reservation.numberOfPeople <= table.numberOfSeats
-        ) {
-            return await ReservationRepository.updateAssignedTableForReservationById(reservation.id, table.id)
+        if (reservation.assignedTableId != DEFAUT_TABLE_ID) {
+            throw new Error(`This reservation has been assigned`)
         }
-        else {
-            throw new Error(`Cannot assign table ${table.tableNumber} for reservation ${reservation.id}`)
+        else if (reservation.state != ReservationState.INIT) {
+            throw new Error(`Cannot assign table with state ${reservation.state}, just accept ${ReservationState.INIT}`)
+        }
+        else if (reservation.numberOfPeople > table.numberOfSeats) {
+            throw new Error(`Dont have enough seats`)
+        }
+
+        return await ReservationRepository.updateAssignedTableForReservationById(reservation.id, table.id)
+
+    }
+
+    public async cancelReservation(reservationId: string) {
+        throw new Error("Method not implemented.");
+    }
+
+    public async lockTableForReservation (tableId: string, reservationId: string) {
+        const table: (Table & {reservations: Reservation[]}) | null= await TableRepository.getTableWithReservationsById(tableId)
+        if (table == null) {
+            throw new Error("Cannot find table")
         }
     }
 

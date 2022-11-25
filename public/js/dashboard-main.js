@@ -1,3 +1,4 @@
+import { fetchAssignTableForReservation } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
 import { createYesNoModal } from "./utils/modal.js";
 
@@ -57,7 +58,10 @@ function tableOnClick(event) {
     if (reservation.state == "READY" && event.currentTarget.classList.contains("popup")) {
         const title = `Bạn có muốn gán <strong>Bàn số ${table.tableNumber}</strong> 
         cho <strong> ${reservation.customer.firstName} </strong>`
-        createYesNoModal(title, noneCallback)
+        createYesNoModal(title, async ()=> {
+            const response = await fetchAssignTableForReservation(chosenReservation.id, table.id)
+            console.log(response)
+        })
     }
 }
 
