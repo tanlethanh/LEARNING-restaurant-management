@@ -98,13 +98,10 @@ model FoodItem {
 }
 
 model Image {
-  id            String   @id @default(uuid())
-  url           String
-  foodItem      FoodItem @relation(fields: [foodItemId], references: [id])
-  foodItemId    String
-  numberOfOrder Int
-  price         Int
-  discount      Float
+  id         String   @id @default(uuid())
+  url        String
+  foodItem   FoodItem @relation(fields: [foodItemId], references: [id])
+  foodItemId String
 }
 
 model Reservation {
@@ -114,7 +111,7 @@ model Reservation {
   time            DateTime
   numberOfPeople  Int
   state           ReservationState
-  assignedTable   Table?            @relation(fields: [assignedTableId], references: [id])
+  assignedTable   Table?           @relation(fields: [assignedTableId], references: [id])
   assignedTableId String?
   customer        BookedCustomer   @relation(fields: [customerId], references: [customerId])
   customerId      String
