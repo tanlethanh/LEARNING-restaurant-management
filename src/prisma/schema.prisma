@@ -56,20 +56,20 @@ model NewCustomer {
 }
 
 model Order {
-  id            String        @id @default(uuid())
-  arrivalTime   DateTime
-  leavingTime   DateTime
+  id            String         @id @default(uuid())
+  arrivalTime   DateTime       @default(now())
+  leavingTime   DateTime?
   state         OrderState
-  paymentMethod PaymentMethod
+  paymentMethod PaymentMethod?
   orderItems    OrderItem[]
-  totalCost     Int
-  totalDiscount Float
-  table         Table         @relation(fields: [tableId], references: [id])
+  totalCost     Int            @default(0)
+  totalDiscount Float          @default(0)
+  table         Table          @relation(fields: [tableId], references: [id])
   tableId       String
-  customer      Customer      @relation(fields: [customerId], references: [id])
+  customer      Customer       @relation(fields: [customerId], references: [id])
   customerId    String
-  employee      User          @relation(fields: [employeeId], references: [id])
-  employeeId    String
+  employee      User?          @relation(fields: [employeeId], references: [id])
+  employeeId    String?
 }
 
 model OrderItem {
@@ -156,6 +156,7 @@ enum ReservationState {
   INIT
   ASSIGNED
   READY
+  LOCKED
   CANCEL
   DONE
 }

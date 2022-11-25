@@ -114,15 +114,21 @@ class ReservationRepository {
         })
     }
 
-    public async updateReservationById(id: string, data: any) {
+    public async updateReservationById(id: string, data: Prisma.ReservationUncheckedUpdateInput) {
         data.updatedDate = new Date()
-        console.log(data)
         return await PrismaDB.reservation.update({
             where: {
                 id: id
             },
             data: data
         })
+    }
+
+    public async updateReservationStateById(reservationId: string, state: ReservationState) {
+        const data = {
+            state: state
+        }
+        return this.updateReservationById(reservationId, data)
     }
 
 }
