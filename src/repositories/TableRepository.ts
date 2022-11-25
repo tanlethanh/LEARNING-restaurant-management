@@ -1,4 +1,4 @@
-import { Prisma, TableState } from '@prisma/client';
+import { Prisma, ReservationState, TableState } from '@prisma/client';
 import PrismaDB from "../prisma/PrismaDB";
 import { randomNumber } from '../utils/mathUtils';
 
@@ -41,6 +41,24 @@ class TableRepository {
             },
             include: {
                 reservations: true
+            }
+        })
+    }
+
+    public async updateTableStateById(id: string, state: TableState) {
+        return await PrismaDB.table.update({
+            where: {
+                id: id
+            },
+            data: {
+                state: state
+            },
+            include: {
+                reservations: {
+                    where: {
+                        state: ReservationState.READY
+                    }
+                }
             }
         })
     }
