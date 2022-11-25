@@ -1,6 +1,6 @@
 export function createYesNoModal(title, yesCallback,
     yesContent = "Chấp nhận", noContent = "Quay lại"
-    ) {
+) {
     const modalBackground = document.createElement('div')
     const body = document.getElementsByTagName("body")[0]
     body.appendChild(modalBackground)
@@ -27,8 +27,13 @@ export function createYesNoModal(title, yesCallback,
     buttonBox.appendChild(yesButton)
     yesButton.classList.add("modal-yes-button")
     yesButton.innerHTML = yesContent
-    yesButton.addEventListener('click', (event)=>{
-        yesCallback(event)
+    yesButton.addEventListener('click', async (event) => {
+        const loading = document.getElementById("loading")
+        if (loading.classList.contains("hidden")) {
+            loading.classList.remove("hidden")
+        }
+        await yesCallback(event)
+        loading.classList.add("hidden")
         modalBackground.remove()
     })
 
@@ -37,7 +42,7 @@ export function createYesNoModal(title, yesCallback,
     buttonBox.appendChild(noButton)
     noButton.classList.add("modal-no-button")
     noButton.innerHTML = noContent
-    noButton.addEventListener('click', ()=>{
+    noButton.addEventListener('click', () => {
         modalBackground.remove()
     })
 }
