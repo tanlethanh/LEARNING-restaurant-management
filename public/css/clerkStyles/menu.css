@@ -1,0 +1,415 @@
+/* table */
+#table-header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 16px 17px;
+   gap: 40px;
+}
+
+.flex-justify {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+}
+
+#table {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 0px;
+   gap: 16px;
+
+   width: 165px;
+   height: 44px;
+}
+
+/* serch bar */
+.top-header input[type=text] {
+   border: none;
+   font-size: 17px;
+   width: 406px;
+   height: 48px;
+   border-radius: 8px;
+}
+
+#done {
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 600;
+   font-size: 20px;
+   line-height: 40px;
+   color: var(--cam);
+}
+
+/* icon */
+.cart-container {
+   margin-left: -100px;
+}
+
+.cart-container button {
+   margin: 5px;
+}
+
+button:hover {
+   cursor: pointer;
+}
+
+#manage-table {
+   position: fixed;
+   top: 8%;
+}
+
+/* catebar */
+#catebar {
+   width: 10%;
+   height: 92%;
+   position: fixed;
+   top: 8%;
+   background-color: #C66b00;
+   overflow: auto;
+}
+
+#catebar a {
+   border-bottom: 1px solid #a25800;
+   display: block;
+   font-weight: 600;
+   font-size: 16px;
+   text-decoration: none;
+   text-align: center;
+   padding-top: 22px;
+   padding-bottom: 22px;
+   color: white;
+}
+
+#catebar a:hover {
+   cursor: pointer !important;
+}
+
+#catebar a.active {
+   color: #fcaa49;
+}
+
+#main {
+   position: fixed;
+   left: 10%;
+   top: 80px;
+   height: 92%;
+   width: 90%;
+
+   padding-bottom: 71px;
+}
+
+#menu {
+   width: 100%;
+   max-height: 100%;
+   overflow: auto;
+   margin-top: 10px;
+   padding: 0 37px;
+   padding-top: 20px;
+   padding-bottom: 50px;
+
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 30px;
+}
+
+.foodorder {
+   height: 179px;
+   width: 45%;
+   max-width: 500px;
+   min-width: 350px;
+
+   display: flex;
+   flex-direction: row;
+   gap: 14px;
+   margin-bottom: 10px;
+
+   background: #FFFFFF;
+   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1), -1px -1px 4px rgba(0, 0, 0, 0.7);
+   border-radius: 3px;
+}
+
+.food-img {
+   width: 208px;
+   height: 179px;
+}
+
+.p2 {
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.foodmenu-info {
+   padding-top: 10px;
+   padding-right: 20px;
+}
+
+.name {
+   font-weight: 700;
+   font-size: 16px;
+
+   color: #231F20;
+}
+
+.cost {
+   font-weight: 600;
+   font-size: 14px;
+   color: #A29EB6;
+}
+
+.order {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-end;
+   padding-bottom: 25px;
+   padding-right: 20px;
+}
+
+.order i {
+   text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3), 2px 2px 2px rgba(0, 0, 0, 0.1);
+   margin: 0 5px 0 5px;
+}
+
+/* The Modal (background) */
+.modal {
+   display: none;
+   /* Hidden by default */
+   position: fixed;
+   /* Stay in place */
+   z-index: 1;
+   /* Sit on top */
+   padding-top: 100px;
+   /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%;
+   /* Full width */
+   height: 100%;
+   /* Full height */
+   overflow: auto;
+   /* Enable scroll if needed */
+   background-color: rgb(0, 0, 0);
+   /* Fallback color */
+   background-color: rgba(0, 0, 0, 0.4);
+   /* Black w/ opacity */
+}
+
+.modal-alert {
+   padding-top: 30%;
+}
+
+/* Modal Content */
+.modal-content {
+   background-color: #FAFAFA;
+   margin: auto;
+   border: 1px solid #888;
+   border-radius: 20px;
+   min-width: 600px;
+   width: 50%;
+
+   display: flex;
+   flex-direction: column;
+}
+
+/* The Close Button */
+.close {
+   color: #aaaaaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.modal-header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   height: 50px;
+   width: 100%;
+   padding: 5px 20px;
+}
+
+#choose-list {
+   max-height: 500px;
+   overflow: auto;
+   padding: 20px 0;
+}
+
+.foodmodal {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   margin: 0 auto;
+   margin-bottom: 15px;
+   min-width: 500px;
+   width: 90%;
+   gap: 20px;
+
+   background: #FFFFFF;
+   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1), -1px -1px 4px rgba(0, 0, 0, 0.7);
+   border-radius: 3px;
+}
+
+.food-img-modal {
+   width: 100px;
+   height: 86px;
+}
+
+.order-modal {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 10px;
+   margin-right: 10px;
+}
+
+.buttons {
+   background-color: #1E1E1E;
+   height: 66px;
+   width: 100%;
+   border-radius: 0 0 20px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+}
+
+.buttons button {
+   width: 144px;
+   height: 40px;
+   margin-right: 20px;
+
+   background: var(--cam);
+   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 20px;
+   border-style: hidden;
+
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 40px;
+   color: white;
+}
+
+.sq {
+   text-align: center;
+   padding: 20px 20px 20px 40px;
+}
+
+.sq textarea {
+   width: 90%;
+}
+
+.sq p {
+   font-weight: 600;
+   font-size: 20px;
+   color: #DE6622;
+   margin-bottom: 20px;
+}
+
+.sq textarea {
+   resize: none;
+   font-size: 16px;
+}
+
+.alert {
+   font-weight: 700;
+   font-size: 14px;
+   margin: 13px 33px;
+}
+
+#cartsummary {
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   width: 394px;
+   height: 71px;
+
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 15px;
+
+   background: rgba(52, 60, 68, 0.47);
+   color: white;
+}
+
+#totalcost {
+   font-size: 22px;
+}
+
+#searchbar {
+   height: 40px;
+   width: 30%;
+   min-width: 200px;
+   margin-left: 37px;
+   border: 1px solid #D0CFCE;
+   border-radius: 5px;
+   outline: none;
+   padding-left: 10px;
+}
+
+#searchbar:focus {
+   border: 1px solid black;
+   transition: 0.35s ease;
+}
+
+
+#manage-nav {
+   position: fixed;
+   right: 0;
+   top: 100px;
+   width: 40px;
+}
+
+#manage-nav button {
+   width: 100%;
+   padding: 20px 5px;
+   background-color: #C66b00;
+   color: white;
+   border-style: none;
+   border-bottom: 1px solid white;
+   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+#manage-nav .active {
+   color: #fcaa49;
+}
+
+#manage-nav .first {
+   border-top-left-radius: 5px;
+}
+
+#manage-nav .last {
+   border-bottom-left-radius: 5px;
+   border-style: none;
+}
+
+#manage-table .main-container {
+   margin-left: 3vw;
+}
+
+@media only screen and (max-height: 700px) {
+   .top-header {
+      height: 13%;
+   }
+
+   #catebar,
+   #main {
+      top: 13%;
+      height: 87%;
+   }
+}

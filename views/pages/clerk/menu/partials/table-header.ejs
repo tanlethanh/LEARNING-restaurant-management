@@ -1,0 +1,21 @@
+<div id="table-header">
+   <div id="table">
+      <img class="icon" src="../../../../public/images/dining-table.png" alt="dinnig table">
+      <div id="table-info">
+         <div class="flex-justify">
+            <span id="tableName">
+               Bàn <%= order.table.tableNumber %>
+            </span>
+            <div id="group" class="type">
+               <i class="fa-solid fa-user-group"></i>
+               <%= order.table.numberOfSeats %>
+            </div>
+         </div>
+         <div class="dineIn">
+            <span id="dinein">
+               Vào lúc | <%= order.arrivalTime.toLocaleTimeString([],{ hour: "2-digit" , minute: "2-digit" }) %>
+            </span>
+         </div>
+      </div>
+   </div>
+</div>

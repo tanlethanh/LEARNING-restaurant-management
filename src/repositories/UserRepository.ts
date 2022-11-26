@@ -24,6 +24,12 @@ class UserRepository {
 
       return Users
    }
+
+   ////////////////
+   async getAllUser() {
+      const userList = await PrismaDB.user.findMany();
+      return userList;
+   }
 }
 
 export default new UserRepository
