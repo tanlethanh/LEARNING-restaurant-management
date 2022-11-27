@@ -9,6 +9,7 @@
     <!-- header -->
     <%- include('./partials/header') %> 
     <%- include('./partials/navigation') %> 
+    <%- include('./partials/loading') %> 
 
     <div id="new-customers">
         <h2>Khách mới</h2>
@@ -45,6 +46,12 @@
         <% for( let index = 0; index < tables.length; index++ ) { %>
             <% if (tables[index].state == "FREE") { %>
                 <%- include('./partials/table/free-table', {table: tables[index]}) %> 
+            <% } %>
+            <% if (tables[index].state == "LOCKED") { %>
+                <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+            <% } %>
+            <% if (tables[index].state == "INPROGRESS") { %>
+                <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
             <% } %>
         <% } %>
     </div>

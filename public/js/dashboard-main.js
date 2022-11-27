@@ -1,3 +1,4 @@
+import { fetchAssignTableForReservation, fetchInitOrder } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
 import { createYesNoModal } from "./utils/modal.js";
 
@@ -51,13 +52,31 @@ function reservationOnClick(event) {
 }
 
 function tableOnClick(event) {
-    if (chosenReservation == null) return
-    const reservation = findById(reservationsData, chosenReservation.id)
     const table = findById(tablesData, event.currentTarget.id)
-    if (reservation.state == "READY" && event.currentTarget.classList.contains("popup")) {
+    let reservation = findById(reservationsData, chosenReservation? chosenReservation.id: "")
+    if (chosenReservation != null && reservation.state == "READY" && event.currentTarget.classList.contains("popup")) {
         const title = `Bạn có muốn gán <strong>Bàn số ${table.tableNumber}</strong> 
-        cho <strong> ${reservation.customer.firstName} </strong>`
-        createYesNoModal(title, noneCallback)
+                cho <strong>${reservation.customer.firstName}</strong>?`
+        createYesNoModal(title, async () => {
+            const response = await fetchAssignTableForReservation(chosenReservation.id, table.id)
+            console.log(await response.json())
+        })
+
+    }
+    else if (table.state == "LOCKED") {
+        for (let i = 0; i < reservationsData.length; i++) {
+            const element = reservationsData[i];
+            if (element.assignedTableId == table.id) {
+                reservation = element
+                break
+            }
+        }
+        const title = `Bạn có muốn khởi tạo đơn hàng tại <strong>Bàn số ${table.tableNumber}</strong> 
+                cho khách hàng <strong>${reservation.customer.firstName}</strong>?`
+        createYesNoModal(title, async () => {
+            const response = await fetchInitOrder(reservation.id, table.id)
+            console.log(await response.json())
+        })
     }
 }
 
