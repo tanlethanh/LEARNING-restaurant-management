@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head') %>
-  </head>
 
-  <body>
+<head>
+    <%- include('./partials/head') %> 
+</head>
+
+<body>
     <!-- header -->
-    <%- include('./partials/header') %> <%- include('./partials/navigation') %>
-    <%- include('./partials/loading') %>
+    <%- include('./partials/header') %> 
+    <%- include('./partials/navigation') %> 
 
     <div id="new-customers">
-      <h2>Khách mới</h2>
-      <div>
-        <h3>123. ABC</h3>
-        <p>4 người</p>
-      </div>
+        <h2>Khách mới</h2>
+        <div>
+            <h3>123. ABC</h3>
+            <p>4 người</p>
+        </div>
     </div>
     <div id="ordered-customers">
-      <h2>Khách đặt trước</h2>
-      <div id="ordered-customers-list">
-        <% for( let index = 0; index < reservations.length; index++ ) { %> <% if
-        (reservations[index].state == "INIT") { %> <%-
-        include('./partials/reservation/init-reservation', {reservation:
-        reservations[index]}) %> <% } %> <% if (reservations[index].state ==
-        "ASSIGNED") { %> <%-
-        include('./partials/reservation/assigned-reservation', {reservation:
-        reservations[index]}) %> <% } %> <% if (reservations[index].state ==
-        "READY") { %> <%- include('./partials/reservation/ready-reservation',
-        {reservation: reservations[index]}) %> <% } %> <% } %>
-      </div>
+        <h2> Khách đặt trước </h2>
+        <div id="ordered-customers-list">
+            <% for( let index = 0; index < reservations.length; index++ ) { %>
+                <% if (reservations[index].state == "INIT") { %>
+                    <%- include('./partials/reservation/init-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
+                <% if (reservations[index].state == "ASSIGNED") { %>
+                    <%- include('./partials/reservation/assigned-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
+                <% if (reservations[index].state == "READY") { %>
+                    <%- include('./partials/reservation/ready-reservation', {reservation: reservations[index]}) %> 
+                <% } %>
+            <% } %>
+        </div>
+        
     </div>
     <div id="clerks">
-      <h2>Nhân viên</h2>
-      <div class="clerks-item">
-        <img src="" alt="" />
-        <h3>Phú Hưng</h3>
-      </div>
+        <h2>Nhân viên</h2>
+        <div class="clerks-item">
+            <img src="" alt="">
+            <h3>Phú Hưng</h3>
+        </div>
     </div>
     <div id="main">
-      <% for( let index = 0; index < tables.length; index++ ) { %> <% if
-      (tables[index].state == "FREE") { %> <%-
-      include('./partials/table/free-table', {table: tables[index]}) %> <% } %>
-      <% if (tables[index].state == "LOCKED") { %>
-      <%-include('./partials/table/locked-table', {table: tables[index]}) %> 
-      <% } %> 
-      <% if (tables[index].state == "INPROGRESS") { %> <%-
-      include('./partials/table/inprogress-table', {table: tables[index]}) %> <%
-      } %> <% } %>
+        <% for( let index = 0; index < tables.length; index++ ) { %>
+            <% if (tables[index].state == "FREE") { %>
+                <%- include('./partials/table/free-table', {table: tables[index]}) %> 
+            <% } %>
+        <% } %>
     </div>
 
     <script>
-      //   var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
-      var tables = JSON.parse("<%- JSON.stringify(tables) %>");
-      var reservations = JSON.parse("<%- JSON.stringify(reservations) %>");
+        // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
+        var tables = JSON.parse('<%- JSON.stringify(tables) %>');
+        var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
     </script>
     <script type="module" src="js/dashboard-main.js"></script>
-  </body>
+</body>
+
 </html>
