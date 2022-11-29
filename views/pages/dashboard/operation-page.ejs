@@ -12,10 +12,9 @@
 
     <div id="new-customers">
         <h2>Khách mới</h2>
-        <div>
-            <h3>123. ABC</h3>
-            <p>4 người</p>
-        </div>
+        <% for( let index = 0; index < newCustomers.length; index++)  {%>
+            <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) %>
+        <% } %>
     </div>
     <div id="ordered-customers">
         <h2> Khách đặt trước </h2>
@@ -53,6 +52,7 @@
         // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
         var tables = JSON.parse('<%- JSON.stringify(tables) %>');
         var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
+        var newCustomers = JSON.parse('<%- JSON.stringify(newCustomers) %>');
     </script>
     <script type="module" src="js/dashboard-main.js"></script>
 </body>

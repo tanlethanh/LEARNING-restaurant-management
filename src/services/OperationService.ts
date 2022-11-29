@@ -166,6 +166,12 @@ class OperationService {
 
     }
 
+
+    public async getAllNewCustomer(){
+        const allNewCustomer = await CustomerRepository.getAllNewCustomer();
+        console.log(allNewCustomer);
+        return allNewCustomer;
+    }
 }
 
 export default new OperationService

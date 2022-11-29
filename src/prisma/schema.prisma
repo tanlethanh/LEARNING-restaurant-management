@@ -51,6 +51,7 @@ model NewCustomer {
   date          DateTime
   customer      Customer @relation(fields: [customerId], references: [id])
   customerId    String   @id
+  numberOfSeats Int
 
   @@unique([ordinamNumber, date])
 }

@@ -119,6 +119,11 @@
     font-size: 14px;
 }
 
+.newCustomer-unassigned.chosen{
+    border: 2px solid #000000;
+    background-color: #b6c6bd;
+}
+
 #new-customers {
     position: fixed;
     width: var(--main-width);
@@ -151,7 +156,7 @@
     flex-grow: 0;
 }
 
-#new-customers div {
+.newCustomer-unassigned {
     display: flex;
     flex-direction: row;
     align-items: center;
