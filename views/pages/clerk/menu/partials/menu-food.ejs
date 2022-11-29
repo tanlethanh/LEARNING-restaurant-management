@@ -1,4 +1,4 @@
-<div id="<%= foodItem.id %> " class="foodorder">
+<div id="<%= foodItem.id %>" class="foodorder">
    <img class="food-img" src="../../../../../public/images/foods/<%= foodItem.images[0].url %> ">
    <div class="p2">
       <div class="foodmenu-info">
@@ -6,7 +6,7 @@
             <%= foodItem.name %>
          </p>
          <p class="cost">
-            <%= foodItem.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ) %>
+            đ <%= foodItem.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ) %>
          </p>
       </div>
       <div class="order">

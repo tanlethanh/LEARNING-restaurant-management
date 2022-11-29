@@ -5,42 +5,44 @@ import ReservationRepository from '../repositories/ReservationRepository';
 import TableRepository, { GetTableOption } from "../repositories/TableRepository"
 import { isInNowToEndDay } from '../utils/dateUtils';
 import { NotFoundError, MissingConditionError, ResourceName } from '../exception/Error';
-import OrderRepository from '../repositories/OrderRepository';
+import OrderRepository, { Quantity } from '../repositories/OrderRepository';
 
 class OrderService {
 
    public async getOrderItems(order_id: string) {
       let orderItems = await OrderRepository.getOrderItems(order_id);
-      if (orderItems == null) {
+      if (!orderItems) {
          throw new NotFoundError(ResourceName.ORDER, order_id);
       }
 
       return orderItems;
    }
 
-   public async addOrderItems(order_items: [], order_id: string) {
-      let orderItems;
-      order_items.forEach(async (order_item: { id: string, quantity: number }) => {
-         let orderItem = await OrderRepository.addOrderItem(order_id, order_item.id, order_item.quantity);
-         orderItems.push(orderItem);
+   public addOrderItems(order_items: [], order_id: string) {
+      let query = order_items.map((order_item: { id: string, quantity: number }) => {
+         if (order_item.quantity > 0) {
+            return OrderRepository.addOrderItem(order_id, order_item.id, order_item.quantity);
+         }
       })
 
-      if (orderItems == undefined) return [];
-
-      return orderItems;
+      return Promise.all(query)
    }
 
-   public async updateOrderItemState(order_id: string, order_item: { id: string, served_quantity: number }) {
-      let curOrderItem = await OrderRepository.getOrderItem(order_id, order_item.id);
+   public async updateOrderItemQuantity(order_id: string, food_id: string, quantity: Quantity) {
+      let curOrderItem = await OrderRepository.getOrderItem(order_id, food_id);
       if (curOrderItem) {
-         if (curOrderItem.totalQuantity < curOrderItem.servedQuantity + order_item.served_quantity) {
-            throw new MissingConditionError(ResourceName.ORDERITEM, "served food is exceed the total quantity")
+         if (curOrderItem.totalQuantity < curOrderItem.servedQuantity + quantity.servedQuantity) {
+            throw new MissingConditionError(ResourceName.ORDERITEM, "served food exceed the total quantity")
+         }
+         else if (curOrderItem.totalQuantity + quantity.totalQuantity < curOrderItem.servedQuantity ||
+            curOrderItem.totalQuantity + quantity.totalQuantity < curOrderItem.preparingQuantity) {
+            throw new MissingConditionError(ResourceName.ORDERITEM, "cancled food number exceed preparing quantity")
          }
 
-         return await OrderRepository.updateServedOrderItem(order_id, order_item.id, order_item.served_quantity);
+         return await OrderRepository.updateOrderItemQuantity(order_id, food_id, quantity);
       }
       else {
-         throw new NotFoundError(ResourceName.ORDERITEM, `${order_id}, ${order_item.id}`)
+         throw new NotFoundError(ResourceName.ORDERITEM, `${order_id}, ${food_id}`)
       }
    }
 

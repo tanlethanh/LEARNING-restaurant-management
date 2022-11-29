@@ -13,7 +13,6 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat">
    <link rel="stylesheet" href="../../../../public/css/clerkStyles/style.css">
    <link rel="stylesheet" href="../../../../public/css/clerkStyles/menu.css">
-   <link rel="stylesheet" href="../../../../public/css/clerkStyles/tabledetail.css">
 </head>
 
 <body>
@@ -29,21 +28,22 @@
                <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
             </div>
             <div id="cartmain">
-               <div id="choose-list">
-                  <div id="samplemodal" class="foodmodal" style="display: none;">
-                     <div class="flex-row">
-                        <img class="food-img-modal" src="" alt="">
-                        <div>
-                           <p class="name">Nem rán Hà Nội</p>
-                           <p class="cost">đ 99.000</p>
-                        </div>
-                     </div>
-                     <div class="order-modal">
-                        <button class="btnhidden minus-food"><i class="fa-solid fa-square-minus fa-2xl"></i></button>
-                        <p class="ordernum">0</p>
-                        <button class="btnhidden plus-food"><i class="fa-solid fa-square-plus fa-2xl cam"></i></button>
+               <div id="sample-cart-food" class="foodmodal" style="display: none;">
+                  <div class="flex-row">
+                     <img class="food-img-modal" src="" alt="">
+                     <div>
+                        <p class="name">Nem rán Hà Nội</p>
+                        <p class="cost">đ 99.000</p>
                      </div>
                   </div>
+                  <div class="order-modal">
+                     <button class="btnhidden minus-food"><i class="fa-solid fa-square-minus fa-2xl"></i></button>
+                     <p class="ordernum">0</p>
+                     <button class="btnhidden plus-food"><i class="fa-solid fa-square-plus fa-2xl cam"></i></button>
+                  </div>
+               </div>
+               <div id="choose-list">
+
                </div>
             </div>
             <div class="fixed-footer buttons">
@@ -73,60 +73,86 @@
                <h2 class="cam">Món đã đặt</h2>
                <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
             </div>
-            <div>
-               <div id="samplemodal" class="foodmodal">
-                  <div class="flex-row">
-                     <img class="food-img-modal" src="" alt="">
-                     <div>
-                        <p class="name">Nem rán Hà Nội</p>
-                        <p class="cost">đ 99.000</p>
-                     </div>
-                  </div>
-                  <div class="order-modal">
-                     <button class="btnhidden minus-food"><i class="fa-solid fa-square-minus fa-2xl"></i></button>
-                     <p class="ordernum">0</p>
-                     <button class="btnhidden plus-food"><i class="fa-solid fa-square-plus fa-2xl cam"></i></button>
-                  </div>
+            <div id="orderitem-list">
+            </div>
+         </div>
+         <div id="sample-manage-food" class="foodmodal" style="display: none;">
+            <div class="flex-row">
+               <img class="food-img-modal" src="" alt="">
+               <div>
+                  <p class="name">Nem rán Hà Nội</p>
+                  <p class="quantity">Số lượng: 10</p>
+                  <p class="prepare">Đang làm: 5</p>
+                  <p class="served">Đã lên: 5</p>
                </div>
             </div>
+            <table>
+               <tr>
+                  <th class="panel-container">
+                     <div class="panel serve-panel">
+                        <button class="btnhidden showBtn"><i class="fa-solid fa-circle-check fa-xl cam"></i></button>
+                        <div class="order-modal">
+                           <button class="btnhidden minus-food"><i class="fa-solid fa-minus fa-lg"></i></button>
+                           <p class="serve-num">0</p>
+                           <button class="btnhidden plus-food"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        </div>
+                        <button class="serve">Lên</button>
+                     </div>
+                  </th>
+               </tr>
+               <tr>
+                  <th class="panel-container">
+                     <div class="panel delete-panel">
+                        <button class="btnhidden showBtn"><i class="fa-solid fa-trash-can fa-xl cam"></i></button>
+                        <div class="order-modal">
+                           <button class="btnhidden minus-food"><i class="fa-solid fa-minus fa-lg"></i></button>
+                           <p class="delete-num">0</p>
+                           <button class="btnhidden plus-food"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        </div>
+                        <button class="delete">Xóa</button>
+                     </div>
+                  </th>
+               </tr>
+            </table>
          </div>
       </div>
+   </div>
 
-      <div id="billModal" class="modal">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h2 class="cam">Hóa đơn</h2>
-               <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
-            </div>
-            <div>
-               <table id="billlist">
-                  <tbody></tbody>
-               </table>
-               <table>
-                  <tbody>
-                     <tr>
-                        <td>Total:</td>
-                        <td id="allTotal"></td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <div class="fixed-footer buttons">
-               <button id="addsreq">Xác nhận thanh toán</button>
-            </div>
+   <div id="billModal" class="modal">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h2 class="cam">Hóa đơn</h2>
+            <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
+         </div>
+         <div>
+            <table id="billlist">
+               <tbody></tbody>
+            </table>
+            <table>
+               <tbody>
+                  <tr>
+                     <td>Total:</td>
+                     <td id="allTotal"></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="fixed-footer buttons">
+            <button id="paid">Xác nhận thanh toán</button>
          </div>
       </div>
+   </div>
 
-      <div id="alert" class="modal modal-alert">
-         <div class="modal-content center">
-            <p class="alert"></p>
-         </div>
+   <div id="alert" class="modal modal-alert">
+      <div class="modal-content center">
+         <p class="alert"></p>
       </div>
+   </div>
    </div>
    <div id="main-content">
       <div id="menu-table">
          <div id="catebar">
-            <a id="all" class="active">Tất cả</a>
+            <a id="allnav" class="active">Tất cả</a>
             <% for( let index=0; index < categoryList.length; index++ ) { %>
                <%- include('./partials/category', {category: categoryList[index]}) %>
                   <% } %>
@@ -153,13 +179,10 @@
       <button id="cartBtn" class="first"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
       <button id="penBtn"><i class="fa-solid fa-pen fa-xl"></i></button>
       <button id="traceBtn"><i class="fa-solid fa-utensils fa-xl"></i></button>
-      <button id="billBtn" class=" last"><i class="fa-sharp fa-solid fa-list-check fa-xl"></i></button><br>
+      <button id="billBtn" class=" last"><i class="fa-solid fa-file-invoice-dollar fa-2xl"></i></button><br>
    </div>
 
-   <!-- <script src="../../../../public/js/utils/ejs.min.js"></script> -->
-   <!-- <script src="../../../../public/js/clerkJS/utilis.js"></script> -->
-   <script src="../../../../public/js/clerkJS/menu.js"></script>
-   <!-- <script src="../../../../public/js/clerkJS/tabledetail.js"></script> -->
+   <script type="module" src="../../../../public/js/clerkJS/menu.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 import { OrderState, TableState } from "@prisma/client";
 import { Request, Response } from "express";
-import { MissingConditionError, NotFoundError, ResourceName } from "../exception/Error";
 import Log from "../middlewares/Log";
 import FoodRepository from "../repositories/FoodRepository";
 import OrderRepository from "../repositories/OrderRepository";
@@ -11,11 +10,25 @@ import TableManagementService from "../services/OrderService";
 import TableService from "../services/TableService";
 
 class TableManagementController {
+   public static async getMenu(req: Request, res: Response) {
+      try {
+         let foodItems = await FoodRepository.getMenu()
+
+         return res.json({ foodItems: foodItems })
+      }
+      catch (error: Error | any) {
+         Log.error(error.message)
+         return res.status(400).json({
+            error: error.message
+         })
+      }
+   }
+
    public static async getOrderItems(req: Request, res: Response) {
-      let { order_id } = req.params;
+      let order_id = String(req.query.order_id)
 
       try {
-         let orderItems = TableManagementService.getOrderItems(order_id);
+         let orderItems = await TableManagementService.getOrderItems(order_id);
 
          return res.json({ orderItems: orderItems })
       }
@@ -27,12 +40,12 @@ class TableManagementController {
       }
    }
 
-   public static async addOrderItem(req: Request, res: Response) {
-      let { order_id } = req.params;
+   public static async addOrderItems(req: Request, res: Response) {
+      let order_id = String(req.query.order_id)
       let { order_items } = req.body;
 
       try {
-         let orderItems = TableManagementService.addOrderItems(order_items, order_id)
+         let orderItems = await TableManagementService.addOrderItems(order_items, order_id)
 
          return res.json({
             orderItems: orderItems
@@ -50,12 +63,12 @@ class TableManagementController {
 
    }
 
-   public static async updateOrderItemState(req: Request, res: Response) {
-      let { order_id } = req.params;
+   public static async updateOrderItemQuantity(req: Request, res: Response) {
+      let order_id = String(req.query.order_id)
       let { order_item } = req.body;
 
       try {
-         let orderItem = TableManagementService.updateOrderItemState(order_id, order_item);
+         let orderItem = await TableManagementService.updateOrderItemQuantity(order_id, order_item.food_id, order_item.quantity);
 
          return res.json({
             orderItem: orderItem
@@ -70,15 +83,23 @@ class TableManagementController {
    }
 
    public static async updateDoneOrderState(req: Request, res: Response) {
-      let { order_id, table_number } = req.params;
+      let order_id = String(req.query.order_id)
 
       try {
+         let order = await OrderRepository.getOrderByID(order_id)
+         if (!order) {
+            return res.json({
+               success: false
+            })
+         }
+
          await OrderService.updateOrderState(order_id, OrderState.DONE)
-         await TableService.updateTableState(Number(table_number), TableState.FREE)
+         await TableService.updateTableState(order.table.tableNumber, TableState.FREE)
 
          return res.json({
             success: true
          })
+
       }
       catch (error: Error | any) {
          Log.error(error.message)
@@ -89,12 +110,11 @@ class TableManagementController {
    }
 
    public static async getMenuPage(req: Request, res: Response) {
+      console.log('load menu page')
       let { order_id } = req.params;
       const foodList = await FoodRepository.getMenu();
       const categoryList = await FoodRepository.getAllCategory();
       const order = await OrderRepository.getOrderByID(order_id)
-
-      console.log(categoryList)
 
       return res.render('pages/clerk/menu/menu-page', {
          foodList: foodList,
@@ -104,6 +124,7 @@ class TableManagementController {
    }
 
    public static async getMangagePage(req: Request, res: Response) {
+      console.log('load manage page')
       // await TableRepository.generateRandomTables(10)
       // await FoodRepository.generateFoodItemDB()
       // await UserRepository.generateUserDB()
@@ -111,7 +132,7 @@ class TableManagementController {
       const userList = await UserRepository.getAllUser()
 
       // for (let i = 0; i < 3; i++) {
-      //     await OrderRepository.createOrderDB(tableList[i].id, userList[0].id)
+      //    await OrderRepository.createOrderDB(tableList[i].id, userList[0].id)
       // }
 
       // let { clerk_id } = req.params

@@ -63,7 +63,8 @@ class FoodRepository {
    async getAllCategory() {
       const categoryList = await PrismaDB.category.findMany({
          select: {
-            name: true
+            name: true,
+            id: true
          }
       });
 

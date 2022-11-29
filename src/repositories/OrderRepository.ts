@@ -1,5 +1,12 @@
 import PrismaDB from "../prisma/PrismaDB";
 import { OrderState, Prisma } from "@prisma/client";
+import exp from "constants";
+
+export type Quantity = {
+    totalQuantity: number,
+    preparingQuantity: number,
+    servedQuantity: number
+}
 
 class OrderRepository {
 
@@ -100,13 +107,9 @@ class OrderRepository {
 
     // lay danh sach mon an da order cua ban dang phuc vu
     async getOrderItems(order_id: string) {
-        const orderItems = await PrismaDB.order.findUnique({
+        const orderItems = await PrismaDB.orderItem.findMany({
             where: {
-                id: order_id
-            },
-            select: {
-                // tam thoi thi lay het
-                orderItems: true
+                orderId: order_id
             }
         });
 
@@ -190,7 +193,19 @@ class OrderRepository {
         return order;
     }
 
-    async updateServedOrderItem(order_id: string, foodItem_id: string, served_quantity: number) {
+    async updateOrderItemQuantity(order_id: string, foodItem_id: string, quantity: Quantity) {
+        const quantityData: Prisma.OrderItemUpdateInput = {
+            totalQuantity: {
+                increment: quantity.totalQuantity
+            },
+            preparingQuantity: {
+                increment: quantity.preparingQuantity
+            },
+            servedQuantity: {
+                increment: quantity.servedQuantity
+            }
+        }
+
         const orderitem = await PrismaDB.orderItem.update({
             where: {
                 orderId_foodItemId: {
@@ -198,11 +213,7 @@ class OrderRepository {
                     foodItemId: foodItem_id
                 }
             },
-            data: {
-                servedQuantity: {
-                    increment: served_quantity
-                }
-            }
+            data: quantityData
         })
 
         return orderitem;
