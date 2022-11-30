@@ -12,9 +12,9 @@
             <div class="background-layer"></div>
             <div class="main-content">
                 <h2> Chọn giờ đặt </h2>
-                <div class="main-content-form">
+                <form class="main-content-form">
                     <div class="main-content-form-input">
-                        <input class="date" type="date" name="" id="">
+                        <input class="date" type="date" name="date">
                         <input type="time" list="reservation-time-option" name="reservationTime" />
                         <datalist id="reservation-time-option">
                             <option value="07:00"></option>
@@ -31,8 +31,8 @@
                             <option value="10">10 người</option>
                         </datalist>
                     </div>
-                    <button id="make-reservation"> Đặt bàn</button>
-                </div>
+                    <button id="make-reservation" type="submit"> Đặt bàn</button>
+                </form>
             </div>
         </div>
         <!-- footer  -->
