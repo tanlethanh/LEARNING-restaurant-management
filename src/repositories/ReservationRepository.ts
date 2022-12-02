@@ -60,7 +60,7 @@ class ReservationRepository {
         else if (state != null) {
             states.push(state)
         }
-        
+
         const reservatiosn = await PrismaDB.reservation.findMany({
             where: {
                 time: {

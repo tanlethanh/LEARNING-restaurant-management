@@ -34,6 +34,13 @@ for (let i = 0; i < listTables.length; i++) {
   element.addEventListener("click", tableOnClick);
 }
 
+// add close tableDetail
+const listCloseTableDetail = document.getElementsByClassName("close-table-detail")
+for (let i = 0; i < listCloseTableDetail.length; i++) {
+  const element = listCloseTableDetail[i];
+  element.addEventListener("click", closeTableDetailOnClick);
+}
+
 function reservationOnClick(event) {
   if (
     chosenReservation != null &&
@@ -104,6 +111,12 @@ async function tableOnClick(event) {
     const title = `Bạn có muốn gán <strong>Bàn số ${table.tableNumber}</strong> 
                 cho khách hàng số <strong>${customer.ordinamNumber}</strong>?`;
     createYesNoModal(title, alert("xin chao"));
+  }
+
+  // get info
+  else {
+    const tableDetail = document.getElementById("table-detail-"+table.id)
+    tableDetail.style.display = "block";
   }
 }
 
@@ -218,6 +231,13 @@ function popUpCusMatchedTables(currentTarget) {
       }
     }
   });
+}
+
+function closeTableDetailOnClick(event){
+  let id = event.currentTarget.id;
+  id = "table-detail-"+id.substring(19);
+  const tableDetail = document.getElementById(id);
+  tableDetail.style.display = "none";
 }
 
 function noneCallback() {}

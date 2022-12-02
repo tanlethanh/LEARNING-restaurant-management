@@ -44,6 +44,15 @@
         <% for( let index = 0; index < tables.length; index++ ) { %>
             <% if (tables[index].state == "FREE") { %>
                 <%- include('./partials/table/free-table', {table: tables[index]}) %> 
+                <%- include('./partials/detail-table/free-table', {table: tables[index]}) %> 
+            <% } %>
+            <% if (tables[index].state == "LOCKED") { %>
+                <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+                <%- include('./partials/detail-table/unarrived-table', {table: tables[index]}) %> 
+            <% } %>
+            <% if (tables[index].state == "INPROGRESS") { %>
+                <%- include('./partials/table/ingrogress-table', {table: tables[index]}) %> 
+                <%- include('./partials/detail-table/arrived-table', {table: tables[index]}) %> 
             <% } %>
         <% } %>
     </div>

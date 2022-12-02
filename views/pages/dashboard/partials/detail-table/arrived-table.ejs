@@ -1,0 +1,53 @@
+<div style="display:none;" class="table-detail-background" id="table-detail-<%= table.id %>">
+  <div class="table-detail">
+    <div class="close-table-detail" id = "close-table-detail-<%= table.id %>">X</div>
+    <div class="table-detail-heading">
+      <div class="table-detail-left-heading">
+        <h1>Bàn <%= table.tableNumber %></h1>
+        <br />
+        <p>
+          <span class="table-detail-numOfTableSeat">Loại bàn: </span><%= table.numberOfSeats %> chỗ
+        </p>
+      </div>
+      <div class="table-detail-right-heading">
+        <span class="table-detail-state-free">Đang có khách</span>
+      </div>
+    </div>
+    <hr />
+    <div class="table-detail-main-body">
+      <div class="table-detail-left-main-body">
+        <p>
+          <span class="table-detail-numOfTableSeat"
+            >Khách hàng hiện tại:
+          </span>
+        </p>
+        <p><span class="table-detail-numOfTableSeat">Vào lúc: </span></p>
+        <p>
+          <span class="table-detail-numOfTableSeat">Dự kiến rời đi: </span>
+        </p>
+      </div>
+      <div class="table-detail-right-main-body">
+        <p>Le Thanh Tan</p>
+        <p><%= table.orders[0].arrivalTime.getHours() %>:<%= table.orders[0].arrivalTime.getMinutes() %></p>
+        <p><%= table.orders[0].arrivalTime.getHours()+1 %>:<%= table.orders[0].arrivalTime.getMinutes() %></p>
+      </div>
+    </div>
+    <br />
+    <div class="table-detail-bottom-body">
+      <p><span class="table-detail-numOfTableSeat">Các món gọi </span></p>
+      <table>
+        <tr>
+          <th style="width: 7%">STT</th>
+          <th style="width: 27%">Tên món</th>
+          <th style="width: 13%">Số lượng</th>
+          <th style="width: 10%">Loại</th>
+          <th style="width: 28%">Ghi chú</th>
+          <th style="width: 15%">Trạng thái</th>
+        </tr>
+      </table>
+    </div>
+    <div class="table-detail-end-body">
+      <button class="table-detail-button-1">Thanh toán</button>
+    </div>
+  </div>
+</div>

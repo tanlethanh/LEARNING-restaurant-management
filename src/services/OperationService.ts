@@ -16,7 +16,6 @@ class OperationService {
 
     public async getAllTablesToRender() {
         const allTables = await TableRepository.getAllSortedTables(GetTableOption.FULL)
-        console.log(allTables)
         return allTables
     }
 
