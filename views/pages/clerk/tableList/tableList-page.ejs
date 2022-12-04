@@ -11,14 +11,14 @@
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat">
-   <link rel="stylesheet" href="../../../../public/css/clerkStyles/style.css">
-   <link rel="stylesheet" href="../../../../public/css/clerkStyles/tableList.css">
+   <link rel="stylesheet" href="/css/clerkStyles/style.css">
+   <link rel="stylesheet" href="/css/clerkStyles/tableList.css">
 
 <body>
    <div class="top-header">
       <div id="logo-container" class="flex-col">
          <div id="logo">
-            <img class="icon" src="../../../../public/images/restaurant-logo.png" alt="">
+            <img class="icon" src="/images/restaurant-logo.png" alt="">
             <h1>Quản lý bàn</h1>
          </div>
       </div>
@@ -29,8 +29,10 @@
          </div>
          <div class="dropdown">
             <div id="account">
-               <span id="name">Thuc vip pro py</span>
-               <img class="icon dropbtn" src="../../../../public/images/avatar.jpg" alt="avatar">
+               <span id="name">
+                  <%= user.firstName %>
+               </span>
+               <img class="icon dropbtn" src="/images/avatar.jpg" alt="avatar">
             </div>
             <div id="myDropdown" class="dropdown-content">
                <a href="#">Đăng xuất</a>
@@ -62,8 +64,7 @@
       </div>
    </div>
 
-   <script type="module" src="../../../../public/js/clerkJS/utilis.js"></script>
-   <script type="module" src="../../../../public/js/clerkJS/tableList.js"></script>
+   <script type="module" src="/js/clerkJS/tableList.js"></script>
 </body>
 
 </html>

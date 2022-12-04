@@ -1,11 +1,7 @@
-import { OrderItem, OrderState, ReservationState, TableState } from '@prisma/client';
-import { BookedCustomer, Customer, CustomerType, Table, Reservation } from '@prisma/client';
-import CustomerRepository from "../repositories/CustomerRepository"
-import ReservationRepository from '../repositories/ReservationRepository';
-import TableRepository, { GetTableOption } from "../repositories/TableRepository"
-import { isInNowToEndDay } from '../utils/dateUtils';
+import { OrderState } from '@prisma/client';
 import { NotFoundError, MissingConditionError, ResourceName } from '../exception/Error';
-import OrderRepository, { Quantity } from '../repositories/OrderRepository';
+import OrderRepository from '../repositories/OrderRepository';
+import IQuantityOrder from '../interfaces/IRepository/IOrderRepository';
 
 class OrderService {
 
@@ -28,7 +24,7 @@ class OrderService {
       return Promise.all(query)
    }
 
-   public async updateOrderItemQuantity(order_id: string, food_id: string, quantity: Quantity) {
+   public async updateOrderItemQuantity(order_id: string, food_id: string, quantity: IQuantityOrder) {
       let curOrderItem = await OrderRepository.getOrderItem(order_id, food_id);
       if (curOrderItem) {
          if (curOrderItem.totalQuantity < curOrderItem.servedQuantity + quantity.servedQuantity) {

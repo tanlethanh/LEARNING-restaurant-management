@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 import Log from "../middlewares/Log";
 import FoodRepository from "../repositories/FoodRepository";
 import OrderRepository from "../repositories/OrderRepository";
-import TableRepository from "../repositories/TableRepository";
 import UserRepository from "../repositories/UserRepository";
 import OrderService from "../services/OrderService";
 import TableManagementService from "../services/OrderService";
@@ -128,7 +127,7 @@ class TableManagementController {
       // await TableRepository.generateRandomTables(10)
       // await FoodRepository.generateFoodItemDB()
       // await UserRepository.generateUserDB()
-      const tableList = await TableRepository.getAllTable()
+      // const tableList = await TableRepository.getAllTable()
       const userList = await UserRepository.getAllUser()
 
       // for (let i = 0; i < 3; i++) {
@@ -137,9 +136,11 @@ class TableManagementController {
 
       // let { clerk_id } = req.params
       let clerk_id = userList[0].id
+      const user = await UserRepository.getUserName(clerk_id)
       const orderList = await OrderRepository.getInprogessOrderList(clerk_id)
       return res.render('pages/clerk/tableList/tableList-page', {
          orderList: orderList,
+         user: user
       })
    }
 

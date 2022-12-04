@@ -25,10 +25,22 @@ class UserRepository {
       return Users
    }
 
-   ////////////////
-   async getAllUser() {
+   public async getAllUser() {
       const userList = await PrismaDB.user.findMany();
       return userList;
+   }
+
+   public async getUserName(id: string) {
+      const user = await PrismaDB.user.findUnique({
+         where: {
+            id: id
+         },
+         select: {
+            firstName: true,
+            lastName: true
+         }
+      });
+      return user;
    }
 }
 

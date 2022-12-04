@@ -168,7 +168,7 @@ function createFoodTabCart(food, quantity, idx) {
    let foodTab = sample.cloneNode(true);
    foodTab.style.display = 'flex';
 
-   foodTab.getElementsByTagName('img')[0].src = '../../../../../public/images/foods/' + food.images[0].url;
+   foodTab.getElementsByTagName('img')[0].src = '/images/foods/' + food.images[0].url;
    foodTab.getElementsByClassName('name')[0].innerHTML = food.name;
    foodTab.getElementsByClassName('cost')[0].innerHTML = "đ " + numberWithDot(food.price);
 
@@ -200,7 +200,7 @@ function createFoodTabManage(food, orderitem) {
    let foodTab = sample.cloneNode(true);
    foodTab.style.display = 'flex';
 
-   foodTab.getElementsByTagName('img')[0].src = '../../../../../public/images/foods/' + food.images[0].url;
+   foodTab.getElementsByTagName('img')[0].src = '/images/foods/' + food.images[0].url;
    foodTab.getElementsByClassName('name')[0].innerHTML = food.name;
    foodTab.getElementsByClassName('quantity')[0].innerHTML = "Số lượng: " + numberWithDot(orderitem.totalQuantity);
    foodTab.getElementsByClassName('prepare')[0].innerHTML = "Đang làm: " + numberWithDot(orderitem.preparingQuantity);
@@ -208,7 +208,7 @@ function createFoodTabManage(food, orderitem) {
 
    const panels = foodTab.getElementsByClassName('panel')
    for (let i = 0; i < 2; i++) {
-      let showBtn = panels[i].getElementsByClassName('showBtn')
+      let showBtn = panels[i].getElementsByClassName('show-btn')
       let plusbtn = panels[i].getElementsByClassName('plus-food')[0];
       let minusbtn = panels[i].getElementsByClassName('minus-food')[0];
       let type = 'serve-num'

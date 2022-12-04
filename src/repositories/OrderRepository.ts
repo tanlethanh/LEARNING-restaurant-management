@@ -1,12 +1,7 @@
 import PrismaDB from "../prisma/PrismaDB";
 import { OrderState, Prisma } from "@prisma/client";
-import exp from "constants";
+import IQuantityOrder from "../interfaces/IRepository/IOrderRepository";
 
-export type Quantity = {
-    totalQuantity: number,
-    preparingQuantity: number,
-    servedQuantity: number
-}
 
 class OrderRepository {
 
@@ -193,7 +188,7 @@ class OrderRepository {
         return order;
     }
 
-    async updateOrderItemQuantity(order_id: string, foodItem_id: string, quantity: Quantity) {
+    async updateOrderItemQuantity(order_id: string, foodItem_id: string, quantity: IQuantityOrder) {
         const quantityData: Prisma.OrderItemUpdateInput = {
             totalQuantity: {
                 increment: quantity.totalQuantity
