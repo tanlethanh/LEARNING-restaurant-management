@@ -10,7 +10,8 @@
     "reset-prisma": "npx prisma generate --schema=\"./src/prisma/schema.prisma\"",
     "reset-migrate": "npx prisma migrate reset --schema=\"./src/prisma/schema.prisma\"",
     "init-migrate": "npx prisma migrate dev --name init --schema=\"./src/prisma/schema.prisma\"",
-    "test": "node build/test.js"
+    "test": "node build/test.js",
+    "auto-operation-test": "node build/services/AutomateOperation.test.js"
   },
   "author": "Tan Le",
   "license": "ISC",

@@ -94,6 +94,14 @@ class TableRepository {
         })
     }
 
+    public async updateAllTableStates(state: TableState) {
+        return await PrismaDB.table.updateMany({
+            data: {
+                state: state
+            }
+        })
+    }
+
 }
 
 export default new TableRepository

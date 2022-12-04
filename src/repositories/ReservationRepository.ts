@@ -85,6 +85,33 @@ class ReservationRepository {
         return reservatiosn
     }
 
+    /**
+     * 
+     * @param state 
+     * @param time 
+     * @param timePadding (s)
+     * @returns 
+     */
+    public async getAllReservationsInTime(state: ReservationState, time: Date, timePadding: number = 1) {
+        const start = new Date(time)
+        start.setSeconds(start.getSeconds() - timePadding)
+        const end = new Date(time)
+        end.setSeconds(end.getSeconds() + timePadding)
+        const reservations = await PrismaDB.reservation.findMany({
+            where: {
+                time: {
+                    gte: start,
+                    lte: end
+                },
+                state: {
+                    equals: state
+                }
+            }
+        })
+
+        return reservations
+    }
+
     public async getReservationById(id: string) {
         return await PrismaDB.reservation.findUnique({
             where: {
@@ -129,6 +156,18 @@ class ReservationRepository {
             state: state
         }
         return this.updateReservationById(reservationId, data)
+    }
+
+    public async deleteAllReservationsToday() {
+        const result = await PrismaDB.reservation.deleteMany({
+            where: {
+                time: {
+                    gte: startToday(),
+                    lte: endToday()
+                }
+            }
+        })
+        return result
     }
 
 }
