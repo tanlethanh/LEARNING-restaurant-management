@@ -12,7 +12,9 @@ const server = http.createServer(expressApp.app)
 
 Socket.init(server)
 
-createScenario()
+createScenario(() => {
+    Socket.pushRefresh()
+})
 
 console.log("Init restarant projects")
 

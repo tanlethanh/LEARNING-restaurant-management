@@ -12,11 +12,17 @@ import {
 } from '../testFunction'
 import AutomateOperation from './AutomateOperation'
 
-export async function createScenario() {
+export async function createScenario(callback: Function) {
     console.log("HELOOO")
     dropReservationToday()
-    const timeSlot = await generateReservation(20, Locals.config().automateDurationInSeconds * 2, Locals.config().automateDurationInSeconds)
+    const timeSlot = await generateReservation(
+        20,
+        Locals.config().automateDurationInSeconds * 2,
+        Locals.config().automateDurationInSeconds
+    )
     console.log("Time slot: ", timeSlot)
+
+    callback()
 
     const timeId = AutomateOperation.start()
 

@@ -28,6 +28,7 @@ class Locals {
 		
 		const automateDuration = process.env.AUTOMATE_DURATION
 		const automateDurationInSeconds = Number(process.env.AUTOMATE_DURATION_IN_SECONDS)
+		const unlockPercent = Number(process.env.UNLOCK_PERCENT)
 
 		return {
 			apiPrefix,
@@ -43,7 +44,8 @@ class Locals {
 			url,
 			nodeEnv,
 			automateDuration,
-			automateDurationInSeconds
+			automateDurationInSeconds,
+			unlockPercent
 		};
 	}
 

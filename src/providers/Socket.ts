@@ -5,7 +5,7 @@ import http from "http"
 class Socket {
 
     private io: Server | null = null
-    
+
     constructor() {
         console.log("Init Socket - not enable")
     }
@@ -24,9 +24,16 @@ class Socket {
     }
 
     public pushNotification(message: any) {
-        console.log("pushNotification ", message)
+        console.log("Push notification ")
         if (this.io != null) {
             this.io.emit('notification', JSON.stringify(message))
+        }
+    }
+
+    public pushRefresh() {
+        console.log("Push refresh requirement!")
+        if (this.io != null) {
+            this.io.emit('refresh page', "true")
         }
     }
 

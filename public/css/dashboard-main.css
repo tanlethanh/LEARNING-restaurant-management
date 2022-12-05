@@ -264,6 +264,12 @@
     gap: 10px;
 }
 
+.main-table-item-left svg {
+    width: 50px;
+}
+
+.main-table-item-left image {}
+
 .main-table-item-right {
     width: 65%;
     height: 100%;
@@ -297,11 +303,10 @@
 .main-table-item.locked {
     background-color: #FEF2E5;
     color: #CD6200;
-
 }
 
 .main-table-item.unlock {
     background-color: #EBF9F1;
     color: #1F9254;
-
+    fill: #1F9254;
 }

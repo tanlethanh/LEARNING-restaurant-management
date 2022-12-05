@@ -10,7 +10,7 @@
     </div>
     <div class="ordered-customers-item-bottom"><button>Bàn <%= reservation.assignedTable.tableNumber %></button>
         <p>
-            <%= reservation.time.getHours() %>:<%= reservation.time.getMinutes() %>
+            <%= reservation.time.getHours() %>:<%= reservation.time.getMinutes() %>:<%= reservation.time.getSeconds() %> 
         </p>
         <p>
             <%= reservation.numberOfPeople %> người

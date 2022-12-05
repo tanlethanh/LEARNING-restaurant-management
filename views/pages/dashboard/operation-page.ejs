@@ -61,73 +61,14 @@
         <% } %>
     </div>
 
-    <!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
-    <script>
-        const notiQueue = []
-        let intervalId = null
-        let countNoti = 0
-        function pushNotify(_status, _title, _text) {
-            countNoti++
-            console.log(countNoti)
-            console.log(_status, _title, _text)
-            new Notify({
-                status: _status,
-                title: _title,
-                text: _text,
-                effect: 'slide',
-                speed: 500,
-                customClass: null,
-                customIcon: null,
-                showIcon: true,
-                showCloseButton: true,
-                autoclose: true,
-                autotimeout: 10005,
-                gap: 5,
-                distance: 5,
-                type: 1,
-                position: 'left bottom'
-            })
-        }
-
-        function pushNotifyFromQueue(queue) {
-            if (queue.length > 0) {
-                const curNoti = queue.pop(0)
-                pushNotify(curNoti.status, curNoti.title, curNoti.text)
-            }
-        }
-
-        function setNoti() {
-            if (intervalId == null) {
-                intervalId = setInterval(() => {
-                    if (notiQueue.length == 0) {
-                        clearInterval(intervalId)
-                        intervalId = null
-                    }
-                    else {
-                        pushNotifyFromQueue(notiQueue)
-                    }
-                }, 1000)
-            }
-        }
-
-        var socket = io();
-        socket.on("notification", (noti) => {
-            console.log(noti)
-            noti = JSON.parse(noti)
-            notiQueue.push(noti)
-            setNoti()
-            // pushNotify(noti.status, noti.title, noti.text)
-        });
-    </script>
     <script>
         // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
         var tables = JSON.parse('<%- JSON.stringify(tables) %>');
         var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
     </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
     <script type="module" src="js/dashboard-main.js"></script>
-    
 </body>
 
 </html>

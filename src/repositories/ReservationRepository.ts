@@ -45,6 +45,9 @@ class ReservationRepository {
                     }
                 },
                 customer: true
+            },
+            orderBy: {
+                time: "asc"
             }
         })
         return reservatiosn
@@ -60,7 +63,7 @@ class ReservationRepository {
         else if (state != null) {
             states.push(state)
         }
-        
+
         const reservatiosn = await PrismaDB.reservation.findMany({
             where: {
                 time: {
@@ -109,6 +112,9 @@ class ReservationRepository {
             },
             include: {
                 customer: true
+            },
+            orderBy: {
+                time: "asc"
             }
         })
 
@@ -144,13 +150,22 @@ class ReservationRepository {
         })
     }
 
-    public async updateReservationById(id: string, data: Prisma.ReservationUncheckedUpdateInput) {
+    public async updateReservationById(
+        id: string,
+        data: Prisma.ReservationUncheckedUpdateInput,
+        withCustomer: boolean = false,
+        withTable: boolean = false
+    ) {
         data.updatedDate = new Date()
         return await PrismaDB.reservation.update({
             where: {
                 id: id
             },
-            data: data
+            data: data,
+            include: {
+                customer: withCustomer,
+                assignedTable: withTable
+            }
         })
     }
 
