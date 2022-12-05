@@ -6,6 +6,7 @@ import ReservationRepository from '../repositories/ReservationRepository'
 import { ReservationState } from "@prisma/client"
 import PrismaDB from "../prisma/PrismaDB"
 import OperationService from "./OperationService"
+import Socket from "../providers/Socket"
 
 export default class AutomateOperation {
 
@@ -68,10 +69,20 @@ export default class AutomateOperation {
 
             if (!suitableTable) {
                 console.log(`Cannot find suitable table for this reservation ${reservations[i].id}`)
+                Socket.pushNotification({
+                    status: 'error',
+                    title: 'Gán bàn tự động',
+                    text: `Không tìm được bàn phù hợp cho ${reservations[i].customer.firstName} | ${reservations[i].numberOfPeople} người`,
+                })
             }
             else {
                 const updatedReservation = await OperationService.assignTableForReservation(reservations[i].id, suitableTable.id)
                 console.log("Assigned reservation: ", updatedReservation)
+                Socket.pushNotification({
+                    status: 'success',
+                    title: 'Gán bàn tự động',
+                    text: `Đơn đặt ${reservations[i].customer.firstName} | ${reservations[i].customer.phoneNumber} gán vào ${suitableTable.tableNumber}`,
+                })
                 count++
             }
 
@@ -87,7 +98,7 @@ export default class AutomateOperation {
         const timeId = setInterval(async () => {
             console.log("___________________ Start assign ___________________\n")
             const result = await AutomateOperation.autoAssignReservation()
-            console.log(result)
+            console.log("Assign count: ", result.count)
             console.log("\n___________________  End assign  ___________________\n\n")
         }, Locals.config().automateDurationInSeconds * 1000)
         return timeId

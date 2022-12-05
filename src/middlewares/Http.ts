@@ -1,5 +1,5 @@
 import * as cors from 'cors';
-import { Application } from 'express';
+import express, { Application } from 'express';
 import * as bodyParser from 'body-parser';
 // import * as flash from 'express-flash';
 // import * as compress from 'compression';
@@ -7,6 +7,7 @@ import * as bodyParser from 'body-parser';
 
 import Log from './Log';
 import Locals from '../providers/Locals';
+import path from 'path';
 
 
 class Http {
@@ -23,6 +24,8 @@ class Http {
 			parameterLimit: Locals.config().maxParameterLimit,
 			extended: false
 		}));
+
+		_express.use('/modules/simple-notify', express.static(path.join(__dirname, '../../node_modules/simple-notify')));
 
 		// Disable the x-powered-by header in response
 		_express.disable('x-powered-by');

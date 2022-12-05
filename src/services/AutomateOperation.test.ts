@@ -1,5 +1,6 @@
 import { clearInterval } from 'timers'
 import Locals from '../providers/Locals'
+import TableRepository from '../repositories/TableRepository'
 import {
     generateRandomTables,
     generateRandomBookedCustomers,
@@ -11,11 +12,11 @@ import {
 } from '../testFunction'
 import AutomateOperation from './AutomateOperation'
 
-async function createScenario() {
+export async function createScenario() {
+    console.log("HELOOO")
     dropReservationToday()
-    const timeSlot = await generateReservation(10, Locals.config().automateDurationInSeconds * 2, Locals.config().automateDurationInSeconds)
+    const timeSlot = await generateReservation(20, Locals.config().automateDurationInSeconds * 2, Locals.config().automateDurationInSeconds)
     console.log("Time slot: ", timeSlot)
-
 
     const timeId = AutomateOperation.start()
 
@@ -25,5 +26,4 @@ async function createScenario() {
     }, (Locals.config().automateDurationInSeconds * (timeSlot.length + 10)) * 1000)
 }
 
-createScenario()
-
+// createScenario()

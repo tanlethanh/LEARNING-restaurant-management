@@ -106,6 +106,9 @@ class ReservationRepository {
                 state: {
                     equals: state
                 }
+            },
+            include: {
+                customer: true
             }
         })
 

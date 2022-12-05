@@ -10,6 +10,10 @@ import OrderRepository from '../repositories/OrderRepository';
 const DEFAUT_TABLE_ID = null
 class OperationService {
 
+    constructor() {
+        console.log("Init Operation service")
+    }
+
     public async getAllTables() {
         return await TableRepository.getAllSortedTables()
     }
