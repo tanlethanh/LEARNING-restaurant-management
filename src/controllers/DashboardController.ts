@@ -68,10 +68,7 @@ class DashboardController {
     public static async getDashboardView(req: Request, res: Response, next: Function) {
         const tables = await OperationService.getAllTablesToRender()
         const reservations = await OperationService.getAllReservationsToday()
-        return res.render('pages/dashboard/operation-page', {
-            tables: tables,
-            reservations: reservations
-        })
+        return res.render('pages/dashboard/operation-page', {tables: tables,reservations: reservations})
     }
 
 }

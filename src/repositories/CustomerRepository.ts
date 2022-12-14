@@ -1,5 +1,5 @@
 import ICustomerRepository from "../interfaces/IRepository/ICustomerRepository";
-import { BookedCustomer, CustomerType, Prisma, ReservationState } from "@prisma/client";
+import { BookedCustomer, Customer, CustomerType, Prisma, ReservationState } from "@prisma/client";
 import PrismaDB from "../prisma/PrismaDB";
 import { randomPhoneNumbers } from 'random-phone-numbers';
 const random_name = require('node-random-name')
@@ -12,6 +12,26 @@ class CustomerRepository implements ICustomerRepository {
      * @param count: number of the fake customers want to create
      * @returns list of booked customers
      */
+    //  public async generateRandomCustomers(count: number) {
+        
+    //     const customers: Customer[] = []
+    //     for (let index = 0; index < count; index++) {
+
+    //         const customerData: Prisma.CustomerCreateInput = {
+    //             id: (index+1).toString(),
+    //             type: CustomerType.NEW
+    //         }
+    //         const customer = await PrismaDB.bookedCustomer.create({
+    //             data: customerData,
+    //             include: {
+    //                 reservations: true
+    //             }
+    //         })
+
+    //         customers.push(customer)
+    //     }
+    //     return customers
+    // }
     public async generateRandomBookedCustomers(count: number) {
         
         const customers: BookedCustomer[] = []
