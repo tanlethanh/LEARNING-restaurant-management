@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat">
+   <link rel="stylesheet" href="../../../../public/css/clerkStyles/style.css">
+   <link rel="stylesheet" href="../../../../public/css/clerkStyles/menu.css">
+</head>
+
+<body>
+   <div class="top-header">
+      <%- include('./partials/table-header', {order: order}) %>
+         <button class="btnhidden" id="done"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+   </div>
+   <div id="modaldiv">
+      <div id="cartModal" class="modal">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h2 class="cam">Giỏ hàng</h2>
+               <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
+            </div>
+            <div id="cartmain">
+               <div id="sample-cart-food" class="foodmodal" style="display: none;">
+                  <div class="flex-row">
+                     <img class="food-img-modal" src="" alt="">
+                     <div>
+                        <p class="name">Nem rán Hà Nội</p>
+                        <p class="cost">đ 99.000</p>
+                     </div>
+                  </div>
+                  <div class="order-modal">
+                     <button class="btnhidden minus-food"><i class="fa-solid fa-square-minus fa-2xl"></i></button>
+                     <p class="ordernum">0</p>
+                     <button class="btnhidden plus-food"><i class="fa-solid fa-square-plus fa-2xl cam"></i></button>
+                  </div>
+               </div>
+               <div id="choose-list">
+
+               </div>
+            </div>
+            <div class="fixed-footer buttons">
+               <button id="prepare">Đặt Món</button>
+            </div>
+         </div>
+      </div>
+
+      <div id="penModal" class="modal">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h2 class="cam">Yêu cầu</h2>
+               <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
+            </div>
+            <div class="sq">
+               <textarea name="specreq" id="specreq" rows="10"></textarea>
+            </div>
+            <div class="fixed-footer buttons">
+               <button id="addsreq">Thêm</button>
+            </div>
+         </div>
+      </div>
+
+      <div id="traceModal" class="modal">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h2 class="cam">Món đã đặt</h2>
+               <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
+            </div>
+            <div id="orderitem-list">
+            </div>
+         </div>
+         <div id="sample-manage-food" class="foodmodal" style="display: none;">
+            <div class="flex-row">
+               <img class="food-img-modal" src="" alt="">
+               <div>
+                  <p class="name">Nem rán Hà Nội</p>
+                  <p class="quantity">Số lượng: 10</p>
+                  <p class="prepare">Đang làm: 5</p>
+                  <p class="served">Đã lên: 5</p>
+               </div>
+            </div>
+            <table>
+               <tr>
+                  <th class="panel-container">
+                     <div class="panel serve-panel">
+                        <button class="btnhidden show-btn"><i class="fa-solid fa-circle-check fa-xl cam"></i></button>
+                        <div class="order-modal">
+                           <button class="btnhidden minus-food"><i class="fa-solid fa-minus fa-lg"></i></button>
+                           <p class="serve-num">0</p>
+                           <button class="btnhidden plus-food"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        </div>
+                        <button class="serve">Lên</button>
+                     </div>
+                  </th>
+               </tr>
+               <tr>
+                  <th class="panel-container">
+                     <div class="panel delete-panel">
+                        <button class="btnhidden show-btn"><i class="fa-solid fa-trash-can fa-xl cam"></i></button>
+                        <div class="order-modal">
+                           <button class="btnhidden minus-food"><i class="fa-solid fa-minus fa-lg"></i></button>
+                           <p class="delete-num">0</p>
+                           <button class="btnhidden plus-food"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        </div>
+                        <button class="delete">Xóa</button>
+                     </div>
+                  </th>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <div id="billModal" class="modal">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h2 class="cam">Hóa đơn</h2>
+            <button class="btnhidden close"><i class="fa-solid fa-xmark fa-lg cam"></i></button>
+         </div>
+         <div>
+            <table id="billlist">
+               <tbody></tbody>
+            </table>
+            <table>
+               <tbody>
+                  <tr>
+                     <td>Total:</td>
+                     <td id="allTotal"></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="fixed-footer buttons">
+            <button id="paid">Xác nhận thanh toán</button>
+         </div>
+      </div>
+   </div>
+
+   <div id="alert" class="modal modal-alert">
+      <div class="modal-content center">
+         <p class="alert"></p>
+      </div>
+   </div>
+   </div>
+   <div id="main-content">
+      <div id="menu-table">
+         <div id="catebar">
+            <a id="allnav" class="active">Tất cả</a>
+            <% for( let index=0; index < categoryList.length; index++ ) { %>
+               <%- include('./partials/category', {category: categoryList[index]}) %>
+                  <% } %>
+         </div>
+         <div id="main">
+            <input type="text" id="searchbar" placeholder="Tìm món...">
+            <div id="menu">
+               <% for( let index=0; index < foodList.length; index++ ) { %>
+                  <%- include('./partials/menu-food', {foodItem: foodList[index]}) %>
+                     <% } %>
+            </div>
+
+         </div>
+         <div id="cartsummary">
+            <p>
+               <i class="fa-solid fa-cart-shopping fa-2xl"></i> đ
+               <span id="totalcost">0</span>
+            </p>
+            <span>Vui lòng chọn món ăn </span>
+         </div>
+      </div>
+   </div>
+   <div id="manage-nav">
+      <button id="cartBtn" class="first"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
+      <button id="penBtn"><i class="fa-solid fa-pen fa-xl"></i></button>
+      <button id="traceBtn"><i class="fa-solid fa-utensils fa-xl"></i></button>
+      <button id="billBtn" class=" last"><i class="fa-solid fa-file-invoice-dollar fa-2xl"></i></button><br>
+   </div>
+
+   <script type="module" src="/js/clerkJS/menu.js"></script>
+</body>
+
+</html>

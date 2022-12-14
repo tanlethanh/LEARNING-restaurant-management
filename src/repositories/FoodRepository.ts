@@ -11,9 +11,18 @@ class FoodRepository {
          const foodData: Prisma.FoodItemCreateInput = {
             name: foodDatas[index].name,
             description: foodDatas[index].description,
-            category: foodDatas[index].category,
             discount: Math.random(),
             price: foodDatas[index].price,
+            category: {
+               connectOrCreate: {
+                  where: {
+                     name: foodDatas[index].category
+                  },
+                  create: {
+                     name: foodDatas[index].category
+                  }
+               }
+            },
             images: {
                create: {
                   url: foodDatas[index].img
@@ -31,6 +40,35 @@ class FoodRepository {
          foodItems.push(foodItem)
       }
       return foodItems
+   }
+
+   async getMenu() {
+      const foodList = await PrismaDB.foodItem.findMany({
+         include: {
+            category: {
+               select: {
+                  name: true
+               }
+            },
+            images: {
+               select: {
+                  url: true
+               }
+            }
+         }
+      });
+      return foodList
+   }
+
+   async getAllCategory() {
+      const categoryList = await PrismaDB.category.findMany({
+         select: {
+            name: true,
+            id: true
+         }
+      });
+
+      return categoryList
    }
 }
 
