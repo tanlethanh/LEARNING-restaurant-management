@@ -45,6 +45,9 @@ class ReservationRepository {
                     }
                 },
                 customer: true
+            },
+            orderBy: {
+                time: "asc"
             }
         })
         return reservatiosn
@@ -60,7 +63,7 @@ class ReservationRepository {
         else if (state != null) {
             states.push(state)
         }
-        
+
         const reservatiosn = await PrismaDB.reservation.findMany({
             where: {
                 time: {
@@ -83,6 +86,39 @@ class ReservationRepository {
             }
         })
         return reservatiosn
+    }
+
+    /**
+     * 
+     * @param state 
+     * @param time 
+     * @param timePadding (s)
+     * @returns 
+     */
+    public async getAllReservationsInTime(state: ReservationState, time: Date, timePadding: number = 1) {
+        const start = new Date(time)
+        start.setSeconds(start.getSeconds() - timePadding)
+        const end = new Date(time)
+        end.setSeconds(end.getSeconds() + timePadding)
+        const reservations = await PrismaDB.reservation.findMany({
+            where: {
+                time: {
+                    gte: start,
+                    lte: end
+                },
+                state: {
+                    equals: state
+                }
+            },
+            include: {
+                customer: true
+            },
+            orderBy: {
+                time: "asc"
+            }
+        })
+
+        return reservations
     }
 
     public async getReservationById(id: string) {
@@ -114,13 +150,22 @@ class ReservationRepository {
         })
     }
 
-    public async updateReservationById(id: string, data: Prisma.ReservationUncheckedUpdateInput) {
+    public async updateReservationById(
+        id: string,
+        data: Prisma.ReservationUncheckedUpdateInput,
+        withCustomer: boolean = false,
+        withTable: boolean = false
+    ) {
         data.updatedDate = new Date()
         return await PrismaDB.reservation.update({
             where: {
                 id: id
             },
-            data: data
+            data: data,
+            include: {
+                customer: withCustomer,
+                assignedTable: withTable
+            }
         })
     }
 
@@ -129,6 +174,18 @@ class ReservationRepository {
             state: state
         }
         return this.updateReservationById(reservationId, data)
+    }
+
+    public async deleteAllReservationsToday() {
+        const result = await PrismaDB.reservation.deleteMany({
+            where: {
+                time: {
+                    gte: startToday(),
+                    lte: endToday()
+                }
+            }
+        })
+        return result
     }
 
 }

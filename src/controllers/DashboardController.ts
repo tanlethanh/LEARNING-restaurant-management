@@ -5,7 +5,7 @@ import TableRepository from "../repositories/TableRepository";
 import OperationService from "../services/OperationService";
 
 class DashboardController {
-    
+
     public static async updateReservation(req: Request, res: Response) {
         const action = String(req.query.action).toUpperCase()
         const reservationId = String(req.params.id)

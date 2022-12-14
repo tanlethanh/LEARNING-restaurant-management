@@ -3,6 +3,11 @@
 
 <head>
     <%- include('./partials/head') %> 
+    <link rel="stylesheet" href="/modules/simple-notify/dist/simple-notify.min.css" />
+
+    <!-- JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script> -->
+
 </head>
 
 <body>
@@ -61,6 +66,8 @@
         var tables = JSON.parse('<%- JSON.stringify(tables) %>');
         var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
     </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
     <script type="module" src="js/dashboard-main.js"></script>
 </body>
 

@@ -28,3 +28,16 @@ export function endOfDay(date: Date) {
     endOfDay.setHours(23, 59, 59, 9990)  
     return endOfDay
 }
+
+export function getHoursAndMinutesString(date: Date) {
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    return `${hours >= 10? hours: "0" + String(hours)}:${minutes >= 10? minutes: "0" + String(hours)}`
+}
+
+export function getHoursAndMinutesAndSecondsString(date: Date) {
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+    return `${hours >= 10? hours: "0" + String(hours)}:${minutes >= 10? minutes: "0" + String(minutes)}:${seconds >= 10? seconds: "0" + String(seconds)}`
+}

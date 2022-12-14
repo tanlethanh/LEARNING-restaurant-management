@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat">
+   <link rel="stylesheet" href="/css/clerkStyles/style.css">
+   <link rel="stylesheet" href="/css/clerkStyles/tableList.css">
+
+<body>
+   <div class="top-header">
+      <div id="logo-container" class="flex-col">
+         <div id="logo">
+            <img class="icon" src="/images/restaurant-logo.png" alt="">
+            <h1>Quản lý bàn</h1>
+         </div>
+      </div>
+
+      <div id="status">
+         <div id="notify">
+            <i class="fa-regular fa-bell fa-xl"></i>
+         </div>
+         <div class="dropdown">
+            <div id="account">
+               <span id="name">
+                  <%= user.firstName %>
+               </span>
+               <img class="icon dropbtn" src="/images/avatar.jpg" alt="avatar">
+            </div>
+            <div id="myDropdown" class="dropdown-content">
+               <a href="#">Đăng xuất</a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="content">
+      <div class="main-container">
+         <!-- <ul id="state-type">
+            <li id="all" class="active m_title">Tất cả</li>
+            <li id="unorder" class="m_title">Chưa gọi</li>
+            <li id="ordered" class="m_title">Đã gọi</li>
+            <li id="paid" class="m_title">Đã thanh toán</li>
+         </ul> -->
+         <div id="table-info">
+            <div id="attributies">
+               <span>Bàn</span>
+               <span class="margin-10">Loại</span>
+               <span>Vào bàn</span>
+               <!-- <span>Trạng thái</span> -->
+            </div>
+            <div id="table-list">
+               <% for( let index=0; index < orderList.length; index++ ) { %>
+                  <%- include('./partials/table', {order: orderList[index]}) %>
+                     <% } %>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script type="module" src="/js/clerkJS/tableList.js"></script>
+</body>
+
+</html>

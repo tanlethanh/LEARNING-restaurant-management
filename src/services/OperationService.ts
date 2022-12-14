@@ -10,6 +10,10 @@ import OrderRepository from '../repositories/OrderRepository';
 const DEFAUT_TABLE_ID = null
 class OperationService {
 
+    constructor() {
+        console.log("Init Operation service")
+    }
+
     public async getAllTables() {
         return await TableRepository.getAllSortedTables()
     }
@@ -47,7 +51,9 @@ class OperationService {
         let count = 0
         table.reservations.forEach(ele => {
             if (isInNowToEndDay(ele.time)) {
-                count++
+                if (ele.state == "ASSIGNED") {
+                    count++
+                }
             }
         })
 
@@ -89,7 +95,7 @@ class OperationService {
             state: ReservationState.READY
         }
 
-        return await ReservationRepository.updateReservationById(reservationId, updateData)
+        return await ReservationRepository.updateReservationById(reservationId, updateData, true)
     }
 
     /**
@@ -129,11 +135,11 @@ class OperationService {
             throw new MissingConditionError(ResourceName.RESERVATION, "State must be READY")
         }
 
-        TableRepository.updateTableStateById(tableId, TableState.LOCKED)
+        await TableRepository.updateTableStateById(tableId, TableState.LOCKED)
         return await ReservationRepository.updateReservationById(reservationId, {
             state: ReservationState.LOCKED,
-            assignedTableId: tableId
-        })
+            assignedTableId: tableId,
+        }, true, true)
 
     }
 

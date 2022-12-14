@@ -18,15 +18,15 @@ class ExpressApp {
         this.mountExceptionHander()
     }
 
-    public initApp() {
-        // Start the server on the specified port
-        const PORT = Locals.config().port
-        this.app.listen(PORT, () => {
-            return console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
-        }).on('error', (_error: Error) => {
-            return console.log('Error: ', _error.message);
-        });
-    }
+    // public initApp() {
+    //     // Start the server on the specified port
+    //     const PORT = Locals.config().port
+    //     this.app.listen(PORT, () => {
+    //         return console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+    //     }).on('error', (_error: Error) => {
+    //         return console.log('Error: ', _error.message);
+    //     });
+    // }
 
     private mountEnv() {
         Locals.mountEnvConfig(this.app)
@@ -50,4 +50,4 @@ class ExpressApp {
 
 }
 
-export default new ExpressApp
+export default ExpressApp

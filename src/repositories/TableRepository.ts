@@ -54,7 +54,7 @@ class TableRepository {
                     orders: {
                         where: {
                             state: OrderState.INPROGRESS
-                        }, 
+                        },
                         include: {
                             customer: true
                         }
@@ -62,7 +62,7 @@ class TableRepository {
                 }
             })
         }
-        
+
     }
 
     public async getTableWithReservationsById(id: string) {
@@ -92,6 +92,34 @@ class TableRepository {
                 }
             }
         })
+    }
+
+    public async updateAllTableStates(state: TableState) {
+        return await PrismaDB.table.updateMany({
+            data: {
+                state: state
+            }
+        })
+
+    }
+    
+    async updateTableState(table_number: number, state: TableState) {
+        const table = await PrismaDB.table.update({
+            where: {
+                tableNumber: table_number
+            },
+            data: {
+                state: state
+            }
+        });
+
+        return table;
+    }
+
+    /////////////////
+    async getAllTable() {
+        const tableList = await PrismaDB.table.findMany();
+        return tableList;
     }
 
 }

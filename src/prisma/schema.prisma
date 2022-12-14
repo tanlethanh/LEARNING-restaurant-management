@@ -66,22 +66,22 @@ model Order {
   totalDiscount Float          @default(0)
   table         Table          @relation(fields: [tableId], references: [id])
   tableId       String
-  customer      Customer       @relation(fields: [customerId], references: [id])
-  customerId    String
+  customer      Customer?      @relation(fields: [customerId], references: [id])
+  customerId    String?
   employee      User?          @relation(fields: [employeeId], references: [id])
   employeeId    String?
 }
 
 model OrderItem {
-  price          Int
-  discount       Float
-  totalQuantity  Int
-  servedQuantity Int
-  state          OrderItemState
-  order          Order          @relation(fields: [orderId], references: [id])
-  orderId        String
-  foodItem       FoodItem       @relation(fields: [foodItemId], references: [id])
-  foodItemId     String
+  price             Int
+  discount          Float
+  totalQuantity     Int
+  preparingQuantity Int
+  servedQuantity    Int
+  order             Order    @relation(fields: [orderId], references: [id])
+  orderId           String
+  foodItem          FoodItem @relation(fields: [foodItemId], references: [id])
+  foodItemId        String
 
   @@id([orderId, foodItemId])
 }
@@ -90,11 +90,18 @@ model FoodItem {
   id          String      @id @default(uuid())
   name        String
   description String
-  category    String
   price       Int
   discount    Float
+  category    Category    @relation(fields: [categoryId], references: [id])
+  categoryId  String
   images      Image[]
   orderItems  OrderItem[]
+}
+
+model Category {
+  id       String     @id @default(uuid())
+  name     String     @unique
+  foodItem FoodItem[]
 }
 
 model Image {
@@ -143,13 +150,6 @@ enum TableState {
 enum PaymentMethod {
   ONLINE
   OFFLINE
-}
-
-enum OrderItemState {
-  INIT
-  CALLED
-  SERVING
-  SERVED
 }
 
 enum ReservationState {

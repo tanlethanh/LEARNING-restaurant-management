@@ -25,8 +25,8 @@ class Kernel {
 		// Mount statics middleware
 		Statics.mount(_express);
 
-		// Mount status monitor middleware
-		StatusMonitor.mount(_express);
+		// Mount status monitor middleware -> conflict with socket.io
+		// StatusMonitor.mount(_express);
 	}
 }
 
