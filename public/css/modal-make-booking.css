@@ -1,0 +1,143 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-box {
+    box-sizing: border-box;
+    width: 639px;
+    height: 616px;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+
+    justify-content: first baseline;
+
+    padding: 43px 53px;
+    gap: 20px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.modal-parallel-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+
+    width: 532px;
+    height: 68px;
+}
+
+.modal-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 7px;
+}
+
+.modal-detail label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #000000;
+}
+
+.modal-detail input, textarea{
+    padding: 5px 10px;
+    gap: 10px;
+
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.input-non-update {
+    color: #0000005f;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-box button {
+    height: 40px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-yes-button {
+    width: 170px;
+    background: #AE0808;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.modal-no-button {
+    width: 60px;
+    color: #000000;
+    background: #BABABA;
+}
+
+.detail-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    height: 30px;
+}
+
+.detail-input input {
+    height: 80%;
+    border: none;
+    border-radius: 0px;
+    border-right: solid 2px rgba(0, 0, 0, 0.387);
+    padding: 0px 20px;
+    width: 30%;
+    font-size: 16px;
+}
+
+.number-person {
+    border: none !important;
+}
+
+.reservation-note {
+    align-items:baseline;
+    height: 200px;
+    resize: none;
+}

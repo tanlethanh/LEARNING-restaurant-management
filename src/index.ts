@@ -14,7 +14,7 @@ Socket.init(server)
 
 createScenario(() => {
     Socket.pushRefresh()
-})
+}) 
 
 console.log("Init restarant projects")
 
