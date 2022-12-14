@@ -1,13 +1,13 @@
 import express, { Router } from 'express';
+import TableManagementController from '../../controllers/TableManagementController';
 
 const tableManagementRoute: Router = express.Router()
 tableManagementRoute
-    .get("/")
-    .post("/")
-    .get("/:id")
-    .post("/:id")
-    .delete("/:id")
-    .patch("/:id")
+    // table list page
+    .get("/:clerk_id", TableManagementController.getMangagePage)
+    // table page
+    .get("/table/:order_id", TableManagementController.getMenuPage)
+
 
 
 export default tableManagementRoute
