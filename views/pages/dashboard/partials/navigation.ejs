@@ -1,17 +1,29 @@
 <div id="navigation">
-    <div class="navigation-item chosen">
-        <i class="fa-solid fa-house"></i>
-    </div>
-    <div class="navigation-item">
-        <i class="fa-regular fa-calendar-days"></i>
-    </div>
-    <div class="navigation-item">
-        <i class="fa-solid fa-user-group"></i>
-    </div>
-    <div class="navigation-item">
-        <i class="fa-solid fa-signal"></i>
-    </div>
-    <div class="navigation-item">
-        <i class="fa-solid fa-gear"></i>
-    </div>
+  <div id="dashboard" class="navigation-item" onclick="window.location.replace('/dashboard')">
+    <i class="fa-solid fa-house"></i>
+  </div>
+  <div class="navigation-item">
+    <i class="fa-regular fa-calendar-days"></i>
+  </div>
+  <div class="navigation-item">
+    <i class="fa-solid fa-user-group"></i>
+  </div>
+  <div id="statistic" class="navigation-item" onclick="window.location.replace('/dashboard/statistic')">
+    <i class="fa-solid fa-signal"></i>
+  </div>
+  <div class="navigation-item">
+    <i class="fa-solid fa-gear"></i>
+  </div>
+
+  <script>
+    const path = window.location.pathname
+    if (path.includes("statistic")) {
+        document.getElementById("statistic").classList.add("chosen")
+    }
+    else if (path.includes("dashboard")) {
+        document.getElementById("dashboard").classList.add("chosen")
+    }
+    
+  </script>
+
 </div>

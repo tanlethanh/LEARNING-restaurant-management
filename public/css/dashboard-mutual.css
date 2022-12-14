@@ -115,6 +115,14 @@ p {
     color: #1F9254;
 }
 
+.navigation-item {
+    cursor: pointer;
+}
+
+.navigation-item:hover {
+    color: #37f58f;
+}
+
 .modal-background {
     position: fixed;
     left: 0;
