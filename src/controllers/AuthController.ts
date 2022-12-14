@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import UserRepository from '../repositories/UserRepository'
-import { User } from '@prisma/client'
+import { User, UserRole } from '@prisma/client'
 import { createJWT, attachCookiesToResponse, createRefreshJWT, } from "../utils/jwtUtils";
 
 class AuthController {
@@ -35,7 +35,13 @@ class AuthController {
         // attach token to cookie
         attachCookiesToResponse(res, token, refreshToken);
 
-        return res.render('pages/ok/index.ejs')
+        if (tokenData.role == UserRole.ADMIN || tokenData.role == UserRole.MANAGER) {
+            return res.redirect('/dashboard')
+        }
+        else if (tokenData.role == UserRole.CLERK) {
+            return res.redirect(`/table-management/${user.id}`)
+        }
+
     }
     public static getLogout(req: Request, res: Response) {
         res.cookie("token", "token", {

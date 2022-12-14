@@ -5,15 +5,20 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 
 class UserRepository {
+   
    public async generateUserDB() {
+
       const Users: User[] = []
       for (let index = 0; index < userDatas.length; index++) {
+
+         const salt = await bcrypt.genSalt(10);
+         const password = await bcrypt.hash(userDatas[index].password, salt);
 
          const userData: Prisma.UserCreateInput = {
             firstName: userDatas[index].firstName,
             lastName: userDatas[index].lastName,
             username: userDatas[index].username,
-            password: userDatas[index].password,
+            password: password,
             role: userDatas[index].role
          }
 

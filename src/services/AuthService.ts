@@ -21,9 +21,12 @@ const authUser = async (req: Request, res: Response, next: NextFunction) => {
     let token: string = req.cookies.token;
     let refreshToken: string = req.cookies.refreshToken;
 
-    if (!token) throw new Error("No token");
+    if (!token) {
+        return res.redirect('/auth/login')
+    }
+
     try {
-        const payLoad = await isTokenValid(refreshToken) as JwtPayload;
+        const payLoad = isTokenValid(refreshToken) as JwtPayload;
         const tokenData = { firstName: payLoad.firstName, role: payLoad.role, id: payLoad.id };
         if (!isAuthenticated(token, refreshToken)) {
             // create new token
@@ -48,16 +51,19 @@ const authAdmin = async (req: Request, res: Response, next: NextFunction) => {
     }
     next();
 }
+
 const authClerk = async (req: Request, res: Response, next: NextFunction) => {
     if (req.body.role != UserRole.CLERK) {
         return res.render('pages/login/index.ejs', { Error_message: "You must to log in as clerk" })
     }
     next();
 }
+
 const authManager = async (req: Request, res: Response, next: NextFunction) => {
     if (req.body.role != UserRole.MANAGER) {
         return res.render('pages/login/index.ejs', { Error_message: "You must to log in as manager" })
     }
     next();
 }
+
 export { authUser, authAdmin, authClerk, authManager }
