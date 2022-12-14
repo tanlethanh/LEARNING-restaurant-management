@@ -2,43 +2,44 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head', {page:'homepage-reservation'}) %> 
+    <%- include('./partials/head', {page:'homepage-reservation'}) %>
 </head>
 
 <body>
     <!-- header  -->
-    <%- include('./partials/header')%> 
-    <div id="main">
-        <div class="background-layer"></div>
-        <div class="main-content">
-            <h2> Chọn giờ đặt </h2>
-            <div class="main-content-form">
-                <div class="main-content-form-input">
-                    <input class="date" type="date" name="" id="">
-                    <input type="time" list="reservation-time-option" name="reservationTime" />
-                    <datalist id="reservation-time-option">
-                        <option value="07:00"></option>
-                        <option value="07:30"></option>
-                        <option value="08:00"></option>
-                        <option value="08:30"></option>
-                        <option value="09:00"></option>
-                    </datalist>
-                    <input class="number-person" type="text" list="number-person-option" name="numberOfPerson" />
-                    <datalist id="number-person-option">
-                        <option value="2">2 người</option>
-                        <option value="4">4 người</option>
-                        <option value="8">8 người</option>
-                        <option value="10">10 người</option>
-                    </datalist>
-                </div>
-                <button> Đặt bàn </button>
+    <%- include('./partials/header')%>
+        <div id="main">
+            <div class="background-layer"></div>
+            <div class="main-content">
+                <h2> Chọn giờ đặt </h2>
+                <form class="main-content-form">
+                    <div class="main-content-form-input">
+                        <input class="date" type="date" name="date">
+                        <input type="time" list="reservation-time-option" name="reservationTime" />
+                        <datalist id="reservation-time-option">
+                            <option value="07:00"></option>
+                            <option value="07:30"></option>
+                            <option value="08:00"></option>
+                            <option value="08:30"></option>
+                            <option value="09:00"></option>
+                        </datalist>
+                        <input class="number-person" type="text" list="number-person-option" name="numberOfPerson" />
+                        <datalist id="number-person-option">
+                            <option value="2">2 người</option>
+                            <option value="4">4 người</option>
+                            <option value="8">8 người</option>
+                            <option value="10">10 người</option>
+                        </datalist>
+                    </div>
+                    <button id="make-reservation" type="submit"> Đặt bàn</button>
+                </form>
             </div>
         </div>
-    </div>
-    <!-- footer  -->
-    <%- include('./partials/footer') %> 
-    <!-- author  -->
-    <%- include('./partials/author') %> 
+        <!-- footer  -->
+        <script type="module" src="js/homepage-reservation.js"></script>
+        <%- include('./partials/footer') %>
+            <!-- author  -->
+            <%- include('./partials/author') %>
 </body>
 
 </html>
