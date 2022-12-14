@@ -298,6 +298,7 @@
 
 .main-table-item-right>div>p {
     font-weight: 400;
+    margin-bottom: 0 !important;
 }
 
 .main-table-item.locked {
