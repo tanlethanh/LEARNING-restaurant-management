@@ -74,6 +74,12 @@ class DashboardController {
         })
     }
 
+    public static async getStatisticView(req: Request, res: Response, next: Function) {
+        
+
+        return res.render('pages/dashboard/statistic-page')
+    }
+
 }
 
 export default DashboardController

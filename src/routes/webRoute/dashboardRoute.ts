@@ -8,7 +8,7 @@ dashboardRoute
     .get("/main", authUser, authAdmin, DashboardController.getDashboardView)
     .get("/booking")
     .get("/user")
-    .get("/statistic")
+    .get("/statistic", authUser, authAdmin, DashboardController.getStatisticView)
     .get("/setting")
     .post("setting")
 
