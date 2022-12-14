@@ -16,12 +16,16 @@ import {
     createRefreshJWT,
 } from "./utils/jwtUtils";
 
+import {init} from "./init"
+
 // UserRepository.getUserByUsername("hung")
 //     .then(user => {
 //         if (user) {
 //             console.log(createJWT({ firstName: user.firstName, lastName: user.lastName, id: user.id }));
 //         }
 //     })
-UserRepository.generateUserDB()
+// UserRepository.generateUserDB()
+
+//init()
 
 

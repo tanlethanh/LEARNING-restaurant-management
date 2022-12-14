@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import TableRepository from "../repositories/TableRepository";
+import ReservationService from "../services/ReservationService";
+import Log from "../middlewares/Log";
 
 const listSeat = ["2", "4", "8"]
 
@@ -92,7 +94,7 @@ class HomepageController {
         })
 
         const default_threshold = 0.7
-
+        const date = req.body.date
         const time = req.body.reservationTime
         const people = req.body.numberOfPerson
 
@@ -112,11 +114,26 @@ class HomepageController {
             })
         }
 
-        return res.render('pages/homepage/homepage-reservation', { withModal: true })
+        return res.render('pages/homepage/homepage-reservation', { withModal: true , date: date, people: people})
     }
 
     public static async initReservation(req: Request, res: Response) {
-
+        const name = req.body.name
+        const phoneNumber = req.body.phone_number
+        const time = req.body.reservationTime
+        const numberOfPeople = parseInt(req.body.numberOfPerson)
+        const date = req.body.date
+        try {
+            // let reservation = await ReservationService.createReservation(date, time, name,phoneNumber,numberOfPeople);
+   
+            return res.json({ date: name })
+         }
+         catch (error: Error | any) {
+            Log.error(error.message)
+            return res.status(400).json({
+               error: error.message
+            })
+         }
     }
 
     public static async getReservationHoursAt(req: Request, res: Response) {

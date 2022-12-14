@@ -32,6 +32,26 @@ class CustomerRepository implements ICustomerRepository {
     //     }
     //     return customers
     // }
+    public async CreateBookedCustomer(cusPhoneNumber: string, cusFirstName: string ) {
+            const customerData: Prisma.BookedCustomerCreateInput = {
+                phoneNumber: cusPhoneNumber,
+                firstName: cusFirstName,
+                lastName: "aaaa",
+                customer: {
+                    create: {
+                        type: CustomerType.BOOKED
+                    }
+                }
+            }
+            const customer = await PrismaDB.bookedCustomer.create({
+                data: customerData,
+                include: {
+                    reservations: true
+                }
+            })
+        return customer
+    }
+
     public async generateRandomBookedCustomers(count: number) {
         
         const customers: BookedCustomer[] = []
