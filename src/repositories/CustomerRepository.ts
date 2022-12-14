@@ -6,14 +6,14 @@ const random_name = require('node-random-name')
 
 
 class CustomerRepository implements ICustomerRepository {
-    
+
     /**
      * @author Tan Le <https://github.com/tanlethanh>
      * @param count: number of the fake customers want to create
      * @returns list of booked customers
      */
     public async generateRandomBookedCustomers(count: number) {
-        
+        console.log("Generating random customers")
         const customers: BookedCustomer[] = []
         for (let index = 0; index < count; index++) {
 

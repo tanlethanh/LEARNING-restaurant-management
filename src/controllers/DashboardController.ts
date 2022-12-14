@@ -61,6 +61,23 @@ class DashboardController {
         })
     }
 
+    public static async getOrder(req: Request, res: Response) {
+        const tableId = String(req.query.tableid)
+        
+        let curOrder
+        try {
+            curOrder = await OperationService.getOrderForTable(tableId)
+        }
+        catch (error: Error | any) {
+            return res.status(400).json({
+                error: error.message
+            })
+        }
+        return res.json({
+            order: curOrder,
+        })
+    }
+
     public static updateOrder(req: Request, res: Response) {
         throw new Error('Method not implemented.');
     }

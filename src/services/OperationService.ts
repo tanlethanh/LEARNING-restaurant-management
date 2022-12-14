@@ -172,6 +172,14 @@ class OperationService {
 
     }
 
+    public async getOrderForTable(tableId: string) {
+        const table = await TableRepository.getTableWithReservationsById(tableId, true)
+        if (table == null) {
+            throw new NotFoundError(ResourceName.TABLE, tableId)
+        }
+        return table;
+    }
+
 }
 
 export default new OperationService

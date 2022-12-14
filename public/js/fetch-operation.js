@@ -29,3 +29,12 @@ export async function fetchInitOrder(reservationId, tableId) {
 
     return fetch(url, options)
 }
+
+export async function fetchTableOrder(tableId){
+    const url = url_prefix + `orders?tableid=${tableId}`;
+    const options = {
+        method: 'GET'
+    };
+
+    return fetch(url, options)
+}

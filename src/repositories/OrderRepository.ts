@@ -188,6 +188,19 @@ class OrderRepository {
         return order;
     }
 
+    // reset toan bo ban ve DONE
+    async resetAllOrderState() {
+        const order = await PrismaDB.order.updateMany({
+            where: {
+                state: OrderState.INPROGRESS
+            },
+            data: {
+                state: OrderState.DONE
+            }
+        })
+        return order;
+    }
+
     async updateOrderItemQuantity(order_id: string, foodItem_id: string, quantity: IQuantityOrder) {
         const quantityData: Prisma.OrderItemUpdateInput = {
             totalQuantity: {

@@ -1,6 +1,6 @@
-import { fetchAssignTableForReservation, fetchInitOrder } from "./fetch-operation.js";
+import { fetchAssignTableForReservation, fetchInitOrder, fetchTableOrder } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
-import { createYesNoModal } from "./utils/modal.js";
+import { createYesNoModal, createTableModal } from "./utils/modal.js";
 import NotificationQueue from './utils/notify.js'
 
 // parse global variable
@@ -12,7 +12,7 @@ let listPopupTables = null
 
 // Helpers
 function reservationOnClick(event) {
-
+    console.log(chosenReservation);
     if (chosenReservation != null &&
         chosenReservation.id == event.currentTarget.id
     ) {
@@ -90,6 +90,12 @@ function tableOnClick(event) {
         createYesNoModal(title, async () => {
             const response = await fetchInitOrder(reservation.id, table.id)
             console.log(await response.json())
+        })
+    }
+    // get info
+    else {
+        fetchTableOrder(table.id).then((response)=>response.json()).then((data)=>{
+            createTableModal(data)
         })
     }
 }
@@ -211,6 +217,14 @@ function lockedTableForReservation(updatedReservation) {
 
 }
 
+function findCustomerInReservation(customerId){
+    for(let i=0; i<reservationsData.length(); i++){
+        if(reservationsData[i].customerId === customerId){
+            return reservationsData[i].customer;
+        }
+    }
+    return null;
+}
 
 // Main here
 
