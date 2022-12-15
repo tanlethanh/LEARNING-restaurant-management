@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 import Log from "../middlewares/Log";
 import TableRepository from "../repositories/TableRepository";
 import OperationService from "../services/OperationService";
-
 class DashboardController {
 
     public static async updateReservation(req: Request, res: Response) {
@@ -63,7 +62,7 @@ class DashboardController {
 
     public static async getOrder(req: Request, res: Response) {
         const tableId = String(req.query.tableid)
-        
+
         let curOrder
         try {
             curOrder = await OperationService.getOrderForTable(tableId)
