@@ -9,8 +9,9 @@ import NotificationQueue from "./utils/notify.js";
 // parse global variable
 const tablesData = tables;
 const reservationsData = reservations;
+const newCustomerData = newCustomers;
 let chosenReservation = null;
-let listPopupTables = null;
+let chosenNewCustomer = null;
 
 // Helpers
 function reservationOnClick(event) {
@@ -33,6 +34,23 @@ function reservationOnClick(event) {
     if (reservation != null && reservation.state == "READY") {
       popUpMatchedTables(chosenReservation);
     }
+  }
+}
+
+function newCustomerOnclick(event){
+  if(chosenNewCustomer != null && chosenNewCustomer.id === event.currentTarget.id){
+    chosenNewCustomer.classList.remove("chosen");
+    chosenNewCustomer = null;
+    unPopupTables();
+  }else{
+    if(chosenNewCustomer != null){
+      chosenNewCustomer.classList.remove("chosen");
+    }
+    chosenNewCustomer = event.currentTarget;
+    chosenNewCustomer.classList.add("chosen");
+    unPopupTables();
+    const newCustomer = findNewCustomerById(chosenNewCustomer.id);
+    popUpMatchedTablesForNewCus(newCustomer);
   }
 }
 
@@ -154,6 +172,27 @@ function popUpMatchedTables(currentTarget) {
   });
 }
 
+function popUpMatchedTablesForNewCus(currentTarget){
+  const id = currentTarget.customerId;
+  let curNewCus;
+  curNewCus = findNewCustomerById(id);
+
+    // Pop up all tables available for this reservation
+    tablesData.map((table) => {
+      if (
+        table.numberOfSeats >= curNewCus.numOfSeats &&
+        table.state == "FREE"
+      ) {
+        const tableElement = document.getElementById(table.id);
+        if (!tableElement.classList.contains("popup")) {
+          tableElement.classList.add("popup");
+        } else {
+          tableElement.classList.remove("popup");
+        }
+      }
+    });
+}
+
 function unPopupTables() {
   const tables = document.getElementsByClassName("main-table-item");
   for (let i = 0; i < tables.length; i++) {
@@ -168,6 +207,13 @@ function findById(list, id) {
   return null;
 }
 
+function findNewCustomerById(id){
+  for(let i=0; i<newCustomerData.length; i++){
+    if(newCustomerData[i].customerId === id){
+      return newCustomerData[i];
+    }
+  }
+}
 // For socket communication
 
 function updateReservations(updatedReservation) {
@@ -328,6 +374,11 @@ const listBookedCustomers = document.getElementsByClassName(
 );
 for (let i = 0; i < listBookedCustomers.length; i++) {
   listBookedCustomers[i].addEventListener("click", reservationOnClick);
+}
+
+const listNewCustomers = document.getElementsByClassName("newCustomer-unassigned");
+for(let i=0; i< listNewCustomers.length; i++){
+  listNewCustomers[i].addEventListener("click", newCustomerOnclick )
 }
 
 const listTables = document.getElementsByClassName("main-table-item");

@@ -18,10 +18,9 @@
 
     <div id="new-customers">
         <h2>Khách mới</h2>
-        <div>
-            <h3>123. ABC</h3>
-            <p>4 người</p>
-        </div>
+        <% for( let index = 0; index < newCustomers.length; index++)  {%>
+            <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) %>
+        <% } %>
     </div>
     <div id="ordered-customers">
         <h2> Khách đặt trước </h2>
@@ -64,6 +63,7 @@
     <script>
         // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
         var tables = JSON.parse('<%- JSON.stringify(tables) %>');
+        var newCustomers = JSON.parse('<%- JSON.stringify(newCustomers) %>');
         var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
     </script>
     <script src="/socket.io/socket.io.js"></script>

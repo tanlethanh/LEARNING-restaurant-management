@@ -1,4 +1,4 @@
-import { BookedCustomer, Customer, OrderState, Reservation, ReservationState, Table, TableState } from '@prisma/client';
+import { BookedCustomer, Customer, NewCustomer, OrderState, Reservation, ReservationState, Table, TableState } from '@prisma/client';
 // import { Command } from 'commander';
 import TableRepository from "./repositories/TableRepository";
 import { randomNumber } from './utils/mathUtils';
@@ -34,6 +34,13 @@ export function generateRandomTables(count: number = 20) {
 export function generateRandomBookedCustomers(count: number = 30) {
     CustomerRepository.generateRandomBookedCustomers(count)
         .then((customers: BookedCustomer[]) => {
+            console.log(customers)
+        })
+}
+
+export function generateRandomNewCustomers(count: number = 30) {
+    CustomerRepository.generateRandomNewCustomers(count)
+        .then((customers: NewCustomer[]) => {
             console.log(customers)
         })
 }
@@ -109,7 +116,7 @@ export async function autoUnlockReservation(chance: number = 0.5) {
 }
 
 
-export async function getOrder(id:String) {
+export async function getOrder(id:string) {
         let a;
         try {
             a =await TableRepository.getTableWithReservationsById(id, true)

@@ -62,6 +62,7 @@ class CustomerRepository implements ICustomerRepository {
 
             const customerData: Prisma.NewCustomerCreateInput = {
                 ordinamNumber: index,
+                numOfSeats : Math.round(Math.random()*7)+1,
                 date: new Date(),
                 customer: {
                     create: {
@@ -76,6 +77,14 @@ class CustomerRepository implements ICustomerRepository {
             customers.push(customer)
         }
         return customers
+    }
+
+    public async getAllNewCustomer() {
+        return await PrismaDB.newCustomer.findMany({
+            orderBy:{
+                ordinamNumber : "asc"
+            }
+        })
     }
 }
 

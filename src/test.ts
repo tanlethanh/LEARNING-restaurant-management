@@ -23,5 +23,10 @@ import {
 //         }
 //     })
 // UserRepository.generateUserDB()
+import { generateReservation, generateRandomBookedCustomers, generateRandomNewCustomers, generateRandomTables } from './testFunction'
+// generateRandomBookedCustomers();
+// generateRandomTables()
+generateRandomNewCustomers();
+// generateReservation()
 
 

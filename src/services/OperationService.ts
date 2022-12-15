@@ -28,6 +28,10 @@ class OperationService {
         return await ReservationRepository.getAllReservationsToday()
     }
 
+    public async getAllNewCustomer() {
+        return await CustomerRepository.getAllNewCustomer();
+    }
+
     /**
      * This method assign table for reservation, state of reservation must be INIT
      * the table has enough seats and has no assigned reservation in this time

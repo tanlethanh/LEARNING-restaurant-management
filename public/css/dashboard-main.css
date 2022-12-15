@@ -151,7 +151,7 @@
     flex-grow: 0;
 }
 
-#new-customers div {
+.newCustomer-unassigned {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -169,6 +169,11 @@
     /* inside */
     flex: none;
     flex-grow: 0;
+}
+
+.newCustomer-unassigned.chosen{
+    border: 2px solid #1b0091;
+    background-color: #9ec2e7;
 }
 
 #clerks {
