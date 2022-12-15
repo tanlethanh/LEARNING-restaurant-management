@@ -1,4 +1,4 @@
-const categories: string[] = ["Món cá", "Món chè", "Món khác"]
+const categories: string[] = ["Món cá", "Món chè", "Món khác", "Nước ngọt", "Bia rượu"]
 export const foodDatas = [
    {
       name: "Bao tử cá",
@@ -81,6 +81,62 @@ export const foodDatas = [
       name: "Rau ăn kèm",
       price: 69000,
       category: categories[2],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Coca cola",
+      price: 20000,
+      category: categories[3],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Pepsi",
+      price: 20000,
+      category: categories[3],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Trà xanh không độ",
+      price: 20000,
+      category: categories[3],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Revive",
+      price: 20000,
+      category: categories[3],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Bia Sài Gòn",
+      price: 30000,
+      category: categories[4],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Bia Tiger",
+      price: 30000,
+      category: categories[4],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Bia Heniken",
+      price: 30000,
+      category: categories[4],
+      img: 'f12.jpg',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+      name: "Rượu vang",
+      price: 700000,
+      category: categories[4],
       img: 'f12.jpg',
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
    },
