@@ -15,7 +15,6 @@ let chosenNewCustomer = null;
 
 // Helpers
 function reservationOnClick(event) {
-  console.log(chosenReservation);
   if (
     chosenReservation != null &&
     chosenReservation.id == event.currentTarget.id
@@ -37,13 +36,16 @@ function reservationOnClick(event) {
   }
 }
 
-function newCustomerOnclick(event){
-  if(chosenNewCustomer != null && chosenNewCustomer.id === event.currentTarget.id){
+function newCustomerOnclick(event) {
+  if (
+    chosenNewCustomer != null &&
+    chosenNewCustomer.id === event.currentTarget.id
+  ) {
     chosenNewCustomer.classList.remove("chosen");
     chosenNewCustomer = null;
     unPopupTables();
-  }else{
-    if(chosenNewCustomer != null){
+  } else {
+    if (chosenNewCustomer != null) {
       chosenNewCustomer.classList.remove("chosen");
     }
     chosenNewCustomer = event.currentTarget;
@@ -68,6 +70,7 @@ function tableOnClick(event) {
     const title = `Bạn có muốn gán <strong>Bàn số ${table.tableNumber}</strong> 
                 cho <strong>${reservation.customer.firstName}</strong>?`;
     createYesNoModal(title, async () => {
+      updateTableState(table.id, 'LOCKED')
       let response = await fetchAssignTableForReservation(
         chosenReservation.id,
         table.id
@@ -110,7 +113,8 @@ function tableOnClick(event) {
                 cho khách hàng <strong>${reservation.customer.firstName}</strong>?`;
 
     createYesNoModal(title, async () => {
-      const response = await fetchInitOrder(reservation.id, table.id);
+      updateTableState(table.id, 'INPROGRESS')
+      const response = await fetchInitOrder(reservation.id, "", table.id);
       let orderedTable = await response.json();
       const order = orderedTable.order;
       console.log(order);
@@ -132,6 +136,45 @@ function tableOnClick(event) {
         });
       }
     });
+  }
+  // init order for new customers
+  else if (
+    chosenNewCustomer != null &&
+    event.currentTarget.classList.contains("popup")
+  ) {
+    const curNewCustomer = findNewCustomerById(chosenNewCustomer.id);
+    const title = `Bạn có muốn khởi tạo đơn hàng tại <strong>Bàn số ${table.tableNumber}</strong> 
+                cho khách hàng thứ <strong>${curNewCustomer.ordinamNumber}</strong>?`;
+
+    createYesNoModal(title, async () => {
+      updateTableState(table.id, 'INPROGRESS')
+      const response = await fetchInitOrder("",chosenNewCustomer.id, table.id);
+      let orderedTable = await response.json();
+      const order = orderedTable.order;
+      console.log(order);
+      if (order) {
+        NotificationQueue.enqueue({
+          status: "success",
+          title: `Khởi tạo đơn hàng`,
+          text: `Bàn số 1 khởi tạo thành công`,
+          order: order,
+          callback: function orderTable() {
+            initOrderTable(this.order);
+          },
+        });
+      } else {
+        NotificationQueue.enqueue({
+          status: "error",
+          title: `Khởi tạo đơn hàng`,
+          text: `Bàn số 1 khởi tạo thất bại, vui lòng tải lại trang!`,
+        });
+      }
+    });
+    unPopupTables();
+    const curNewCustomerDiv = document.getElementById(chosenNewCustomer.id);
+    const curIngressTable = document.getElementById(table.id);
+    curNewCustomerDiv.remove();
+    curIngressTable.classList.remove("unlock")
   }
   // get info
   else {
@@ -172,25 +215,22 @@ function popUpMatchedTables(currentTarget) {
   });
 }
 
-function popUpMatchedTablesForNewCus(currentTarget){
+function popUpMatchedTablesForNewCus(currentTarget) {
   const id = currentTarget.customerId;
   let curNewCus;
   curNewCus = findNewCustomerById(id);
 
-    // Pop up all tables available for this reservation
-    tablesData.map((table) => {
-      if (
-        table.numberOfSeats >= curNewCus.numOfSeats &&
-        table.state == "FREE"
-      ) {
-        const tableElement = document.getElementById(table.id);
-        if (!tableElement.classList.contains("popup")) {
-          tableElement.classList.add("popup");
-        } else {
-          tableElement.classList.remove("popup");
-        }
+  // Pop up all tables available for this reservation
+  tablesData.map((table) => {
+    if (table.numberOfSeats >= curNewCus.numOfSeats && table.state == "FREE") {
+      const tableElement = document.getElementById(table.id);
+      if (!tableElement.classList.contains("popup")) {
+        tableElement.classList.add("popup");
+      } else {
+        tableElement.classList.remove("popup");
       }
-    });
+    }
+  });
 }
 
 function unPopupTables() {
@@ -207,9 +247,9 @@ function findById(list, id) {
   return null;
 }
 
-function findNewCustomerById(id){
-  for(let i=0; i<newCustomerData.length; i++){
-    if(newCustomerData[i].customerId === id){
+function findNewCustomerById(id) {
+  for (let i = 0; i < newCustomerData.length; i++) {
+    if (newCustomerData[i].customerId === id) {
       return newCustomerData[i];
     }
   }
@@ -231,6 +271,7 @@ function updateTables(updatedTable) {
   for (let i = 0; i < reservationsData.length; i++) {
     if (tablesData[i].id == updatedTable.id) {
       tablesData[i] = updatedTable;
+      tablesData[i].state = updatedTable.state;
       break;
     }
   }
@@ -239,7 +280,6 @@ function updateTables(updatedTable) {
 function assignReservation(updatedReservation) {
   // console.log(updatedReservation)
   console.log("Update reservation after assign");
-  console.log(updatedReservation.id);
   const element = document.getElementById(updatedReservation.id);
   element.classList.add("locked");
 
@@ -289,6 +329,14 @@ function lockedTableForReservation(updatedReservation) {
     updatedReservation.customer.firstName;
 }
 
+function updateTableState(id, state){
+  tablesData.forEach((table)=>{
+    if(table.id === id){
+      table.state = state;
+    }
+  })
+}
+
 function initOrderTable(updatedTable) {
   const curTime = new Date(updatedTable.arrivalTime);
   console.log("Locked table for reservation ", updatedTable);
@@ -328,7 +376,9 @@ function initOrderTable(updatedTable) {
   pElement = document.createElement("p");
   rightTableItem.appendChild(pElement);
   pElement.setAttribute("id", "remainTime" + updatedTable.tableId);
-  pElement.innerHTML = `Con <span>${Math.round((curTime - new Date() + 3600000) / 60000)}</span> phut`;
+  pElement.innerHTML = `Con <span>${Math.round(
+    (curTime - new Date() + 3600000) / 60000
+  )}</span> phut`;
   countdown(updatedTable.tableId);
 }
 const timeoutTable = 1000;
@@ -376,9 +426,11 @@ for (let i = 0; i < listBookedCustomers.length; i++) {
   listBookedCustomers[i].addEventListener("click", reservationOnClick);
 }
 
-const listNewCustomers = document.getElementsByClassName("newCustomer-unassigned");
-for(let i=0; i< listNewCustomers.length; i++){
-  listNewCustomers[i].addEventListener("click", newCustomerOnclick )
+const listNewCustomers = document.getElementsByClassName(
+  "newCustomer-unassigned"
+);
+for (let i = 0; i < listNewCustomers.length; i++) {
+  listNewCustomers[i].addEventListener("click", newCustomerOnclick);
 }
 
 const listTables = document.getElementsByClassName("main-table-item");
@@ -421,7 +473,6 @@ socket.on("refresh page", (message) => {
 // class="main-table-item locked"
 window.onload = () => {
   const tables = document.querySelectorAll(".main-table-item");
-  console.log(tables);
   tables.forEach((table) => {
     if (
       !table.classList.contains("locked") &&

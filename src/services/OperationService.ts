@@ -176,6 +176,20 @@ class OperationService {
 
     }
 
+    public async initOrderForNewCustomer(tableId: string, newCustomerId: string) {
+        const table = await TableRepository.getTableWithReservationsById(tableId)
+        const newCustomer = await CustomerRepository.getCustomerById(newCustomerId)
+        if (table == null) {
+            throw new NotFoundError(ResourceName.TABLE, tableId)
+        }
+        else if (newCustomer == null) {
+            throw new NotFoundError(ResourceName.CUSTOMER, newCustomerId)
+        }
+        await TableRepository.updateTableStateById(tableId, TableState.INPROGRESS)
+        return await OrderRepository.createNewOrder(tableId, newCustomerId)
+
+    }
+
     public async getOrderForTable(tableId: string) {
         const table = await TableRepository.getTableWithReservationsById(tableId, true)
         if (table == null) {

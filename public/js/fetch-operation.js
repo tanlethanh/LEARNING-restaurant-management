@@ -21,8 +21,8 @@ export async function fetchAssignTableForReservation(reservationId, tableId) {
     return fetch(url, options)
 }
 
-export async function fetchInitOrder(reservationId, tableId) {
-    const url = url_prefix + `orders?tableid=${tableId}&reservationid=${reservationId}`;
+export async function fetchInitOrder(reservationId, newCustomerId, tableId) {
+    const url = url_prefix + `orders?tableid=${tableId}&newcustomerid=${newCustomerId}&reservationid=${reservationId}`;
     const options = {
         method: 'POST'
     };

@@ -46,9 +46,17 @@ class DashboardController {
     public static async initOrder(req: Request, res: Response) {
         const tableId = String(req.query.tableid)
         const reservationId = String(req.query.reservationid)
+        const newCustomerId = String(req.query.newcustomerid)
         let initiatedOrder
         try {
-            initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
+            // init order for new customer
+            if(reservationId === ""){
+                initiatedOrder = await OperationService.initOrderForNewCustomer(tableId, newCustomerId)
+            }
+            // init order for reservation
+            else{
+                initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
+            }
         }
         catch (error: Error | any) {
             return res.status(400).json({
