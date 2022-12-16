@@ -34,6 +34,24 @@
     border-radius: 5px;
 }
 
+.modal-box-notify {
+    box-sizing: border-box;
+    width: 639px;
+    height: 200px;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+
+    justify-content: first baseline;
+
+    padding: 43px 53px;
+    gap: 20px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
 .modal-parallel-detail {
     display: flex;
     flex-direction: row;

@@ -16,6 +16,8 @@ import {
     createRefreshJWT,
 } from "./utils/jwtUtils";
 
+import {init} from "./init"
+
 // UserRepository.getUserByUsername("hung")
 //     .then(user => {
 //         if (user) {
@@ -24,11 +26,12 @@ import {
 //     })
 // UserRepository.generateUserDB()
 import { generateReservation, generateRandomBookedCustomers, generateRandomNewCustomers, generateRandomTables } from './testFunction'
-import { init } from './init';
 // generateRandomBookedCustomers();
 // generateRandomTables()
 // generateRandomNewCustomers();
 // generateReservation()
+
+//init()
 
 // init()
 
