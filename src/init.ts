@@ -5,8 +5,8 @@ import UserRepository from "./repositories/UserRepository";
 import CustomerRepository from "./repositories/CustomerRepository";
 
 export function init() {
-    TableRepository.generateRandomTables(30)
-    CustomerRepository.generateRandomBookedCustomers(20)
+    // TableRepository.generateRandomTables(30)
+    // CustomerRepository.generateRandomBookedCustomers(20)
     UserRepository.generateUserDB()
     FoodRepository.generateFoodItemDB()
 }

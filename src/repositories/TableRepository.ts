@@ -85,7 +85,11 @@ class TableRepository {
                             },
                             orderItems: {
                                 include: {
-                                    foodItem: true
+                                    foodItem: {
+                                        include:{
+                                            category:true
+                                        }
+                                    }
                                 }
                             }
                         }

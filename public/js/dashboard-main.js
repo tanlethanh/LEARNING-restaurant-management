@@ -194,7 +194,7 @@ function tableOnClick(event) {
       }
     });
   }
-  // get info
+  // can't choose invalid table
   else if (chosenNewCustomer || chosenReservation) {
     const title = `Bạn không thể chọn bàn này.`;
     createYesNoModal(
@@ -206,7 +206,9 @@ function tableOnClick(event) {
       "Quay lại",
       true
     );
-  } else {
+  } 
+  // get info
+  else {
     fetchTableOrder(table.id)
       .then((response) => response.json())
       .then((data) => {
@@ -467,7 +469,7 @@ function initOrderTable(updatedTable) {
   )}</span> phut`;
   countdown(updatedTable.tableId);
 }
-const timeoutTable = 1000;
+const timeoutTable = 3000;
 
 function countdown(id) {
   const timer = setInterval(() => {
