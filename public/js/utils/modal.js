@@ -192,74 +192,84 @@ export function createTableModal(table1) {
   tableDetail.appendChild(bottom);
   bottom.classList.add("table-detail-bottom-body");
 
-  const bottom1 = document.createElement("p");
-  bottom.appendChild(bottom1);
-  bottom1.classList.add("table-detail-numOfTableSeat");
-  bottom1.innerHTML = "Các món gọi";
+  if(table.state === "INPROGRESS"){
+    const bottom1 = document.createElement("p");
+    bottom.appendChild(bottom1);
+    bottom1.classList.add("table-detail-numOfTableSeat");
+    bottom1.innerHTML = "Các món gọi";
+  
+    const bottomTable = document.createElement("table");
+    bottom.appendChild(bottomTable);
+    bottomTable.classList.add("bottom-order-table")
+  
+    let bottomTr = document.createElement("tr");
+    bottomTable.appendChild(bottomTr);
+  
+    const bottomTh1 = document.createElement("th");
+    bottomTr.appendChild(bottomTh1);
+    bottomTh1.innerHTML = "STT";
+    bottomTh1.style.width = "7%";
+  
+    const bottomTh2 = document.createElement("th");
+    bottomTr.appendChild(bottomTh2);
+    bottomTh2.innerHTML = "Tên món";
+    bottomTh2.style.width = "27%";
+  
+    const bottomTh3 = document.createElement("th");
+    bottomTr.appendChild(bottomTh3);
+    bottomTh3.innerHTML = "Số lượng";
+    bottomTh3.style.width = "13%";
+  
+    const bottomTh4 = document.createElement("th");
+    bottomTr.appendChild(bottomTh4);
+    bottomTh4.innerHTML = "Loại";
+    bottomTh4.style.width = "10%";
+  
+    const bottomTh5 = document.createElement("th");
+    bottomTr.appendChild(bottomTh5);
+    bottomTh5.innerHTML = "Ghi chú";
+    bottomTh5.style.width = "28%";
+  
+    const bottomTh6 = document.createElement("th");
+    bottomTr.appendChild(bottomTh6);
+    bottomTh6.innerHTML = "Trạng thái";
+    bottomTh6.style.width = "15%";
+    if(orders[0].orderItems.length>0){
+      let bottomTd;
 
-  const bottomTable = document.createElement("table");
-  bottom.appendChild(bottomTable);
-  bottomTable.classList.add("bottom-order-table")
+      for(let i=0; i<orders[0].orderItems.length; i++){
+        const curOrderFoodItems = orders[0].orderItems[i];
 
-  let bottomTr = document.createElement("tr");
-  bottomTable.appendChild(bottomTr);
+        bottomTr = document.createElement("tr");
+        bottomTable.appendChild(bottomTr);
 
-  const bottomTh1 = document.createElement("th");
-  bottomTr.appendChild(bottomTh1);
-  bottomTh1.innerHTML = "STT";
-  bottomTh1.style.width = "7%";
-
-  const bottomTh2 = document.createElement("th");
-  bottomTr.appendChild(bottomTh2);
-  bottomTh2.innerHTML = "Tên món";
-  bottomTh2.style.width = "27%";
-
-  const bottomTh3 = document.createElement("th");
-  bottomTr.appendChild(bottomTh3);
-  bottomTh3.innerHTML = "Số lượng";
-  bottomTh3.style.width = "13%";
-
-  const bottomTh4 = document.createElement("th");
-  bottomTr.appendChild(bottomTh4);
-  bottomTh4.innerHTML = "Loại";
-  bottomTh4.style.width = "10%";
-
-  const bottomTh5 = document.createElement("th");
-  bottomTr.appendChild(bottomTh5);
-  bottomTh5.innerHTML = "Ghi chú";
-  bottomTh5.style.width = "28%";
-
-  const bottomTh6 = document.createElement("th");
-  bottomTr.appendChild(bottomTh6);
-  bottomTh6.innerHTML = "Trạng thái";
-  bottomTh6.style.width = "15%";
-
-  bottomTr = document.createElement("tr");
-  bottomTable.appendChild(bottomTr);
-
-  let bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "1";
-
-  bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "Beefsteak";
-
-  bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "2";
-
-  bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "1";
-
-  bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "Ngon";
-
-  bottomTd = document.createElement("td");
-  bottomTr.appendChild(bottomTd);
-  bottomTd.innerHTML = "Served";
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        bottomTd.innerHTML = i+1;
+      
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        bottomTd.innerHTML = curOrderFoodItems.foodItem.name;
+      
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        bottomTd.innerHTML = curOrderFoodItems.totalQuantity;
+      
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        bottomTd.innerHTML = curOrderFoodItems.foodItem.category.name;
+      
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        bottomTd.innerHTML = curOrderFoodItems.foodItem.description.slice(0, 50)+"...";
+      
+        bottomTd = document.createElement("td");
+        bottomTr.appendChild(bottomTd);
+        let foodState = (curOrderFoodItems.servedQuantity === curOrderFoodItems.totalQuantity)?"Đã lên":"Đang lên"
+        bottomTd.innerHTML = foodState;
+      }
+    }
+  }
 
 
   const buttonBody = document.createElement("div");

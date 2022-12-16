@@ -154,7 +154,7 @@
     overflow-x: clip;
     padding: 0px 10px;
 
-    /* inside */ 
+    /* inside */
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -163,6 +163,7 @@
 
 #new-customers h2 {
     /* inside */
+    margin-top: 5px;
     flex: none;
     flex-grow: 0;
 }
@@ -170,8 +171,7 @@
 #add-new-customers-button {
     margin-left: -5px;
     margin-right: 5px;
-    display: flex;
-    justify-content: center;
+    padding: auto;
     font-size: larger;
     font-weight: bolder;
     width: 30px;
@@ -179,13 +179,13 @@
     border-radius: 200px;
     color: white;
     background-color: #1f9254;
-    border: 1px solid #1f9254;
+    border: none;
+
 }
 
 .newCustomer-unassigned {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     padding: 5px 8px;
 
@@ -393,7 +393,7 @@
 
 .table-detail {
     width: 700px;
-    height: 650px;
+    height: 400px;
     margin: 0 auto;
     /* margin-top: 6%; */
     display: flex;
@@ -408,7 +408,9 @@
     padding-left: 48px;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.table-detail-inprogress{
+    height: 650px;
+}
 .table-detail-numOfTableSeat {
     font-weight: 800;
 }
@@ -467,8 +469,7 @@ table {
 td {
     padding-bottom: 4px;
     padding-left: 2px;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+    border: 1px solid black;
 }
 
 .table-detail th {
@@ -477,6 +478,8 @@ td {
 
 .table-detail-end-body {
     margin-top: 20px;
+    position: absolute;
+    bottom: 300px;
 }
 
 .table-detail-button-1 {
@@ -498,9 +501,6 @@ td {
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
-
-    position: relative;
-    top: 250px;
 }
 
 .table-detail-button-2 {
