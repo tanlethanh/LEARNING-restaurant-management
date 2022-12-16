@@ -137,6 +137,7 @@
 
 #new-customers {
     position: fixed;
+    z-index: 1;
     width: var(--main-width);
     height: var(--new-customers-height);
     top: var(--header-height);

@@ -32,5 +32,8 @@ import { init } from './init';
 
 // init()
 
-TableRepository.getTableWithReservationsById("c70d9ffc-296d-4ebe-8fea-c3e9cd458f65", true).then((res) => console.log(res));
+// import { createSampleData } from './data/createData'
+
+// createSampleData()
+// TableRepository.getTableWithReservationsById("c70d9ffc-296d-4ebe-8fea-c3e9cd458f65", true).then((res) => console.log(res));
 
