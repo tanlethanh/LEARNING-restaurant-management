@@ -2,7 +2,7 @@ import {
   fetchAssignTableForReservation,
   fetchInitOrder,
   fetchTableOrder,
-  fetchAddNewCustomer,
+  fetchAddNewCustomer
 } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
 import {
