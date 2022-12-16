@@ -101,7 +101,11 @@ function tableOnClick(event) {
         });
       }
     });
-  } else if (table.state == "LOCKED") {
+  } else if (
+    table.state == "LOCKED" &&
+    !chosenNewCustomer &&
+    !chosenReservation
+  ) {
     for (let i = 0; i < reservationsData.length; i++) {
       const element = reservationsData[i];
       if (element.assignedTableId == table.id) {
@@ -155,6 +159,7 @@ function tableOnClick(event) {
 
       unPopupTables();
       const curNewCustomerDiv = document.getElementById(chosenNewCustomer.id);
+      chosenNewCustomer=null;
       const curIngressTable = document.getElementById(table.id);
       curNewCustomerDiv.remove();
       curIngressTable.classList.remove("unlock");
@@ -179,7 +184,18 @@ function tableOnClick(event) {
     });
   }
   // get info
-  else {
+  else if (chosenNewCustomer || chosenReservation) {
+    const title = `Bạn không thể chọn bàn này.`;
+    createYesNoModal(
+      title,
+      () => {
+        console.log("Bye bye");
+      },
+      "",
+      "Quay lại",
+      true
+    );
+  } else {
     fetchTableOrder(table.id)
       .then((response) => response.json())
       .then((data) => {

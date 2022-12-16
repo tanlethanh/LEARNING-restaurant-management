@@ -2,7 +2,8 @@ export function createYesNoModal(
   title,
   yesCallback,
   yesContent = "Chấp nhận",
-  noContent = "Quay lại"
+  noContent = "Quay lại",
+  isOneButton = false
 ) {
   const modalBackground = document.createElement("div");
   const body = document.getElementsByTagName("body")[0];
@@ -26,28 +27,30 @@ export function createYesNoModal(
   buttonBox.classList.add("modal-button");
 
   // Yes button
-  const yesButton = document.createElement("button");
-  buttonBox.appendChild(yesButton);
-  yesButton.classList.add("modal-yes-button");
-  yesButton.innerHTML = yesContent;
-  yesButton.addEventListener("click", async (event) => {
-    const loading = document.getElementById("loading");
-    if (loading.classList.contains("hidden")) {
-      loading.classList.remove("hidden");
-    }
-    await yesCallback(event);
-    loading.classList.add("hidden");
-    modalBackground.remove();
-  });
+  if(!isOneButton){
+    const yesButton = document.createElement("button");
+    buttonBox.appendChild(yesButton);
+    yesButton.classList.add("modal-yes-button");
+    yesButton.innerHTML = `${yesContent}`;
+    yesButton.addEventListener("click", async (event) => {
+      const loading = document.getElementById("loading");
+      if (loading.classList.contains("hidden")) {
+        loading.classList.remove("hidden");
+      }
+      await yesCallback(event);
+      loading.classList.add("hidden");
+      modalBackground.remove();
+    });
+  }
 
   // No button
-  const noButton = document.createElement("button");
-  buttonBox.appendChild(noButton);
-  noButton.classList.add("modal-no-button");
-  noButton.innerHTML = noContent;
-  noButton.addEventListener("click", () => {
-    modalBackground.remove();
-  });
+    const noButton = document.createElement("button");
+    buttonBox.appendChild(noButton);
+    noButton.classList.add("modal-no-button");
+    noButton.innerHTML = noContent;
+    noButton.addEventListener("click", () => {
+      modalBackground.remove();
+    });
 }
 
 export function createTableModal(table1) {
