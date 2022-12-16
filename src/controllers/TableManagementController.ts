@@ -1,6 +1,7 @@
 import { OrderState, TableState } from "@prisma/client";
 import { Request, Response } from "express";
 import Log from "../middlewares/Log";
+import Socket from "../providers/Socket";
 import FoodRepository from "../repositories/FoodRepository";
 import OrderRepository from "../repositories/OrderRepository";
 import UserRepository from "../repositories/UserRepository";
@@ -93,7 +94,15 @@ class TableManagementController {
          }
 
          await OrderService.updateOrderState(order_id, OrderState.DONE)
-         await TableService.updateTableState(order.table.tableNumber, TableState.FREE)
+         const updatedTable = await TableService.updateTableState(order.table.tableNumber, TableState.FREE)
+
+         Socket.pushNotification({
+            type: "DONE_ORDER",
+            status: 'success',
+            title: 'Khách hàng đã rời bàn',
+            text: `Bàn số ${order.table.tableNumber} đã trống`,
+            updatedTable: updatedTable
+         })
 
          return res.json({
             success: true

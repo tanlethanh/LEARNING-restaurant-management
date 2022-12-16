@@ -53,10 +53,12 @@ const authAdmin = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 const authClerk = async (req: Request, res: Response, next: NextFunction) => {
-    if (req.body.role != UserRole.CLERK) {
-        return res.render('pages/login/index.ejs', { Error_message: "You must to log in as clerk" })
+
+    if (req.body.role == UserRole.CLERK || req.body.role == UserRole.ADMIN || req.body.role == UserRole.MANAGER) {
+        return next();
     }
-    next();
+
+    return res.render('pages/login/index.ejs', { Error_message: "You must to log in as clerk" })
 }
 
 const authManager = async (req: Request, res: Response, next: NextFunction) => {

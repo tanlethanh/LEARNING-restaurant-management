@@ -15,7 +15,7 @@ import NotificationQueue from "./utils/notify.js";
 const tablesData = tables;
 const reservationsData = reservations;
 const allNewCustomerData = newCustomers;
-let newCustomerData=[];
+let newCustomerData = [];
 let chosenReservation = null;
 let chosenNewCustomer = null;
 // Helpers
@@ -206,7 +206,7 @@ function tableOnClick(event) {
       "Quay lại",
       true
     );
-  } 
+  }
   // get info
   else {
     fetchTableOrder(table.id)
@@ -224,8 +224,8 @@ function addNewCustomerOnClick(event) {
       "addNewCustomerInput"
     ).value;
     let curNewCustomerOrdinam = 0;
-    if(allNewCustomerData.length > 0){
-      curNewCustomerOrdinam = allNewCustomerData[allNewCustomerData.length - 1].ordinamNumber + 1 
+    if (allNewCustomerData.length > 0) {
+      curNewCustomerOrdinam = allNewCustomerData[allNewCustomerData.length - 1].ordinamNumber + 1
     }
     let response = await fetchAddNewCustomer(
       inputNumberOfSeats,
@@ -360,11 +360,11 @@ function assignReservation(updatedReservation) {
   element.appendChild(icon);
 }
 
-function updateNewCustomer(newCustomer){
+function updateNewCustomer(newCustomer) {
   // add to current data
   allNewCustomerData.push(newCustomer);
   newCustomerData.push(newCustomer);
-  
+
   const divNewCustomer = document.getElementById("new-customers").querySelector(".list-new-customers")
   const unassignedDiv = document.createElement("div");
   divNewCustomer.appendChild(unassignedDiv);
@@ -486,30 +486,29 @@ function countdown(id) {
   }, timeoutTable);
 }
 
-// Main here
-// update remain arrive time
-// setInterval(() => {
-//   let remainTime = null;
-//   for (let i = 0; i < tablesData.length; i++) {
-//     const nowDate = new Date();
-//     const arrive = new Date(tablesData[i].arrivalTime);
-//     const time = arrive - nowDate;
-//     remainTime = document.getElementById("remainTime" + tablesData[i].id);
-//     if (remainTime != undefined) {
-//       remainTime.innerHTML = "Còn " + " phút";
-//     }
-//   }
-// }, 1000);
-// clock
-// setInterval(() => {
-//   const clock = document.getElementById("clock");
-//   clock.innerHTML = currentTime();
-// }, 10);
+function freeTable(updatedTable) {
+  console.log("Free table ", updatedTable);
+  updateTables(updatedTable);
+  const tableElement = document.getElementById(
+    updatedTable.id
+  );
+  tableElement.classList.add("unlock");
+  let rightEle = tableElement.querySelector(".main-table-item-right")
+  rightEle.remove()
+
+  rightEle = document.createElement("div")
+  rightEle.classList.add("main-table-item-right")
+  rightEle.innerHTML = '<h2> Đang trống </h2>'
+
+  tableElement.appendChild(rightEle)
+
+}
 
 // onlick event for all reservation item
 const listBookedCustomers = document.getElementsByClassName(
   "ordered-customers-item"
 );
+
 for (let i = 0; i < listBookedCustomers.length; i++) {
   listBookedCustomers[i].addEventListener("click", reservationOnClick);
 }
@@ -538,7 +537,9 @@ socket.on("notification", (noti) => {
   // console.log(noti)
   noti = JSON.parse(noti);
   noti.callback = function notiCallback() {
-    updateReservations(this.updatedReservation);
+    if (this.updatedReservation) {
+      updateReservations(this.updatedReservation);
+    }
     switch (this.type) {
       case "AUTO_ASSIGN":
         if (this.status == "success") {
@@ -552,8 +553,13 @@ socket.on("notification", (noti) => {
           freeReservation(this.updatedReservation);
         }
         break;
-    }
-  };
+      case "DONE_ORDER":
+        if (this.status == "success") {
+          freeTable(this.updatedTable);
+          break;
+        }
+    };
+  }
 
   NotificationQueue.enqueue(noti);
 });
