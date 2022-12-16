@@ -57,7 +57,7 @@ export function createTableModal(table1) {
   const orders = table1.order.orders;
   const table = table1.order;
   console.log("Create detail table modal: ");
-  console.log(orders);
+  console.log(table1);
   const modalBackground = document.createElement("div");
   const body = document.getElementsByTagName("body")[0];
   body.appendChild(modalBackground);
@@ -273,7 +273,7 @@ export function createTableModal(table1) {
 
 
   const buttonBody = document.createElement("div");
-  tableDetail.appendChild(buttonBody);
+  modalBackground.appendChild(buttonBody);
   buttonBody.classList.add("table-detail-end-body");
 
   if (table.state === "LOCKED") {
@@ -285,10 +285,16 @@ export function createTableModal(table1) {
     buttonBody.appendChild(cancelButton);
     cancelButton.classList.add("table-detail-button-2");
   } else if (table.state === "INPROGRESS") {
-    const payButton = document.createElement("button");
-    payButton.innerHTML="Thanh toán"
+    let payButton = document.createElement("button");
+    payButton.innerHTML="Đặt món"
     buttonBody.appendChild(payButton);
-    payButton.classList.add("table-detail-button-1");
+    payButton.classList.add("table-detail-button-2");
+    payButton.addEventListener("click",()=>{
+      window.open("http://localhost:4040/table-management/table/"+table1.order.id);
+    })
+
+
+
   }
 }
 

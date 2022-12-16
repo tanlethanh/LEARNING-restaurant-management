@@ -382,6 +382,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -486,9 +487,9 @@ td {
 }
 
 .table-detail-end-body {
-    margin-top: 20px;
-    position: absolute;
-    bottom: 300px;
+    position: relative;
+    z-index: 200;
+    bottom: 60px;
 }
 
 .table-detail-button-1 {
@@ -510,6 +511,7 @@ td {
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
+    margin-right: 10px;
 }
 
 .table-detail-button-2 {
@@ -531,6 +533,7 @@ td {
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
+    margin-left: 10px;
 }
 
 .table-detail-state-unarrived {

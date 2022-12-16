@@ -56,4 +56,4 @@ export async function fetchAddNewCustomer(numOfSeats, ordinamNumber) {
     }),
   };
   return fetch(url, options);
-}                                                                     
+}        
