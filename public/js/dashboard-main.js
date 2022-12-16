@@ -2,18 +2,29 @@ import {
   fetchAssignTableForReservation,
   fetchInitOrder,
   fetchTableOrder,
+  fetchAddNewCustomer,
 } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
-import { createYesNoModal, createTableModal } from "./utils/modal.js";
+import {
+  createYesNoModal,
+  createTableModal,
+  createFormModal,
+} from "./utils/modal.js";
 import NotificationQueue from "./utils/notify.js";
 // parse global variable
 const tablesData = tables;
 const reservationsData = reservations;
-const newCustomerData = newCustomers;
+const allNewCustomerData = newCustomers;
+let newCustomerData=[];
 let chosenReservation = null;
 let chosenNewCustomer = null;
-
 // Helpers
+allNewCustomerData.forEach((cus) => {
+  if (cus.state === "UNASSIGNED") {
+    newCustomerData.push(cus);
+  }
+});
+
 function reservationOnClick(event) {
   if (
     chosenReservation != null &&
@@ -159,7 +170,7 @@ function tableOnClick(event) {
 
       unPopupTables();
       const curNewCustomerDiv = document.getElementById(chosenNewCustomer.id);
-      chosenNewCustomer=null;
+      chosenNewCustomer = null;
       const curIngressTable = document.getElementById(table.id);
       curNewCustomerDiv.remove();
       curIngressTable.classList.remove("unlock");
@@ -202,6 +213,46 @@ function tableOnClick(event) {
         createTableModal(data);
       });
   }
+}
+
+function addNewCustomerOnClick(event) {
+  const title = "Vui lòng nhập thông tin của khách vừa vào!";
+  createFormModal(title, async () => {
+    const inputNumberOfSeats = document.getElementById(
+      "addNewCustomerInput"
+    ).value;
+    let curNewCustomerOrdinam = 0;
+    if(allNewCustomerData.length > 0){
+      curNewCustomerOrdinam = allNewCustomerData[allNewCustomerData.length - 1].ordinamNumber + 1 
+    }
+    let response = await fetchAddNewCustomer(
+      inputNumberOfSeats,
+      curNewCustomerOrdinam
+    );
+    console.log("Fetch - Create new customer");
+    response = await response.json();
+    const newCustomer = response.newCustomer;
+    updateNewCustomer(newCustomer);
+    if (newCustomer) {
+      NotificationQueue.enqueue({
+        status: "success",
+        title: `Tạo khác hàng mới`,
+        text: `Khách hàng số ${newCustomer.ordinamNumber} đã được tạo thành công`,
+        updatedNewCustomer: newCustomer,
+        callback: function updateNewCustmer() {
+          // update new customer
+          console.log("Update UI");
+        },
+      });
+    } else {
+      NotificationQueue.enqueue({
+        status: "error",
+        title: `Tạo khác hàng mới`,
+        text: `Khách hàng số ${newCustomer.ordinamNumber} tạo 
+        thất bại, vui lòng tải lại trang!`,
+      });
+    }
+  });
 }
 
 function popUpMatchedTables(currentTarget) {
@@ -305,6 +356,29 @@ function assignReservation(updatedReservation) {
   const icon = document.createElement("i");
   icon.classList.add("fa-solid", "fa-lock");
   element.appendChild(icon);
+}
+
+function updateNewCustomer(newCustomer){
+  // add to current data
+  allNewCustomerData.push(newCustomer);
+  newCustomerData.push(newCustomer);
+  
+  const divNewCustomer = document.getElementById("new-customers").querySelector(".list-new-customers")
+  const unassignedDiv = document.createElement("div");
+  divNewCustomer.appendChild(unassignedDiv);
+  unassignedDiv.classList.add("newCustomer-unassigned")
+  unassignedDiv.setAttribute("id", newCustomer.customerId);
+
+  let ele = document.createElement("h3");
+  unassignedDiv.appendChild(ele);
+  ele.innerHTML = `Số thứ tự ${newCustomer.ordinamNumber}`;
+
+  ele = document.createElement("p");
+  unassignedDiv.appendChild(ele);
+  ele.innerHTML = `${newCustomer.numOfSeats} người`;
+
+  // add event listenr
+  unassignedDiv.addEventListener("click", newCustomerOnclick)
 }
 
 function freeReservation(updatedReservation) {
@@ -450,6 +524,11 @@ for (let i = 0; i < listTables.length; i++) {
   const element = listTables[i];
   element.addEventListener("click", tableOnClick);
 }
+
+const addNewCustomerButton = document.getElementById(
+  "add-new-customers-button"
+);
+addNewCustomerButton.addEventListener("click", addNewCustomerOnClick);
 
 const socket = io();
 

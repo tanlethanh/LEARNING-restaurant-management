@@ -1,4 +1,4 @@
-import { ReservationState, TableState } from '@prisma/client';
+import { NewCustomerState, ReservationState, TableState } from '@prisma/client';
 import { BookedCustomer, Customer, CustomerType, Table, Reservation } from '@prisma/client';
 import CustomerRepository from "../repositories/CustomerRepository"
 import ReservationRepository from '../repositories/ReservationRepository';
@@ -178,14 +178,17 @@ class OperationService {
 
     public async initOrderForNewCustomer(tableId: string, newCustomerId: string) {
         const table = await TableRepository.getTableWithReservationsById(tableId)
-        const newCustomer = await CustomerRepository.getCustomerById(newCustomerId)
+        const customer = await CustomerRepository.getCustomerById(newCustomerId)
         if (table == null) {
             throw new NotFoundError(ResourceName.TABLE, tableId)
         }
-        else if (newCustomer == null) {
-            throw new NotFoundError(ResourceName.CUSTOMER, newCustomerId)
+        else if (customer?.newCustomer == null) {
+            throw new NotFoundError(ResourceName.NEWCUSTOMER, newCustomerId)
+        }else if(customer.newCustomer.state === NewCustomerState.ASSIGNED){
+            throw new MissingConditionError(ResourceName.NEWCUSTOMER, "The newcustomer is assigned for other table.")
         }
         await TableRepository.updateTableStateById(tableId, TableState.INPROGRESS)
+        await CustomerRepository.updateNewCustomerState(newCustomerId);
         return await OrderRepository.createNewOrder(tableId, newCustomerId)
 
     }

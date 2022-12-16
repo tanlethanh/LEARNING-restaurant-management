@@ -281,3 +281,53 @@ export function createTableModal(table1) {
     payButton.classList.add("table-detail-button-1");
   }
 }
+
+export function createFormModal(
+  title,
+  subMitCallBack
+) {
+  const modalBackground = document.createElement("div");
+  const body = document.getElementsByTagName("body")[0];
+  body.appendChild(modalBackground);
+  modalBackground.classList.add("modal-background");
+
+  // Modal box
+  const modalBox = document.createElement("div");
+  modalBackground.appendChild(modalBox);
+  modalBox.classList.add("modal-box");
+
+  // Title
+  const modalTitle = document.createElement("h3");
+  modalBox.appendChild(modalTitle);
+  modalTitle.classList.add("modal-title");
+  modalTitle.innerHTML = title;
+
+  // Create an input element for NumOfSeats
+  var FN = document.createElement("input");
+  modalBox.appendChild(FN)
+  FN.setAttribute("type", "text");
+  FN.setAttribute("id", "addNewCustomerInput");
+  FN.setAttribute("name", "NumOfSeats");
+  FN.setAttribute("placeholder", "Numbers of seats");
+
+  // Button container
+  const buttonBox = document.createElement("div");
+  modalBox.appendChild(buttonBox);
+  buttonBox.classList.add("modal-button");
+
+  // Submit button
+    const submitButton = document.createElement("button");
+    buttonBox.appendChild(submitButton);
+    submitButton.classList.add("modal-yes-button");
+    submitButton.innerHTML = `Submit`;
+    submitButton.addEventListener("click", async (event) => {
+      const loading = document.getElementById("loading");
+      if (loading.classList.contains("hidden")) {
+        loading.classList.remove("hidden");
+      }
+      await subMitCallBack(event);
+      loading.classList.add("hidden");
+      modalBackground.remove();
+    });
+}
+

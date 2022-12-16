@@ -6,6 +6,22 @@
     --main-width: calc(100% - (var(--ordered-customers-width) + var(--navigation-width) + 2 * var(--main-outgap)));
 }
 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
 #ordered-customers {
     position: fixed;
     width: var(--ordered-customers-width);
@@ -136,9 +152,9 @@
     justify-content: flex-start;
     gap: 15px;
     overflow-x: clip;
-    padding: 8px 10px;
+    padding: 0px 10px;
 
-    /* inside */
+    /* inside */ 
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -149,6 +165,21 @@
     /* inside */
     flex: none;
     flex-grow: 0;
+}
+
+#add-new-customers-button {
+    margin-left: -5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    width: 30px;
+    height: 30px;
+    border-radius: 200px;
+    color: white;
+    background-color: #1f9254;
+    border: 1px solid #1f9254;
 }
 
 .newCustomer-unassigned {
@@ -171,7 +202,18 @@
     flex-grow: 0;
 }
 
-.newCustomer-unassigned.chosen{
+.list-new-customers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    overflow-x: scroll;
+    height: 100%;
+    padding: 3px;
+}
+
+.newCustomer-unassigned.chosen {
     border: 2px solid #1b0091;
     background-color: #9ec2e7;
 }
@@ -319,8 +361,8 @@
 /* --------------------------------------------------- */
 /* --------------- table detail popup ---------------- */
 /* --------------------------------------------------- */
-.table-detail-background{
-    position:fixed;
+.table-detail-background {
+    position: fixed;
     left: 0;
     top: 0;
     background-color: rgba(8, 7, 7, 0.462);
@@ -330,16 +372,19 @@
     justify-content: center;
     align-items: center;
 }
+
 .table-detail {
     padding: 0px;
     margin: 0px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     z-index: 200;
 }
-.table-detail p{
-    font-size:15px;
+
+.table-detail p {
+    font-size: 15px;
 }
-.table-detail hr{
+
+.table-detail hr {
     border: 1px black solid;
     width: 100%;
     margin: 10px 0px 20px 0px;
@@ -363,36 +408,42 @@
     background-color: rgba(255, 255, 255, 1);
 }
 
-.table-detail-numOfTableSeat{
+.table-detail-numOfTableSeat {
     font-weight: 800;
 }
-.table-detail-heading{
+
+.table-detail-heading {
     width: 100%;
     display: flex;
 }
-.table-detail-left-heading{
+
+.table-detail-left-heading {
     flex-basis: 40%;
 }
-.table-detail-right-heading{
+
+.table-detail-right-heading {
     flex-basis: 60%;
     text-align: right;
 }
 
-.table-detail-main-body{
+.table-detail-main-body {
     display: flex;
     width: 100%;
 }
-.table-detail-left-main-body{
+
+.table-detail-left-main-body {
     flex-basis: 30%;
 }
-.table-detail-right-main-body{
+
+.table-detail-right-main-body {
     flex-basis: 70%;
 }
-.table-detail-bottom-body{
+
+.table-detail-bottom-body {
     width: 100%;
 }
 
-table{
+table {
     margin-top: 10px;
     text-align: left;
     width: 100%;
@@ -400,60 +451,42 @@ table{
     border: 1px solid black;
     border-collapse: collapse;
 }
-.close-table-detail{
+
+.close-table-detail {
     font-size: larger;
     margin-top: -20px;
     margin-right: -45px;
     margin-bottom: 20px;
     width: 100%;
-    text-align: right;  
+    text-align: right;
     cursor: pointer;
 }
-.table-detail th, td{
-    padding-bottom: 4px;    
+
+.table-detail th,
+td {
+    padding-bottom: 4px;
     padding-left: 2px;
     border-right: 1px solid black;
     border-left: 1px solid black;
 }
-.table-detail th{
-    padding-top: 4px;    
+
+.table-detail th {
+    padding-top: 4px;
 }
-.table-detail-end-body{
+
+.table-detail-end-body {
     margin-top: 20px;
 }
 
 .table-detail-button-1 {
-  background-color: #00dea3;
-  border: 0px solid #0077CC;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  direction: ltr;
-  font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
-  letter-spacing: -.022em;
-  line-height: 1.47059;
-  min-width: 30px;
-  overflow: visible;
-  padding: 6px 18px;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-
-  position: relative;
-  top: 250px;
-}
-.table-detail-button-2 {
+    background-color: #00dea3;
     border: 0px solid #0077CC;
-    background-color: antiquewhite;
     border-radius: 4px;
     box-sizing: border-box;
-    color: #ff0000;
+    color: #FFFFFF;
     cursor: pointer;
     direction: ltr;
-    font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: -.022em;
     line-height: 1.47059;
     min-width: 30px;
@@ -464,8 +497,33 @@ table{
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
-  }
-.table-detail-state-unarrived{
+
+    position: relative;
+    top: 250px;
+}
+
+.table-detail-button-2 {
+    border: 0px solid #0077CC;
+    background-color: antiquewhite;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #ff0000;
+    cursor: pointer;
+    direction: ltr;
+    font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -.022em;
+    line-height: 1.47059;
+    min-width: 30px;
+    overflow: visible;
+    padding: 6px 18px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.table-detail-state-unarrived {
     color: #ce6607;
     font-size: large;
     font-weight: 700;
@@ -475,7 +533,8 @@ table{
     border-right: 5px solid #ce6607;
     border-radius: 30px;
 }
-.table-detail-state-free{
+
+.table-detail-state-free {
     color: #4ca977;
     font-size: large;
     font-weight: 700;
@@ -486,6 +545,6 @@ table{
     border-radius: 30px;
 }
 
-.bottom-order-table{
+.bottom-order-table {
     border: 1px solid black;
 }

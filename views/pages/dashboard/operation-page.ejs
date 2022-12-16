@@ -17,10 +17,15 @@
     <%- include('./partials/loading') %> 
 
     <div id="new-customers">
-        <h2>Khách mới</h2>
-        <% for( let index = 0; index < newCustomers.length; index++)  {%>
-            <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) %>
-        <% } %>
+        <h2>Khách mới</h2>  
+        <div><button id="add-new-customers-button">+</button></div>
+        <div class="list-new-customers">
+            <% for( let index = 0; index < newCustomers.length; index++)  {%>
+                <% if(newCustomers[index].state === "UNASSIGNED"){ %>
+                <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) ;%>
+                <% } %>
+            <% } %>
+        </div>
     </div>
     <div id="ordered-customers">
         <h2> Khách đặt trước </h2>

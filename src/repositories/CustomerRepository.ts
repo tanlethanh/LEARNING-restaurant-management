@@ -1,12 +1,11 @@
 import ICustomerRepository from "../interfaces/IRepository/ICustomerRepository";
-import { BookedCustomer, CustomerType, NewCustomer, Prisma, ReservationState } from "@prisma/client";
+import { BookedCustomer, CustomerType, NewCustomer, Prisma, ReservationState, NewCustomerState } from "@prisma/client";
 import PrismaDB from "../prisma/PrismaDB";
 import { randomPhoneNumbers } from 'random-phone-numbers';
 const random_name = require('node-random-name')
 
 
 class CustomerRepository implements ICustomerRepository {
-
     /**
      * @author Tan Le <https://github.com/tanlethanh>
      * @param count: number of the fake customers want to create
@@ -64,6 +63,7 @@ class CustomerRepository implements ICustomerRepository {
                 ordinamNumber: index,
                 numOfSeats : Math.round(Math.random()*7)+1,
                 date: new Date(),
+                state : NewCustomerState.UNASSIGNED,
                 customer: {
                     create: {
                         type: CustomerType.NEW
@@ -79,10 +79,40 @@ class CustomerRepository implements ICustomerRepository {
         return customers
     }
 
+    public async generateNewCustomers(numOfSeats: number, ordinamNumber:number) {
+        console.log("Generating one new customers")
+        const customerData: Prisma.NewCustomerCreateInput = {
+                ordinamNumber: ordinamNumber,
+                numOfSeats : numOfSeats,
+                date: new Date(),
+                state : NewCustomerState.UNASSIGNED,
+                customer: {
+                    create: {
+                        type: CustomerType.NEW
+                    }
+                }
+            }
+            const customer = await PrismaDB.newCustomer.create({
+                data: customerData,
+            })
+        return customer;
+    }
+
     public async getAllNewCustomer() {
         return await PrismaDB.newCustomer.findMany({
             orderBy:{
                 ordinamNumber : "asc"
+            }
+        })
+    }
+
+    public async updateNewCustomerState(id: string){
+        return await PrismaDB.newCustomer.update({
+            where: {
+                customerId: id
+            },
+            data: {
+                state : NewCustomerState.ASSIGNED
             }
         })
     }

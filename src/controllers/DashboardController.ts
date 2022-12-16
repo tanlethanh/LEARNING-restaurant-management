@@ -1,6 +1,7 @@
 import { ReservationState } from "@prisma/client";
 import { Request, Response } from "express";
 import Log from "../middlewares/Log";
+import CustomerRepository from "../repositories/CustomerRepository";
 import TableRepository from "../repositories/TableRepository";
 import OperationService from "../services/OperationService";
 class DashboardController {
@@ -50,11 +51,11 @@ class DashboardController {
         let initiatedOrder
         try {
             // init order for new customer
-            if(reservationId === ""){
+            if (reservationId === "") {
                 initiatedOrder = await OperationService.initOrderForNewCustomer(tableId, newCustomerId)
             }
             // init order for reservation
-            else{
+            else {
                 initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
             }
         }
@@ -89,12 +90,33 @@ class DashboardController {
         throw new Error('Method not implemented.');
     }
 
+    public static async createNewCustomer(req: Request, res: Response) {
+
+        console.log('Creating new customer')
+        console.log(req.body);
+        const numOfSeats = Number(req.body.numOfSeats);
+        const ordinamNumber = Number(req.body.ordinamNumber);
+        console.log("000000000000000000000000000000000000000000000000000");
+        let newCustomer
+        try {
+            newCustomer = await CustomerRepository.generateNewCustomers(numOfSeats, ordinamNumber);
+        } catch (error: Error | any) {
+            return res.status(400).json({
+                error: "Loi o api server"
+            })
+        }
+        return res.json({
+            newCustomer: newCustomer,
+        })
+    }
+
+
     public static async getDashboardView(req: Request, res: Response, next: Function) {
         const tables = await OperationService.getAllTablesToRender()
         const reservations = await OperationService.getAllReservationsToday()
         const newCustomers = await OperationService.getAllNewCustomer();
         console.log(newCustomers);
-        
+
         return res.render('pages/dashboard/operation-page', {
             tables: tables,
             reservations: reservations,

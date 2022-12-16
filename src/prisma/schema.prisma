@@ -50,8 +50,9 @@ model NewCustomer {
   ordinamNumber Int
   numOfSeats    Int
   date          DateTime
-  customer      Customer @relation(fields: [customerId], references: [id])
-  customerId    String   @id
+  customer      Customer         @relation(fields: [customerId], references: [id])
+  customerId    String           @id
+  state         NewCustomerState
 
   @@unique([ordinamNumber, date])
 }
@@ -135,6 +136,11 @@ enum UserRole {
 enum CustomerType {
   NEW
   BOOKED
+}
+
+enum NewCustomerState {
+  UNASSIGNED
+  ASSIGNED
 }
 
 enum OrderState {
