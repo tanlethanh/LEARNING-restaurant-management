@@ -24,10 +24,11 @@ import {
 //     })
 // UserRepository.generateUserDB()
 import { generateReservation, generateRandomBookedCustomers, generateRandomNewCustomers, generateRandomTables } from './testFunction'
+import { init } from './init';
 // generateRandomBookedCustomers();
 // generateRandomTables()
 // generateRandomNewCustomers();
-generateReservation()
+// generateReservation()
 
-
+// init()
 

@@ -12,6 +12,7 @@ class Handler {
         Log.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);
 
         if (req.xhr || req.originalUrl.includes(`/${apiPrefix}/`)) {
+            console.log("NOT FOUND HANDLER: ", req.originalUrl)
             return res.json({
                 error: 'Page Not Found'
             });

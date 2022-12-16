@@ -73,7 +73,6 @@
         </div>
         <% } %>
 
-<<<<<<< HEAD
       </div>
     </div>
   </div>
@@ -82,21 +81,11 @@
     // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
     var tables = JSON.parse('<%- JSON.stringify(tables) %>');
     var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
+    var newCustomers = JSON.parse('<%- JSON.stringify(newCustomers) %>');
   </script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
   <script type="module" src="js/dashboard-main.js"></script>
-=======
-    <script>
-        // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
-        var tables = JSON.parse('<%- JSON.stringify(tables) %>');
-        var newCustomers = JSON.parse('<%- JSON.stringify(newCustomers) %>');
-        var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
-    </script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
-    <script type="module" src="js/dashboard-main.js"></script>
->>>>>>> remotes/origin/develop-new-cus
 </body>
 
 </html>
