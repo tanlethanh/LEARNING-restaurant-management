@@ -1,47 +1,41 @@
 <div class="modal-background">
-  <form class="modal-box" method="post" action="/reservation/booking">
-    <h2 class="modal-title">
+  <form class="modal-box" method="post" action="/reservation">
+    <input type="hidden" name="action" value="postForm">
+    <h1 class="modal-title">
       THÔNG TIN ĐẶT BÀN
-      </h1>
-      <div class="modal-parallel-detail">
-        <div class="modal-detail">
-          <label for="name">Họ và tên:</label>
-          <input type="text" name="name" value="Lê Thanh Tân" disabled>
-        </div>
-        <div class="modal-detail">
-          <label for="phone-number">Số điện thoại:</label>
-          <input type="text" name="phone_number" value="0337229803">
-        </div>
+    </h1>
+    <div class="modal-parallel-detail">
+      <div class="modal-detail">
+        <label for="name">Họ và tên:</label>
+        <input type="text" name="name" value="Lê Thanh Tân">
       </div>
       <div class="modal-detail">
-        <label for="detail">Giờ đặt:</label>
-        <div class="detail-input">
-          <input class="date input-non-update" type="date" name="date" value=<%=date%> disabled>
-          <input type="time" list="reservation-time-option" name="reservationTime" />
-          <datalist id="reservation-time-option">
-            <option value="07:00"></option>
-            <option value="07:30"></option>
-            <option value="08:00"></option>
-            <option value="08:30"></option>
-            <option value="09:00"></option>
-          </datalist>
-          <input class="number-person input-non-update" type="text" list="number-person-option" name="numberOfPerson"
-            value=<%=people %> disabled />
-        </div>
-        <p>Giờ gợi ý
-        <p>
+        <label for="phone-number">Số điện thoại:</label>
+        <input type="text" name="phone_number" value="0337229803">
       </div>
-      <div class="modal-detail">
-        <label for="note">Ghi chú thêm:</label>
-        <textarea id="text" class="input-update reservation-note" name="note" onfocus="this.placeholder=''"
-          onblur="this.placeholder='Bạn có thể nhập ghi chú ...'" placeholder="Bạn có thể nhập ghi chú ..."></textarea>
+    </div>
+    <div class="modal-detail">
+      <label for="detail">Giờ đặt:</label>
+      <div class="detail-input">
+        <input class="date input-non-update" type="date" name="date" value=<%=date%> readonly>
+        <input type="time" list="reservation-time-option" name="reservationTime" value=<%=time %> readonly />
+        <input class="number-person input-non-update" type="text" list="number-person-option" name="numberOfPerson"
+          value=<%=people %> readonly />
       </div>
-      <div class="modal-button">
-        <button type="submit" class="modal-yes-button">
-          Xác nhận đặt bàn
-        </button>
-        <button class="modal-no-button">
-          Hủy
-        </button>
-      </div>
+      <p>Giờ gợi ý
+      <p>
+    </div>
+    <div class="modal-detail">
+      <label for="note">Ghi chú thêm:</label>
+      <textarea id="text" class="input-update reservation-note" name="note" onfocus="this.placeholder=''"
+        onblur="this.placeholder='Bạn có thể nhập ghi chú ...'" placeholder="Bạn có thể nhập ghi chú ..."></textarea>
+    </div>
+    <div class="modal-button">
+      <button type="submit" class="modal-yes-button">
+        Xác nhận đặt bàn
+      </button>
+      <button class="modal-no-button">
+        Hủy
+      </button>
+    </div>
 </div>
