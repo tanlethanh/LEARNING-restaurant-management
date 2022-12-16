@@ -1,4 +1,4 @@
-import { ReservationState, TableState } from '@prisma/client';
+import { NewCustomerState, ReservationState, TableState } from '@prisma/client';
 import { BookedCustomer, Customer, CustomerType, Table, Reservation } from '@prisma/client';
 import CustomerRepository from "../repositories/CustomerRepository"
 import ReservationRepository from '../repositories/ReservationRepository';
@@ -26,6 +26,10 @@ class OperationService {
 
     public async getAllReservationsToday() {
         return await ReservationRepository.getAllReservationsToday()
+    }
+
+    public async getAllNewCustomer() {
+        return await CustomerRepository.getAllNewCustomer();
     }
 
     /**
@@ -170,6 +174,31 @@ class OperationService {
         await ReservationRepository.updateReservationStateById(reservationId, ReservationState.DONE)
         return await OrderRepository.createNewOrder(tableId, reservation.customerId)
 
+    }
+
+    public async initOrderForNewCustomer(tableId: string, newCustomerId: string) {
+        const table = await TableRepository.getTableWithReservationsById(tableId)
+        const customer = await CustomerRepository.getCustomerById(newCustomerId)
+        if (table == null) {
+            throw new NotFoundError(ResourceName.TABLE, tableId)
+        }
+        else if (customer?.newCustomer == null) {
+            throw new NotFoundError(ResourceName.NEWCUSTOMER, newCustomerId)
+        }else if(customer.newCustomer.state === NewCustomerState.ASSIGNED){
+            throw new MissingConditionError(ResourceName.NEWCUSTOMER, "The newcustomer is assigned for other table.")
+        }
+        await TableRepository.updateTableStateById(tableId, TableState.INPROGRESS)
+        await CustomerRepository.updateNewCustomerState(newCustomerId);
+        return await OrderRepository.createNewOrder(tableId, newCustomerId)
+
+    }
+
+    public async getOrderForTable(tableId: string) {
+        const table = await TableRepository.getTableWithReservationsById(tableId, true)
+        if (table == null) {
+            throw new NotFoundError(ResourceName.TABLE, tableId)
+        }
+        return table;
     }
 
 }

@@ -1,8 +1,9 @@
-import { BookedCustomer, Customer, Reservation, ReservationState, Table, TableState } from '@prisma/client';
+import { BookedCustomer, Customer, NewCustomer, OrderState, Reservation, ReservationState, Table, TableState } from '@prisma/client';
 // import { Command } from 'commander';
 import TableRepository from "./repositories/TableRepository";
 import { randomNumber } from './utils/mathUtils';
 import CustomerRepository from "./repositories/CustomerRepository";
+import OrderRepository from "./repositories/OrderRepository";
 import { table, time } from 'console';
 import ReservationRepository from './repositories/ReservationRepository';
 import OperationService from './services/OperationService';
@@ -11,6 +12,7 @@ import { endToday, startToday } from './utils/dateUtils';
 
 export async function dropReservationToday() {
     console.log("Drop all reservation today - Development only\n")
+    const result0 = await OrderRepository.resetAllOrderState();
     const result1 = await ReservationRepository.deleteAllReservationsToday()
     const result2 = await TableRepository.updateAllTableStates(TableState.FREE)
     console.log(result1)
@@ -32,6 +34,13 @@ export function generateRandomTables(count: number = 20) {
 export function generateRandomBookedCustomers(count: number = 30) {
     CustomerRepository.generateRandomBookedCustomers(count)
         .then((customers: BookedCustomer[]) => {
+            console.log(customers)
+        })
+}
+
+export function generateRandomNewCustomers(count: number = 30) {
+    CustomerRepository.generateRandomNewCustomers(count)
+        .then((customers: NewCustomer[]) => {
             console.log(customers)
         })
 }
@@ -104,4 +113,18 @@ export async function autoUnlockReservation(chance: number = 0.5) {
         }
     }
 
+}
+
+
+export async function getOrder(id:string) {
+        let a;
+        try {
+            a =await TableRepository.getTableWithReservationsById(id, true)
+        }
+        catch (error) {
+            console.log('error');
+            
+        }
+        console.log(a);
+        
 }

@@ -6,6 +6,8 @@ operationRoute
     .get("/reservations/:id", DashboardController.updateReservation)
     .post("/reservations/:id", DashboardController.updateReservation)
     .post("/orders/", DashboardController.initOrder)
+    .get("/orders/", DashboardController.getOrder)
     .patch("/orders/", DashboardController.updateOrder)
+    .post("/customers/newCustomers", DashboardController.createNewCustomer)
 
 export default operationRoute

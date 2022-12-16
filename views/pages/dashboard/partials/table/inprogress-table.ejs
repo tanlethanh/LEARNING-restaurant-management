@@ -1,17 +1,29 @@
 <div class="main-table-item" id="<%= table.id %>">
-    <div class="main-table-item-left">
-        <h2> Bàn <%= table.tableNumber %> </h2>
-        <img src="/images/tables/<%= table.numberOfSeats %>-seats-table.svg" alt="">
+  <div class="main-table-item-left">
+    <h2>Bàn <%= table.tableNumber %></h2>
+    <img
+      src="/images/tables/<%= table.numberOfSeats %>-seats-table.svg"
+      alt=""
+    />
+  </div>
+  <div class="main-table-item-right">
+    <div>
+      <p>Vào lúc:</p>
+      <p>
+        <%= table.orders[0].arrivalTime.getHours() %>:<%=
+        table.orders[0].arrivalTime.getMinutes() %>
+      </p>
     </div>
-    <div class="main-table-item-right">
-        <div>
-            <p> Vào lúc: </p>
-            <p> <%= table.orders[0].arrivalTime.getHours() %>:<%= table.orders[0].arrivalTime.getMinutes() %>  </p>
-        </div>
-        <div>
-            <p> Dự kiến rời: </p>
-            <p> None </p>
-        </div>
-        <p>Còn 15 phút</p>
+    <div>
+      <p>Dự kiến rời:</p>
+      <p>
+        <%= table.orders[0].arrivalTime.getHours() +1 %>:<%=
+        table.orders[0].arrivalTime.getMinutes() %>
+      </p>
     </div>
+    <% const arrivalTime = table.orders[0].arrivalTime %>
+    <% const leavingTime = arrivalTime %>
+    <% leavingTime.setHours(leavingTime.getHours() + 1) %>
+    <p>Còn <span><%= Math.round((leavingTime - (new Date())) / 60000) %></span> phút</p>
+  </div>
 </div>

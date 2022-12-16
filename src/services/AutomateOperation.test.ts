@@ -14,9 +14,10 @@ import AutomateOperation from './AutomateOperation'
 
 export async function createScenario(callback: Function) {
     console.log("HELOOO")
+
     dropReservationToday()
     const timeSlot = await generateReservation(
-        20,
+        5,
         Locals.config().automateDurationInSeconds * 2,
         Locals.config().automateDurationInSeconds
     )

@@ -18,11 +18,16 @@
   <%- include('./partials/navigation') %>
   <%- include('./partials/loading') %>
 
-  <div id="new-customers">
-    <h2>Khách mới</h2>
-    <div>
-      <h3>123. ABC</h3>
-      <p>4 người</p>
+    <div id="new-customers">
+        <h2>Khách mới</h2>  
+        <div><button id="add-new-customers-button">+</button></div>
+        <div class="list-new-customers">
+            <% for( let index = 0; index < newCustomers.length; index++)  {%>
+                <% if(newCustomers[index].state === "UNASSIGNED"){ %>
+                <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) ;%>
+                <% } %>
+            <% } %>
+        </div>
     </div>
   </div>
   <div id="ordered-customers">
@@ -68,6 +73,7 @@
         </div>
         <% } %>
 
+<<<<<<< HEAD
       </div>
     </div>
   </div>
@@ -80,6 +86,17 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
   <script type="module" src="js/dashboard-main.js"></script>
+=======
+    <script>
+        // var tables = "<%- JSON.stringify(tables) %>" not working???? WTF ????
+        var tables = JSON.parse('<%- JSON.stringify(tables) %>');
+        var newCustomers = JSON.parse('<%- JSON.stringify(newCustomers) %>');
+        var reservations = JSON.parse('<%- JSON.stringify(reservations) %>');
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/modules/simple-notify/dist/simple-notify.min.js"></script>
+    <script type="module" src="js/dashboard-main.js"></script>
+>>>>>>> remotes/origin/develop-new-cus
 </body>
 
 </html>

@@ -65,7 +65,34 @@ class TableRepository {
 
     }
 
-    public async getTableWithReservationsById(id: string) {
+    public async getTableWithReservationsById(id: string, cus: boolean = false) {
+        if(cus === true){
+            return await PrismaDB.table.findUnique({
+                where: {
+                    id: id
+                },
+                include: {
+                    orders: {
+                        where: {
+                            state: OrderState.INPROGRESS
+                        },
+                        include: {
+                            customer: {
+                                include:{
+                                    bookedCustomer : true,
+                                    newCustomer : true
+                                }
+                            },
+                            orderItems: {
+                                include: {
+                                    foodItem: true
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        }
         return await PrismaDB.table.findUnique({
             where: {
                 id: id

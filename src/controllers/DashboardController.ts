@@ -1,9 +1,9 @@
 import { ReservationState } from "@prisma/client";
 import { Request, Response } from "express";
 import Log from "../middlewares/Log";
+import CustomerRepository from "../repositories/CustomerRepository";
 import TableRepository from "../repositories/TableRepository";
 import OperationService from "../services/OperationService";
-
 class DashboardController {
 
     public static async updateReservation(req: Request, res: Response) {
@@ -47,9 +47,17 @@ class DashboardController {
     public static async initOrder(req: Request, res: Response) {
         const tableId = String(req.query.tableid)
         const reservationId = String(req.query.reservationid)
+        const newCustomerId = String(req.query.newcustomerid)
         let initiatedOrder
         try {
-            initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
+            // init order for new customer
+            if (reservationId === "") {
+                initiatedOrder = await OperationService.initOrderForNewCustomer(tableId, newCustomerId)
+            }
+            // init order for reservation
+            else {
+                initiatedOrder = await OperationService.initOrderForReservation(tableId, reservationId)
+            }
         }
         catch (error: Error | any) {
             return res.status(400).json({
@@ -61,16 +69,58 @@ class DashboardController {
         })
     }
 
+    public static async getOrder(req: Request, res: Response) {
+        const tableId = String(req.query.tableid)
+
+        let curOrder
+        try {
+            curOrder = await OperationService.getOrderForTable(tableId)
+        }
+        catch (error: Error | any) {
+            return res.status(400).json({
+                error: error.message
+            })
+        }
+        return res.json({
+            order: curOrder,
+        })
+    }
+
     public static updateOrder(req: Request, res: Response) {
         throw new Error('Method not implemented.');
     }
 
+    public static async createNewCustomer(req: Request, res: Response) {
+
+        console.log('Creating new customer')
+        console.log(req.body);
+        const numOfSeats = Number(req.body.numOfSeats);
+        const ordinamNumber = Number(req.body.ordinamNumber);
+        console.log("000000000000000000000000000000000000000000000000000");
+        let newCustomer
+        try {
+            newCustomer = await CustomerRepository.generateNewCustomers(numOfSeats, ordinamNumber);
+        } catch (error: Error | any) {
+            return res.status(400).json({
+                error: "Loi o api server"
+            })
+        }
+        return res.json({
+            newCustomer: newCustomer,
+        })
+    }
+
+
     public static async getDashboardView(req: Request, res: Response, next: Function) {
         const tables = await OperationService.getAllTablesToRender()
         const reservations = await OperationService.getAllReservationsToday()
+        const newCustomers = await OperationService.getAllNewCustomer();
+        console.log(newCustomers);
+
         return res.render('pages/dashboard/operation-page', {
             tables: tables,
-            reservations: reservations
+            reservations: reservations,
+            newCustomers: newCustomers
         })
     }
 

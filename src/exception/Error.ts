@@ -2,7 +2,8 @@ export enum ResourceName {
     TABLE = "Table",
     RESERVATION = "Reservation",
     ORDERITEM = "OrderItem",
-    ORDER = "Order"
+    ORDER = "Order",
+    NEWCUSTOMER = "NewCustomer"
 }
 
 export class NotFoundError extends Error {

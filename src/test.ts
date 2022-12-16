@@ -22,6 +22,12 @@ import {
 //             console.log(createJWT({ firstName: user.firstName, lastName: user.lastName, id: user.id }));
 //         }
 //     })
-UserRepository.generateUserDB()
+// UserRepository.generateUserDB()
+import { generateReservation, generateRandomBookedCustomers, generateRandomNewCustomers, generateRandomTables } from './testFunction'
+// generateRandomBookedCustomers();
+// generateRandomTables()
+// generateRandomNewCustomers();
+generateReservation()
+
 
 
