@@ -137,7 +137,6 @@ class HomepageController {
             try {
                 let reservation = await ReservationService.createReservation(date, name, phoneNumber, numberOfPeople);
                 slots[numberOfPeople][req.body.reservationTime]++;
-                slots[numberOfPeople][req.body.reservationTime] += 100;
                 return res.render('pages/homepage/homepage-reservation', { withModal: false, withNotify: true, isError: false })
             }
             catch (error: Error | any) {
