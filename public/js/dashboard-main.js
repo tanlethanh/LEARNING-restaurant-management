@@ -70,17 +70,17 @@ function tableOnClick(event) {
     const title = `Bạn có muốn gán <strong>Bàn số ${table.tableNumber}</strong> 
                 cho <strong>${reservation.customer.firstName}</strong>?`;
     createYesNoModal(title, async () => {
-      updateTableState(table.id, 'LOCKED')
       let response = await fetchAssignTableForReservation(
         chosenReservation.id,
         table.id
       );
+      chosenReservation = null;
 
       console.log("Fetch - Assign table for reservation");
       response = await response.json();
       const updatedReservation = response.reservation;
-
-      if (updateReservations) {
+      if (updatedReservation) {
+        updateReservations(updatedReservation);
         NotificationQueue.enqueue({
           status: "success",
           title: `Gán bàn thủ công`,
@@ -113,16 +113,16 @@ function tableOnClick(event) {
                 cho khách hàng <strong>${reservation.customer.firstName}</strong>?`;
 
     createYesNoModal(title, async () => {
-      updateTableState(table.id, 'INPROGRESS')
       const response = await fetchInitOrder(reservation.id, "", table.id);
       let orderedTable = await response.json();
       const order = orderedTable.order;
+      console.log("Order for booked customer: ");
       console.log(order);
       if (order) {
         NotificationQueue.enqueue({
           status: "success",
           title: `Khởi tạo đơn hàng`,
-          text: `Bàn số 1 khởi tạo thành công`,
+          text: `Bàn số  ${table.tableNumber} khởi tạo thành công`,
           order: order,
           callback: function orderTable() {
             initOrderTable(this.order);
@@ -132,7 +132,7 @@ function tableOnClick(event) {
         NotificationQueue.enqueue({
           status: "error",
           title: `Khởi tạo đơn hàng`,
-          text: `Bàn số 1 khởi tạo thất bại, vui lòng tải lại trang!`,
+          text: `Bàn số  ${table.tableNumber} khởi tạo thất bại, vui lòng tải lại trang!`,
         });
       }
     });
@@ -147,16 +147,23 @@ function tableOnClick(event) {
                 cho khách hàng thứ <strong>${curNewCustomer.ordinamNumber}</strong>?`;
 
     createYesNoModal(title, async () => {
-      updateTableState(table.id, 'INPROGRESS')
-      const response = await fetchInitOrder("",chosenNewCustomer.id, table.id);
+      const response = await fetchInitOrder("", chosenNewCustomer.id, table.id);
       let orderedTable = await response.json();
       const order = orderedTable.order;
+      console.log("Order for new customer: ");
       console.log(order);
+
+      unPopupTables();
+      const curNewCustomerDiv = document.getElementById(chosenNewCustomer.id);
+      const curIngressTable = document.getElementById(table.id);
+      curNewCustomerDiv.remove();
+      curIngressTable.classList.remove("unlock");
+
       if (order) {
         NotificationQueue.enqueue({
           status: "success",
           title: `Khởi tạo đơn hàng`,
-          text: `Bàn số 1 khởi tạo thành công`,
+          text: `Bàn số ${table.tableNumber} khởi tạo thành công`,
           order: order,
           callback: function orderTable() {
             initOrderTable(this.order);
@@ -166,15 +173,10 @@ function tableOnClick(event) {
         NotificationQueue.enqueue({
           status: "error",
           title: `Khởi tạo đơn hàng`,
-          text: `Bàn số 1 khởi tạo thất bại, vui lòng tải lại trang!`,
+          text: `Bàn số ${table.tableNumber} khởi tạo thất bại, vui lòng tải lại trang!`,
         });
       }
     });
-    unPopupTables();
-    const curNewCustomerDiv = document.getElementById(chosenNewCustomer.id);
-    const curIngressTable = document.getElementById(table.id);
-    curNewCustomerDiv.remove();
-    curIngressTable.classList.remove("unlock")
   }
   // get info
   else {
@@ -267,11 +269,11 @@ function updateReservations(updatedReservation) {
 }
 
 function updateTables(updatedTable) {
-  console.log("Update tables data");
-  for (let i = 0; i < reservationsData.length; i++) {
-    if (tablesData[i].id == updatedTable.id) {
+  console.log("---Update tables data---");
+  console.log(updatedTable);
+  for (let i = 0; i < tablesData.length; i++) {
+    if (tablesData[i].id === updatedTable.id) {
       tablesData[i] = updatedTable;
-      tablesData[i].state = updatedTable.state;
       break;
     }
   }
@@ -304,6 +306,8 @@ function freeReservation(updatedReservation) {
 function lockedTableForReservation(updatedReservation) {
   console.log("Locked table for reservation ", updatedReservation);
   updateTables(updatedReservation.assignedTable);
+  console.log("------------------Table after update-----------------");
+  console.log(findById(tablesData, updatedReservation.assignedTable.id));
   const reservationElement = document.getElementById(updatedReservation.id);
 
   if (reservationElement) {
@@ -329,18 +333,10 @@ function lockedTableForReservation(updatedReservation) {
     updatedReservation.customer.firstName;
 }
 
-function updateTableState(id, state){
-  tablesData.forEach((table)=>{
-    if(table.id === id){
-      table.state = state;
-    }
-  })
-}
-
 function initOrderTable(updatedTable) {
   const curTime = new Date(updatedTable.arrivalTime);
   console.log("Locked table for reservation ", updatedTable);
-  updateTables(updatedTable);
+  updateTables(updatedTable.table);
 
   const tableElement = document.getElementById(updatedTable.tableId);
   tableElement.classList.remove("locked");

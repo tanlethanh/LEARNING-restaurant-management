@@ -53,7 +53,8 @@ export function createYesNoModal(
 export function createTableModal(table1) {
   const orders = table1.order.orders;
   const table = table1.order;
-  console.log(table);
+  console.log("Create detail table modal: ");
+  console.log(orders);
   const modalBackground = document.createElement("div");
   const body = document.getElementsByTagName("body")[0];
   body.appendChild(modalBackground);
@@ -170,7 +171,7 @@ export function createTableModal(table1) {
   } else if (table.state === "INPROGRESS") {
     // new customer
     if (orders[0].customer.newCustomer) {
-      rightMain1.innerHTML = "Customer " + newCustomer.ordinamNumber;
+      rightMain1.innerHTML = "Customer " + orders[0].customer.newCustomer.ordinamNumber;
     } else {
       // reservation
       rightMain1.innerHTML = orders[0].customer.bookedCustomer.firstName;
