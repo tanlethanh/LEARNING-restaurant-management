@@ -10,6 +10,28 @@
 
   <!-- JS -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script> -->
+
+  <style>
+    .table-icon-2 {
+      -webkit-mask: url('/images/tables/2-seats-table.svg') no-repeat center;
+      mask: url('/images/tables/2-seats-table.svg') no-repeat center;
+      width: 50px;
+      height: 40px;
+    }
+    .table-icon-4 {
+      -webkit-mask: url('/images/tables/4-seats-table.svg') no-repeat center;
+      mask: url('/images/tables/4-seats-table.svg') no-repeat center;
+      width: 50px;
+      height: 40px;
+    }
+    .table-icon-8 {
+      -webkit-mask: url('/images/tables/8-seats-table.svg') no-repeat center;
+      mask: url('/images/tables/8-seats-table.svg') no-repeat center;
+      width: 50px;
+      height: 40px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -18,17 +40,17 @@
   <%- include('./partials/navigation') %>
   <%- include('./partials/loading') %>
 
-    <div id="new-customers">
-        <h2>Khách mới</h2>  
-        <div><button id="add-new-customers-button">+</button></div>
-        <div class="list-new-customers">
-            <% for( let index = 0; index < newCustomers.length; index++)  {%>
-                <% if(newCustomers[index].state === "UNASSIGNED"){ %>
-                <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) ;%>
-                <% } %>
-            <% } %>
-        </div>
+  <div id="new-customers">
+    <h2>Khách mới</h2>
+    <div><button id="add-new-customers-button">+</button></div>
+    <div class="list-new-customers">
+      <% for( let index = 0; index < newCustomers.length; index++)  {%>
+      <% if(newCustomers[index].state === "UNASSIGNED"){ %>
+      <%- include('./partials/newCustomer/init', {newCustomer: newCustomers[index]}) ;%>
+      <% } %>
+      <% } %>
     </div>
+  </div>
   </div>
   <div id="ordered-customers">
     <h2> Khách đặt trước </h2>

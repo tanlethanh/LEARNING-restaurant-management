@@ -2,11 +2,7 @@
     <div class="main-table-item-left">
         <h2> Bàn <%= table.tableNumber %>
         </h2>
-        <svg>       
-            <image xlink:href="/images/tables/<%= table.numberOfSeats %>-seats-table.svg" 
-                src="yourfallback.png"/>    
-       </svg>
-        <!-- <img src="/images/tables/<%= table.numberOfSeats %>-seats-table.svg" alt=""> -->
+        <div class="table-icon table-icon-<%= table.numberOfSeats %>"></div>
     </div>
     <div class="main-table-item-right">
         <h2>Đang trống</h2>

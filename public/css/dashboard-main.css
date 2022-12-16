@@ -348,15 +348,26 @@
     margin-bottom: 0 !important;
 }
 
+.main-table-item .table-icon {
+    background-color: #000000;
+}
+
 .main-table-item.locked {
     background-color: #FEF2E5;
     color: #CD6200;
 }
 
+.main-table-item.locked .table-icon {
+    background-color: #CD6200;
+}
+
 .main-table-item.unlock {
     background-color: #EBF9F1;
     color: #1F9254;
-    fill: #1F9254;
+}
+
+.main-table-item.unlock .table-icon{
+    background-color: #1F9254;
 }
 
 /* --------------------------------------------------- */
