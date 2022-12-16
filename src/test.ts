@@ -32,3 +32,7 @@ import { init } from './init';
 
 // init()
 
+import { createSampleData } from './data/createData'
+
+createSampleData()
+
