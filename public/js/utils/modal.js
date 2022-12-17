@@ -290,7 +290,8 @@ export function createTableModal(table1) {
     buttonBody.appendChild(payButton);
     payButton.classList.add("table-detail-button-2");
     payButton.addEventListener("click",()=>{
-      window.open("http://localhost:4040/table-management/table/"+table1.order.id);
+      console.log(table1.order)
+      window.open("http://localhost:4040/table-management/table/"+table1.order.orders[0].id);
     })
 
 
