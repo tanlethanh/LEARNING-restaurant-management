@@ -133,18 +133,8 @@ class TableManagementController {
 
    public static async getMangagePage(req: Request, res: Response) {
       console.log('load manage page')
-      // await TableRepository.generateRandomTables(10)
-      // await FoodRepository.generateFoodItemDB()
-      // await UserRepository.generateUserDB()
-      // const tableList = await TableRepository.getAllTable()
-      const userList = await UserRepository.getAllUser()
 
-      // for (let i = 0; i < 3; i++) {
-      //    await OrderRepository.createOrderDB(tableList[i].id, userList[0].id)
-      // }
-
-      // let { clerk_id } = req.params
-      let clerk_id = userList[0].id
+      let { clerk_id } = req.params
       const user = await UserRepository.getUserName(clerk_id)
       const orderList = await OrderRepository.getInprogessOrderList(clerk_id)
       return res.render('pages/clerk/tableList/tableList-page', {
