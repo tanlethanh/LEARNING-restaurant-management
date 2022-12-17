@@ -129,7 +129,7 @@ export default class AutomateOperation {
                     title: 'Gán bàn tự động',
                     text: `Không tìm được bàn phù hợp cho
                      ${reservations[i].customer.firstName} | ${reservations[i].numberOfPeople} người`
-                })
+                }) 
             }
             else {
                 const updatedReservation
@@ -138,7 +138,7 @@ export default class AutomateOperation {
                 setTimeout(() => {
                     AutomateOperation.autoUnlockAssignedReservation(updatedReservation.id)
 
-                }, automateDurationInSeconds * (1 - Locals.config().unlockPercent) * 1000);
+                }, automateDurationInSeconds * 0.7 * 1000);
 
                 Socket.pushNotification({
                     type: "AUTO_ASSIGN",

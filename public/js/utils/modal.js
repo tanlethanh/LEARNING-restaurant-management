@@ -292,6 +292,7 @@ export function createTableModal(table1) {
     payButton.addEventListener("click",()=>{
       console.log(table1.order)
       window.open("http://localhost:4040/table-management/table/"+table1.order.orders[0].id);
+      modalBackground.remove()
     })
 
 

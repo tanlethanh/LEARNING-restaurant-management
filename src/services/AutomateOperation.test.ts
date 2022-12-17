@@ -17,7 +17,7 @@ export async function createScenario(callback: Function) {
 
     dropReservationToday()
     const timeSlot = await generateReservation(
-        70,
+        120,
         Locals.config().automateDurationInSeconds * 2,
         Locals.config().automateDurationInSeconds
     )
