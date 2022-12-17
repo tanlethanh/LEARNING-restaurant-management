@@ -62,6 +62,10 @@
     height: 68px;
 }
 
+.name-input {
+    width: 100px;
+}
+
 .modal-detail {
     display: flex;
     flex-direction: column;
