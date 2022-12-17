@@ -129,13 +129,14 @@ class HomepageController {
             return res.render('pages/homepage/homepage-reservation', { withModal: true, withNotify: false, isError: false, date: date, people: people, time: time })
         }
         else if (action == "postForm") {
+            const lastname = req.body.lastname
             const name = req.body.name
             const phoneNumber = req.body.phone_number
             const numberOfPeople = parseInt(req.body.numberOfPerson)
             const date = new Date(req.body.date + " " + req.body.reservationTime)
             date.setTime(date.getTime() - new Date().getTimezoneOffset() * 60 * 1000);
             try {
-                let reservation = await ReservationService.createReservation(date, name, phoneNumber, numberOfPeople);
+                let reservation = await ReservationService.createReservation(date, name, lastname, phoneNumber, numberOfPeople);
                 slots[numberOfPeople][req.body.reservationTime]++;
                 return res.render('pages/homepage/homepage-reservation', { withModal: false, withNotify: true, isError: false })
             }
