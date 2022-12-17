@@ -2,7 +2,7 @@ import {
   fetchAssignTableForReservation,
   fetchInitOrder,
   fetchTableOrder,
-  fetchAddNewCustomer
+  fetchAddNewCustomer,
 } from "./fetch-operation.js";
 import { currentTime } from "./utils/clock.js";
 import {
@@ -61,6 +61,18 @@ function newCustomerOnclick(event) {
     }
     chosenNewCustomer = event.currentTarget;
     chosenNewCustomer.classList.add("chosen");
+    if (isThereUnclocedRes()) {
+      createYesNoModal(
+        "Cảnh báo: \nVẫn còn đơn đang ở trạng thái unlocked !",
+        () => {
+          unPopupTables();
+          chosenNewCustomer.classList.remove("chosen");
+        },
+        "Hủy",
+        "Tiếp tục"
+      );
+    }
+
     unPopupTables();
     const newCustomer = findNewCustomerById(chosenNewCustomer.id);
     popUpMatchedTablesForNewCus(newCustomer);
@@ -225,7 +237,8 @@ function addNewCustomerOnClick(event) {
     ).value;
     let curNewCustomerOrdinam = 0;
     if (allNewCustomerData.length > 0) {
-      curNewCustomerOrdinam = allNewCustomerData[allNewCustomerData.length - 1].ordinamNumber + 1
+      curNewCustomerOrdinam =
+        allNewCustomerData[allNewCustomerData.length - 1].ordinamNumber + 1;
     }
     let response = await fetchAddNewCustomer(
       inputNumberOfSeats,
@@ -367,10 +380,12 @@ function updateNewCustomer(newCustomer) {
   allNewCustomerData.push(newCustomer);
   newCustomerData.push(newCustomer);
 
-  const divNewCustomer = document.getElementById("new-customers").querySelector(".list-new-customers")
+  const divNewCustomer = document
+    .getElementById("new-customers")
+    .querySelector(".list-new-customers");
   const unassignedDiv = document.createElement("div");
   divNewCustomer.appendChild(unassignedDiv);
-  unassignedDiv.classList.add("newCustomer-unassigned")
+  unassignedDiv.classList.add("newCustomer-unassigned");
   unassignedDiv.setAttribute("id", newCustomer.customerId);
 
   let ele = document.createElement("h3");
@@ -382,7 +397,7 @@ function updateNewCustomer(newCustomer) {
   ele.innerHTML = `${newCustomer.numOfSeats} người`;
 
   // add event listenr
-  unassignedDiv.addEventListener("click", newCustomerOnclick)
+  unassignedDiv.addEventListener("click", newCustomerOnclick);
 }
 
 function freeReservation(updatedReservation) {
@@ -491,21 +506,26 @@ function countdown(id) {
 function freeTable(updatedTable) {
   console.log("Free table ", updatedTable);
   updateTables(updatedTable);
-  const tableElement = document.getElementById(
-    updatedTable.id
-  );
+  const tableElement = document.getElementById(updatedTable.id);
   tableElement.classList.add("unlock");
-  let rightEle = tableElement.querySelector(".main-table-item-right")
-  rightEle.remove()
+  let rightEle = tableElement.querySelector(".main-table-item-right");
+  rightEle.remove();
 
-  rightEle = document.createElement("div")
-  rightEle.classList.add("main-table-item-right")
-  rightEle.innerHTML = '<h2> Đang trống </h2>'
+  rightEle = document.createElement("div");
+  rightEle.classList.add("main-table-item-right");
+  rightEle.innerHTML = "<h2> Đang trống </h2>";
 
-  tableElement.appendChild(rightEle)
-
+  tableElement.appendChild(rightEle);
 }
 
+function isThereUnclocedRes() {
+  for (let i = 0; i < reservationsData.length; i++) {
+    if (reservationsData[i].state === "READY") {
+      return 1;
+    }
+  }
+  return 0;
+}
 // onlick event for all reservation item
 const listBookedCustomers = document.getElementsByClassName(
   "ordered-customers-item"
@@ -560,8 +580,8 @@ socket.on("notification", (noti) => {
           freeTable(this.updatedTable);
           break;
         }
-    };
-  }
+    }
+  };
 
   NotificationQueue.enqueue(noti);
 });
@@ -583,7 +603,6 @@ window.onload = () => {
     }
   });
 };
-
 
 // clock
 setInterval(() => {
