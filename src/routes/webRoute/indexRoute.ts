@@ -5,6 +5,6 @@ indexRoute
     .get("/", HomepageController.getHomepageView)
     .get("/menu")
     .get("/reservation", HomepageController.getHomepageReservationView)
-    .post("/reservation" , HomepageController.postReservation)
-
+    .post("/reservation", HomepageController.postReservation)
+    .get("/reservation/datetime", HomepageController.getDateTimeReservation)
 export default indexRoute

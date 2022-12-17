@@ -11,6 +11,46 @@ class CustomerRepository implements ICustomerRepository {
      * @param count: number of the fake customers want to create
      * @returns list of booked customers
      */
+    //  public async generateRandomCustomers(count: number) {
+        
+    //     const customers: Customer[] = []
+    //     for (let index = 0; index < count; index++) {
+
+    //         const customerData: Prisma.CustomerCreateInput = {
+    //             id: (index+1).toString(),
+    //             type: CustomerType.NEW
+    //         }
+    //         const customer = await PrismaDB.bookedCustomer.create({
+    //             data: customerData,
+    //             include: {
+    //                 reservations: true
+    //             }
+    //         })
+
+    //         customers.push(customer)
+    //     }
+    //     return customers
+    // }
+    public async CreateBookedCustomer(cusPhoneNumber: string, cusFirstName: string ) {
+            const customerData: Prisma.BookedCustomerCreateInput = {
+                phoneNumber: cusPhoneNumber,
+                firstName: cusFirstName,
+                lastName: "aaaa",
+                customer: {
+                    create: {
+                        type: CustomerType.BOOKED
+                    }
+                }
+            }
+            const customer = await PrismaDB.bookedCustomer.create({
+                data: customerData,
+                include: {
+                    reservations: true
+                }
+            })
+        return customer
+    }
+
     public async generateRandomBookedCustomers(count: number) {
         console.log("Generating random customers")
         const customers: BookedCustomer[] = []

@@ -581,3 +581,10 @@ window.onload = () => {
     }
   });
 };
+
+
+// clock
+setInterval(() => {
+  const clock = document.getElementById("clock");
+  clock.innerHTML = currentTime();
+}, 1000);

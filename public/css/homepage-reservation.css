@@ -49,6 +49,16 @@
     border: none;
 }
 
+.modal-close-button {
+    background: #AE0808;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    height: 40px;
+}
+
 .main-content-form-input {
     display: flex;
     flex-direction: row;
@@ -74,8 +84,11 @@
     flex-grow: 1.5;
 }
 
-.number-person {
+.reservation-time {
     border: none !important;
+}
+.error{
+    color: #ff0000;
 }
 
 /* .main-content-form>div:nth-child(1) {
