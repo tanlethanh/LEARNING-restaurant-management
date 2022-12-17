@@ -56,11 +56,11 @@ export function generateRandomNewCustomers(count: number = 30) {
 export async function generateReservation(count: number = 20, startPadding = 0, durationSpace = 1 * 60 * 60) {
     const customers: BookedCustomer[] = await CustomerRepository.getAllBookedCustomer()
     const length = customers.length
-    const timeSlot = [0, 0, 0, 0, 0, 0]
+    const timeSlot = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     for (let index = 0; index < count; index++) {
         const time = new Date()
-        const ranNum: number = randomNumber(0, 5)
+        const ranNum: number = randomNumber(0, 9)
         timeSlot[ranNum] += 1
         time.setSeconds(startPadding + time.getSeconds() + ranNum * durationSpace)
 
@@ -116,15 +116,15 @@ export async function autoUnlockReservation(chance: number = 0.5) {
 }
 
 
-export async function getOrder(id:string) {
-        let a;
-        try {
-            a =await TableRepository.getTableWithReservationsById(id, true)
-        }
-        catch (error) {
-            console.log('error');
-            
-        }
-        console.log(a);
-        
+export async function getOrder(id: string) {
+    let a;
+    try {
+        a = await TableRepository.getTableWithReservationsById(id, true)
+    }
+    catch (error) {
+        console.log('error');
+
+    }
+    console.log(a);
+
 }

@@ -3,7 +3,7 @@
 import Locals from "../providers/Locals"
 import { getHoursAndMinutesString } from "../utils/dateUtils"
 import ReservationRepository from '../repositories/ReservationRepository'
-import { ReservationState, TableState } from "@prisma/client"
+import { OrderState, ReservationState, TableState } from "@prisma/client"
 import PrismaDB from "../prisma/PrismaDB"
 import OperationService from "./OperationService"
 import Socket from "../providers/Socket"
@@ -84,11 +84,19 @@ export default class AutomateOperation {
                     where: {
                         state: ReservationState.ASSIGNED
                     }
+                },
+                orders: {
+                    where: {
+                        state: OrderState.INPROGRESS
+                    }
                 }
             }
         })
+
+        console.log("Suitable table ", tables)
+
         const suitableTables = tables.filter((ele) => {
-            return ele.reservations.length == 0
+            return ele.reservations.length == 0 && ele.orders.length == 0
         })
         if (suitableTables.length > 0) {
             return suitableTables[0]
@@ -130,7 +138,7 @@ export default class AutomateOperation {
                 setTimeout(() => {
                     AutomateOperation.autoUnlockAssignedReservation(updatedReservation.id)
 
-                }, automateDurationInSeconds * (1 - Locals.config().unlockPercent));
+                }, automateDurationInSeconds * (1 - Locals.config().unlockPercent) * 1000);
 
                 Socket.pushNotification({
                     type: "AUTO_ASSIGN",

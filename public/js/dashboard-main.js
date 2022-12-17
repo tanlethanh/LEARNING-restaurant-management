@@ -354,6 +354,8 @@ function assignReservation(updatedReservation) {
   const element = document.getElementById(updatedReservation.id);
   element.classList.add("locked");
 
+  element.querySelector("button").innerHTML = `Bàn ${updatedReservation.assignedTable.tableNumber}`
+
   // Create locked icon
   const icon = document.createElement("i");
   icon.classList.add("fa-solid", "fa-lock");
