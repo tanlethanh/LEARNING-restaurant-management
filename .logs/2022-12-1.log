@@ -1,0 +1,43 @@
+[2022-12-1 13:41:32] [INFO] Booting the 'CORS' middleware...
+[2022-12-1 13:41:32] [INFO] Booting the 'HTTP' middleware...
+[2022-12-1 13:41:32] [INFO] Booting the 'Views' middleware...
+[2022-12-1 13:41:32] [INFO] Booting the 'Statics' middleware...
+[2022-12-1 13:41:32] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-12-1 13:41:35] [INFO] Booting the 'CORS' middleware...
+[2022-12-1 13:41:35] [INFO] Booting the 'HTTP' middleware...
+[2022-12-1 13:41:35] [INFO] Booting the 'Views' middleware...
+[2022-12-1 13:41:35] [INFO] Booting the 'Statics' middleware...
+[2022-12-1 13:41:35] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-12-1 13:41:36] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-12-1 13:41:36] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-12-1 13:41:37] [ERROR] Path '/favicon.ico' not found [IP: '::1']!
