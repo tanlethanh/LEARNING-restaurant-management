@@ -1,0 +1,648 @@
+[2022-12-15 0:4:40] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:4:40] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:4:40] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:4:40] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:5:10] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:5:10] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:5:10] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:5:10] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:5:24] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:5:24] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:5:24] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:5:24] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:5:39] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:5:39] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:5:39] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:5:39] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:6:38] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:6:38] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:6:38] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:6:38] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:7:11] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:7:11] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:7:11] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:7:11] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:7:36] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:7:36] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:7:36] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:7:36] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:19:50] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:19:50] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:19:50] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:19:50] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:19:54] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:19:54] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:19:54] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:19:54] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:20:47] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:20:47] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:20:47] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:20:47] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:22:13] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:22:13] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:22:13] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:22:13] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:22:50] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:22:50] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:22:50] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:22:50] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:23:44] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:23:44] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:23:44] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:23:44] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:29:0] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:29:0] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:29:0] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:29:0] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:30:57] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:30:57] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:30:57] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:30:57] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:31:31] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:31:31] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:31:31] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:31:31] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:32:36] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:32:36] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:32:36] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:32:36] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:32:51] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:32:51] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:32:51] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:32:51] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:33:23] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:33:23] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:33:23] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:33:23] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:34:45] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:34:45] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:34:45] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:34:45] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:35:54] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:35:54] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:35:54] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:35:54] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:37:4] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:37:4] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:37:4] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:37:4] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:37:15] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:37:15] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:37:15] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:37:15] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:37:56] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:37:56] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:37:56] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:37:56] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:38:1] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:38:1] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:38:1] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:38:1] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:38:18] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:38:18] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:38:18] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:38:18] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:38:39] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:38:39] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:38:39] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:38:39] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:39:9] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:39:9] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:39:9] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:39:9] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:41:34] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:41:34] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:41:34] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:41:34] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:48:35] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:48:35] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:48:35] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:48:35] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:48:50] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:48:50] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:48:50] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:48:50] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:49:24] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:49:24] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:49:24] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:49:24] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:49:39] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:49:39] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:49:39] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:49:39] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:50:27] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:50:27] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:50:27] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:50:27] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:51:44] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:51:44] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:51:44] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:51:44] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:52:17] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:52:17] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:52:17] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:52:17] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:56:7] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:56:7] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:56:7] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:56:7] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:56:41] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:56:41] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:56:41] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:56:41] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 0:57:38] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 0:57:38] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 0:57:38] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 0:57:38] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:3:36] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:3:36] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:3:36] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:3:36] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:5:30] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:5:30] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:5:30] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:5:30] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:6:10] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:6:10] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:6:10] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:6:10] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:6:21] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:6:21] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:6:21] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:6:21] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:6:38] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:6:38] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:6:38] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:6:38] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:7:27] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:7:27] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:7:27] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:7:27] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:7:37] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:7:37] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:7:37] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:7:37] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:7:51] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:7:51] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:7:51] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:7:51] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:10:24] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:10:24] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:10:24] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:10:24] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:11:7] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:11:7] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:11:7] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:11:7] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:11:20] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:11:20] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:11:20] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:11:20] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:11:46] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:11:46] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:11:46] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:11:46] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:12:3] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:12:3] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:12:3] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:12:3] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:12:20] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:12:20] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:12:20] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:12:20] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:15:33] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:15:33] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:15:33] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:15:33] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:17:17] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:17:17] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:17:17] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:17:17] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:17:26] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:17:26] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:17:26] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:17:26] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:17:39] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:17:39] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:17:39] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:17:39] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:17:46] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:17:46] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:17:46] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:17:46] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:20:26] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:20:26] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:20:26] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:20:26] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:20:52] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:20:52] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:20:52] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:20:52] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:21:46] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:21:46] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:21:46] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:21:46] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:21:58] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:21:58] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:21:58] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:21:58] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:23:8] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:23:8] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:23:8] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:23:8] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:23:40] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:23:40] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:23:40] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:23:40] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:25:18] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:25:18] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:25:18] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:25:18] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:25:35] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:25:35] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:25:35] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:25:35] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:25:53] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:25:53] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:25:53] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:25:53] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:26:4] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:26:4] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:26:4] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:26:4] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:26:27] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:26:27] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:26:27] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:26:27] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:26:45] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:26:45] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:26:45] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:26:45] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:27:5] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:27:5] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:27:5] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:27:5] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:27:15] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:27:15] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:27:15] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:27:15] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:30:0] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:30:0] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:30:0] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:30:0] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:30:12] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:30:12] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:30:12] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:30:12] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:30:29] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:30:29] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:30:29] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:30:29] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:32:15] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:32:15] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:32:15] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:32:15] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:32:15] [ERROR] Path '/dashboard/col-9%20https://www.verdict.co.uk/wp-content/uploads/2018/11/shutterstock_712915198-e1542045457155.jpg' not found [IP: '::1']!
+[2022-12-15 1:32:44] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:32:44] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:32:44] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:32:44] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:32:44] [ERROR] Path '/dashboard/col-lg-8%20https://www.verdict.co.uk/wp-content/uploads/2018/11/shutterstock_712915198-e1542045457155.jpg' not found [IP: '::1']!
+[2022-12-15 1:33:1] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:33:1] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:33:1] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:33:1] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:33:34] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:33:34] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:33:34] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:33:34] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:34:27] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:34:27] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:34:27] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:34:27] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:34:45] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:34:45] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:34:45] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:34:45] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:35:44] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:35:44] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:35:44] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:35:44] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:35:57] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:35:57] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:35:57] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:35:57] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:36:26] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:36:26] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:36:26] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:36:26] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:36:41] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:36:41] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:36:41] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:36:41] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:37:48] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:37:48] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:37:48] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:37:48] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:38:11] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:38:11] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:38:11] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:38:11] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:43:24] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:43:24] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:43:24] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:43:24] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:43:33] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:43:33] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:43:33] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:43:33] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:45:0] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:45:0] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:45:0] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:45:0] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:47:0] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:47:0] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:47:0] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:47:0] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:47:10] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:47:10] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:47:10] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:47:10] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:47:43] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:47:43] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:47:43] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:47:43] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:48:10] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:48:10] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:48:10] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:48:10] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:48:46] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:48:46] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:48:46] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:48:46] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:49:23] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:49:23] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:49:23] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:49:23] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:51:33] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:51:33] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:51:33] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:51:33] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:51:58] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:51:58] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:51:58] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:51:58] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:0] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:0] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:0] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:0] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:18] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:18] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:18] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:18] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:19] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:19] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:20] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:20] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:26] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:26] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:26] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:26] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:31] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:31] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:31] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:31] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:40] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:40] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:40] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:40] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:51] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:51] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:51] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:51] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:52:58] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:52:58] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:52:58] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:52:58] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:54:22] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:54:22] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:54:22] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:54:22] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 1:54:50] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 1:54:50] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 1:54:50] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 1:54:50] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:5] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:5] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:5] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:5] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:15] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:15] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:15] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:15] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:18] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:18] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:18] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:18] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:21] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:21] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:21] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:21] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:24] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:24] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:24] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:24] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:28] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:28] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:28] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:28] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:5:34] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:5:34] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:5:34] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:5:34] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:6:16] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:6:16] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:6:16] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:6:16] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:6:18] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:6:18] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:6:18] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:6:18] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:6:46] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:6:46] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:6:46] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:6:46] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:7:1] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:7:1] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:7:1] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:7:1] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:7:2] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:7:2] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:7:2] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:7:2] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:7:9] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:7:9] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:7:9] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:7:9] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:7:10] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:7:10] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:7:10] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:7:10] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:7:12] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 2:7:12] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 2:7:12] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 2:7:12] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 2:11:36] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:11:41] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:11:48] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:11:51] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:12:18] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:12:25] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:12:30] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:12:33] [ERROR] Path '/images/icons/gear.png' not found [IP: '::1']!
+[2022-12-15 2:19:44] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:19:44] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:19:44] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:19:44] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:22:19] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:22:19] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:22:19] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:22:19] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:22:56] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:22:56] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:22:56] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:22:56] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:22:59] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:22:59] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:22:59] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:22:59] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:23:1] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:23:1] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:23:1] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:23:1] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:28:52] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:28:52] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:28:52] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:28:52] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:29:35] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:29:35] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:29:35] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:29:35] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:29:36] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:29:36] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:29:36] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:29:36] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:29:52] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:29:52] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:29:52] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:29:52] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:29:59] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:29:59] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:29:59] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:29:59] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:30:16] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:30:16] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:30:16] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:30:16] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:30:32] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:30:32] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:30:32] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:30:32] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:30:54] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:30:54] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:30:54] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:30:54] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:30:59] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:30:59] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:30:59] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:30:59] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:31:23] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:31:23] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:31:23] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:31:23] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:31:25] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:31:25] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:31:25] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:31:25] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:31:34] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:31:34] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:31:34] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:31:34] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:31:38] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:31:38] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:31:38] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:31:38] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:32:22] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:32:22] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:32:22] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:32:22] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:32:30] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:32:30] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:32:30] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:32:30] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:32:48] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:32:48] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:32:48] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:32:48] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:36:37] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:36:37] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:36:37] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:36:37] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:37:23] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:37:23] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:37:23] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:37:23] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:37:32] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:37:32] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:37:32] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:37:32] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:37:52] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:37:52] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:37:52] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:37:52] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:38:2] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:38:2] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:38:2] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:38:2] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:38:8] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:38:8] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:38:8] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:38:8] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:38:39] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:38:39] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:38:39] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:38:39] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 2:39:7] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 2:39:7] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 2:39:7] [INFO] Booting the 'Views' middleware...
+[2022-12-15 2:39:7] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 11:43:45] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 11:43:45] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 11:43:45] [INFO] Booting the 'Views' middleware...
+[2022-12-15 11:43:45] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 11:43:50] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 11:43:50] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 11:43:50] [INFO] Booting the 'Views' middleware...
+[2022-12-15 11:43:50] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 11:44:7] [ERROR] Path '/favicon.ico' not found [IP: '::1']!
+[2022-12-15 11:44:27] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 11:44:27] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 11:44:27] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 11:44:27] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 11:44:43] [ERROR] [MISSING CONDITION] Reservation: State must be READY
+[2022-12-15 11:45:14] [ERROR] Path '/templates/vendor/css/core.css' not found [IP: '::1']!
+[2022-12-15 11:45:14] [ERROR] Path '/templates/js/config.js' not found [IP: '::1']!
+[2022-12-15 11:45:14] [ERROR] Path '/templates/vendor/libs/apex-charts/apexcharts.js' not found [IP: '::1']!
+[2022-12-15 11:45:14] [ERROR] Path '/templates/js/dashboards-analytics.js' not found [IP: '::1']!
+[2022-12-15 14:8:29] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 14:8:29] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 14:8:29] [INFO] Booting the 'Views' middleware...
+[2022-12-15 14:8:29] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 14:8:33] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 14:8:33] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 14:8:33] [INFO] Booting the 'Views' middleware...
+[2022-12-15 14:8:33] [INFO] Booting the 'Statics' middleware...
+[2022-12-15 17:7:38] [INFO] Booting the 'CORS' middleware...
+[2022-12-15 17:7:38] [INFO] Booting the 'HTTP' middleware...
+[2022-12-15 17:7:38] [INFO] Booting the 'Views' middleware...
+[2022-12-15 17:7:38] [INFO] Booting the 'Statics' middleware...

@@ -12,6 +12,7 @@ class Handler {
         Log.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);
 
         if (req.xhr || req.originalUrl.includes(`/${apiPrefix}/`)) {
+            console.log("NOT FOUND HANDLER: ", req.originalUrl)
             return res.json({
                 error: 'Page Not Found'
             });
@@ -52,6 +53,7 @@ class Handler {
     public static useErrorHandler(err: Error, req: Request, res: Response, next: Function): any {
         Log.error(`Server error - ${err.message}`);
         res.status(500);
+        console.log(err)
 
         const apiPrefix = Locals.config().apiPrefix;
         if (req.originalUrl.includes(`/${apiPrefix}/`)) {
@@ -70,6 +72,7 @@ class Handler {
                 error: err
             });
         }
+        
 
         return res.render('pages/error', { error: err.stack, title: 'Under Maintenance' });
     }

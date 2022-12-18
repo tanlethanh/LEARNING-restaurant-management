@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head', {page: 'homepage-reservation' }) %>
+</head>
+
+<body>
+  <!-- header  -->
+  <%- include('./partials/header')%>
+    <div id="main">
+      <div class="background-layer"></div>
+      <div class="main-content">
+        <h2> Chọn giờ đặt </h2>
+        <form action="/reservation" method="post" autocomplete="off">
+          <div class="main-content-form">
+            <div class="main-content-form-input">
+              <input type="hidden" name="action" value="getForm">
+              <input id="reservationDate" class="date" type="date" name="date">
+              <input id="number-person" type="text" list="number-person-option" name="numberOfPerson"
+                placeholder="Số người" />
+              <datalist id="number-person-option">
+              </datalist>
+              <input class="reservation-time" type="time" list="reservation-time-option" name="reservationTime" />
+              <datalist id="reservation-time-option">
+              </datalist>
+
+            </div>
+            <button id="make-reservation" type="submit"> Đặt bàn </button>
+          </div>
+        </form>
+        <% if (isError) { %>
+          <div class="error">
+            Dữ liệu không hợp lệ
+          </div>
+          <% } %>
+      </div>
+    </div>
+    <% if (withModal===true && !isError) { %>
+      <%- include('./reservation-modal', {people: people, date: date}) %>
+        <% } else if (withNotify===true &&!isError) { %>
+          <%- include('./notify') %>
+            <% } %>
+
+              <!-- footer  -->
+              <script type="module" src="js/homepage-reservation.js"></script>
+              <%- include('./partials/footer') %>
+                <!-- author  -->
+                <%- include('./partials/author') %>
+</body>
+
+</html>

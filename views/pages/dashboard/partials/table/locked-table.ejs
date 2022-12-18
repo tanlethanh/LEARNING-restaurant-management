@@ -1,0 +1,10 @@
+<div class="main-table-item locked" id="<%= table.id %>">
+    <div class="main-table-item-left">
+        <h2> Bàn <%= table.tableNumber %>
+        </h2>
+        <div class="table-icon table-icon-<%= table.numberOfSeats %>"></div>
+    </div>
+    <div class="main-table-item-right">
+        <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    </div>
+</div>

@@ -1,13 +1,14 @@
 import express, { Router } from 'express';
-
+import DashboardController from '../../controllers/DashboardController';
+import { authUser, authAdmin } from '../../services/AuthService'
 
 const dashboardRoute: Router = express.Router()
 dashboardRoute
-    .get("/")
-    .get("/main")
+    .get("/", authUser, authAdmin, DashboardController.getDashboardView)
+    .get("/main", authUser, authAdmin, DashboardController.getDashboardView)
     .get("/booking")
     .get("/user")
-    .get("/statistic")
+    .get("/statistic", authUser, authAdmin, DashboardController.getStatisticView)
     .get("/setting")
     .post("setting")
 

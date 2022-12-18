@@ -1,0 +1,230 @@
+:root {
+   --cam: #FF8A00;
+   --xanh: #47C272;
+   --paid: #FF6A5D;
+   --unorder: #FB3105;
+}
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+}
+
+body {
+   background-color: #EFF3FD;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+}
+
+/* container */
+#container {
+   width: 100%;
+}
+
+/* header */
+header {
+   background-color: white;
+   height: 100vh;
+   width: 15%;
+   padding: 15px;
+   font-family: 'Montserrat', sans-serif;
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+
+#main {
+   padding: 0;
+   position: fixed;
+   left: 15%;
+   width: 85%;
+}
+
+@media only screen and (max-width: 1200px) {
+   header {
+      width: 25%;
+   }
+
+   #main {
+      left: 25%;
+      width: 75%;
+   }
+}
+
+.flex-row {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 16px;
+}
+
+#logo {
+   width: 300px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 0px;
+   gap: 30px;
+}
+
+#logo h1 {
+   font-style: normal;
+   font-weight: 400;
+   font-size: 24px;
+
+   /* Stroke 2nd */
+
+   color: black;
+}
+
+.active {
+   color: var(--cam);
+}
+
+/* icon */
+.icon {
+   width: 40px;
+   height: 40px;
+   border-radius: 11.6468px;
+}
+
+
+.top-header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   background-color: white;
+   position: fixed;
+   /* width */
+   width: 100vw;
+   height: 8%;
+   padding: 20px;
+}
+
+/* status */
+#status {
+   height: 65px;
+   width: 100%;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 23px;
+   padding-right: 19px;
+}
+
+#account {
+   display: flex;
+   align-items: center;
+   padding: 0px;
+   gap: 8px;
+
+   font-weight: 500;
+   line-height: 24px;
+   /* identical to box height */
+
+   letter-spacing: 0.016em;
+
+   /* Colors/Green/900 */
+
+   color: #00261C;
+}
+
+.main-container {
+   background-color: white;
+   width: 90vw;
+
+   border-radius: 12px;
+   margin: 20px 0;
+   padding-top: 12px;
+   padding-bottom: 25px;
+}
+
+
+.type {
+   padding: 0px;
+   font-size: 14px;
+}
+
+.type i {
+   color: var(--cam);
+}
+
+.dineIn {
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+
+   color: #A29EB6;
+}
+
+.state {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 0px;
+   gap: 5px;
+   font-size: 14px;
+}
+
+.cam {
+   color: var(--cam);
+}
+
+.btnhidden {
+   background-color: transparent;
+   border-style: none;
+}
+
+.center {
+   text-align: center;
+}
+
+.m_title:first-letter {
+   text-transform: uppercase;
+}
+
+button:hover {
+   cursor: pointer;
+}
+
+/* Dropdown Button */
+.dropbtn {
+   cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: white;
+   border-radius: 5px;
+   min-width: 160px;
+   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+   z-index: 1;
+}
+
+/* Links inside the dropdown */
+a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+   background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+   display: block;
+}

@@ -1,0 +1,19 @@
+<div class="ordered-customers-item locked"  id="<%= reservation.id %>">
+    <i class="fa-solid fa-lock"></i>
+    <div class="ordered-customers-item-top">
+        <h3>
+            <%= reservation.customer.firstName %>
+        </h3>
+        <p>
+            <%= reservation.customer.phoneNumber %>
+        </p>
+    </div>
+    <div class="ordered-customers-item-bottom"><button>Bàn <%= reservation.assignedTable.tableNumber %></button>
+        <p>
+            <%= reservation.time.getHours() %>:<%= reservation.time.getMinutes() %>:<%= reservation.time.getSeconds() %> 
+        </p>
+        <p>
+            <%= reservation.numberOfPeople %> người
+        </p>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JWT Basics</title>
+    <link rel="stylesheet" href="/public/css/login-view.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <form class="form contact-form" method="post" action="/auth/login">
+        <h5>Login</h5>
+        <div class="form-row">
+          <label for="username" class="form-label">username</label>
+          <input
+            type="text"
+            name="username"
+            class="form-input username-input"
+          />
+        </div>
+        <div class="form-row">
+          <label for="password" class="form-label">password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-input password-input"
+          />
+        </div>
+        <div class="text-small form-alert" style="display: block">
+          <%= Error_message %>
+        </div>
+        <button type="submit" class="btn btn-block">login</button>
+      </form>
+    </main>
+    <script>
+      const formAlertDOM = document.querySelector(".form-alert");
+      setTimeout(() => {
+        formAlertDOM.style.display = "none";
+      }, 2000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lexend:wght@200;400;500;700;900&family=Lobster&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    --page-padding: 15%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 54px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 36px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Lora', serif;
+}
+
+.special-text {
+    font-family: 'Great Vibes', cursive;
+    color: #F5B50E;
+    font-weight: 400 !important;
+}
+
+#header {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: #fff;
+}
+
+#header a {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: #F5B50E;
+}
+
+
+
+#footer {
+    width: 100%;
+    height: 400px;
+    background-color: #000;
+    color: #fff;
+    padding: 70px var(--page-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#footer h2 {
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+}
+
+#footer>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#footer .branch {
+    width: 35%;
+    line-height: 1.5;
+}
+
+#footer .contact {
+    width: 25%;
+}
+
+#footer .contact>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 1.5;
+}
+
+#footer .subcribe {
+    width: 30%;
+}
+
+#footer .subcribe input {
+    padding: 8px 5px;
+}
+
+#footer .subcribe button {
+    padding: 8px 5px;
+    background-color: #DE6622;
+    color: #fff;
+}
+
+#end {
+    width: 100%;
+    height: 80px;
+    background-color: #1C1C1C;
+    padding: 0 var(--page-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+#end i {
+    font-size: 25px;
+    margin-left: 20px;
+}

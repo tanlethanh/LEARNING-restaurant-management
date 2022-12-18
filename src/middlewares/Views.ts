@@ -1,8 +1,4 @@
-/**
- * Defines the view engines
- *
- * @author Faiz A. Farooqui <faiz@geekyants.com>
- */
+import express from 'express';
 
 import * as path from 'path';
 import { Application } from 'express';
@@ -15,6 +11,7 @@ class Views {
 
 		_express.set('view engine', 'ejs');
 		_express.set('views', path.join(__dirname, '../../views'));
+		_express.use(express.static(path.join(__dirname, '../../public')))
 		_express.locals.pretty = true;
 
 	}

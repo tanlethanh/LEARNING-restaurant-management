@@ -1,0 +1,253 @@
+[2022-11-28 23:53:25] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:53:25] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:53:25] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:53:25] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:53:25] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:53:28] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:53:28] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:53:28] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:53:28] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:53:28] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:55:22] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:55:22] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:55:22] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:55:22] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:55:22] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:55:40] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:55:40] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:55:40] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:55:40] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:55:40] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:55:49] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:55:49] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:55:49] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:55:49] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:55:49] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:55:52] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:55:52] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:55:52] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:55:52] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:55:52] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:56:2] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:56:2] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:56:2] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:56:2] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:56:2] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:56:12] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:56:12] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:56:12] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:56:12] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:56:12] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:56:15] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:56:15] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:56:15] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:56:15] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:56:15] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:56:24] [INFO] Booting the 'CORS' middleware...
+[2022-11-28 23:56:24] [INFO] Booting the 'HTTP' middleware...
+[2022-11-28 23:56:24] [INFO] Booting the 'Views' middleware...
+[2022-11-28 23:56:24] [INFO] Booting the 'Statics' middleware...
+[2022-11-28 23:56:24] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-11-28 23:56:38] [ERROR] Path '/favicon.ico' not found [IP: '::1']!
+[2022-11-28 23:57:21] [ERROR] 
+Invalid `PrismaDB_1.default.reservation.update()` invocation in
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\build\repositories\ReservationRepository.js:109:53
+
+  106 }
+  107 async updateReservationById(id, data) {
+  108     data.updatedDate = new Date();
+→ 109     return await PrismaDB_1.default.reservation.update(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Server(ServerError { code: 1265, message: "Data truncated for column 'state' at row 1", state: "01000" })) })
+[2022-11-28 23:57:24] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:57:24] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:57:26] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:57:26] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:27] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:27] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:33] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:33] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:35] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:58:35] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:59:24] [ERROR] D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
+[2022-11-28 23:59:24] [ERROR] Server error - D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\operation-page.ejs:51
+    49|             <% } %>
+    50|             <% if (tables[index].state == "LOCKED") { %>
+ >> 51|                 <%- include('./partials/table/locked-table', {table: tables[index]}) %> 
+    52|             <% } %>
+    53|             <% if (tables[index].state == "INPROGRESS") { %>
+    54|                 <%- include('./partials/table/inprogress-table', {table: tables[index]}) %> 
+
+D:\5th Semester\Programming Intergrating Project - SE\restaurant-project\views\pages\dashboard\partials\table\locked-table.ejs:8
+    6|     </div>
+    7|     <div class="main-table-item-right">
+ >> 8|         <h2> <%= table.reservations[0].customer.firstName %> </h2>
+    9|     </div>
+    10| </div>
+
+Cannot read properties of undefined (reading 'customer')
