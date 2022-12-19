@@ -52,7 +52,6 @@ class CustomerRepository implements ICustomerRepository {
     }
 
     public async generateRandomBookedCustomers(count: number) {
-        console.log("Generating random customers")
         const customers: BookedCustomer[] = []
         for (let index = 0; index < count; index++) {
 

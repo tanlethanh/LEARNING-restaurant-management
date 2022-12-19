@@ -65,46 +65,43 @@ class TableRepository {
 
     }
 
-    public async getTableWithReservationsById(id: string, cus: boolean = false) {
-        if(cus === true){
-            return await PrismaDB.table.findUnique({
-                where: {
-                    id: id
-                },
-                include: {
-                    orders: {
-                        where: {
-                            state: OrderState.INPROGRESS
-                        },
-                        include: {
-                            customer: {
-                                include:{
-                                    bookedCustomer : true,
-                                    newCustomer : true
-                                }
-                            },
-                            orderItems: {
-                                include: {
-                                    foodItem: {
-                                        include:{
-                                            category:true
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            })
+    public async getTableWithReservationsById(id: string, cus: boolean = false, reservation = true) {
+        if (cus === true) {
+            reservation = false
         }
+
+
         return await PrismaDB.table.findUnique({
             where: {
                 id: id
             },
             include: {
-                reservations: true
+                orders: {
+                    where: {
+                        state: OrderState.INPROGRESS
+                    },
+                    include: {
+                        customer: {
+                            include: {
+                                bookedCustomer: cus,
+                                newCustomer: cus
+                            }
+                        },
+                        orderItems: {
+                            include: {
+                                foodItem: {
+                                    include: {
+                                        category: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                reservations: reservation
             }
         })
+        
     }
 
     public async updateTableStateById(id: string, state: TableState) {
@@ -133,7 +130,7 @@ class TableRepository {
         })
 
     }
-    
+
     async updateTableState(table_number: number, state: TableState) {
         const table = await PrismaDB.table.update({
             where: {
